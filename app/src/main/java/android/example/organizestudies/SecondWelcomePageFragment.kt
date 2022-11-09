@@ -1,5 +1,8 @@
 package android.example.organizestudies
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.example.organizestudies.databinding.FragmentSecondWelcomePageBinding
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,9 +17,8 @@ private const val ARG_PARAM2 = "param2"
 class SecondWelcomePageFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
-
     private lateinit var binding: FragmentSecondWelcomePageBinding
-
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -40,12 +42,24 @@ class SecondWelcomePageFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        sharedPreferences = requireActivity()
+            .getSharedPreferences("mine", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        editor.putBoolean("start" , false)
+        editor.apply()
+        editor.commit()
         goToMainActivity()
+
+
+
     }
 
-    private fun goToMainActivity(){
+    private fun goToMainActivity() {
+
         binding.startGameButton.setOnClickListener {
-            println("hahahaha")
+            val intent = Intent(requireActivity().applicationContext, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 
