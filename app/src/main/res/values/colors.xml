@@ -8,4 +8,16 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="main_green">#2DDA93</color>
+    <color name="main_grey">#C4C4C4</color>
+    <color name="secondary_grey">#D2D2D2</color>
+    <color name="yellow">#F7D025</color>
+    <color name="bold_green">#25ABF7</color>
+    <color name="orange">#FF6262</color>
+    <color name="red">#E93551</color>
+    <color name="colorBackground">#FBFBFB</color>
+
+
+    <!--    this part for the dark color -->
+    <color name="colorPrimary">#20A9FF</color>
+    <color name="colorPrimaryDark">#0760FF</color>
 </resources>

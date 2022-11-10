@@ -14,9 +14,9 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="windowSplashScreenBackground">@color/main_green</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_secondimage</item>
-        <item name="postSplashScreenTheme">@style/Theme.OrganizeStudies</item>
-    </style>
+<!--    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">-->
+<!--        <item name="windowSplashScreenBackground">@color/main_green</item>-->
+<!--        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_secondimage</item>-->
+<!--        <item name="postSplashScreenTheme">@style/Theme.OrganizeStudies</item>-->
+<!--    </style>-->
 </resources>
