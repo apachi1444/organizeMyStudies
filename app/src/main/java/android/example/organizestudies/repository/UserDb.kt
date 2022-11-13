@@ -1,6 +1,7 @@
-package android.example.organizestudies
+package android.example.organizestudies.repository
 
 import android.content.Context
+import android.example.organizestudies.entities.User
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase

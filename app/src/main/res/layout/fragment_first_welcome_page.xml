@@ -6,7 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".main.MainActivity">
 
 
         <ImageView
@@ -67,7 +67,7 @@
             android:id="@+id/startGameButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:backgroundTint="@color/yellow"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="148dp"
             android:background="@drawable/round_back_button"

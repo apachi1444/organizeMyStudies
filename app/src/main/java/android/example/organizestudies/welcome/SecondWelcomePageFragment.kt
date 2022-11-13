@@ -1,8 +1,10 @@
-package android.example.organizestudies
+package android.example.organizestudies.welcome
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.example.organizestudies.main.MainActivity
+import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentSecondWelcomePageBinding
 import android.os.Bundle
 import android.view.LayoutInflater

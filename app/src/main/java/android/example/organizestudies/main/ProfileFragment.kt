@@ -1,5 +1,6 @@
-package android.example.organizestudies
+package android.example.organizestudies.main
 
+import android.example.organizestudies.R
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

@@ -1,9 +1,9 @@
-package android.example.organizestudies
+package android.example.organizestudies.welcome
 
+import android.example.organizestudies.R
 import android.example.organizestudies.databinding.ActivityOnlyOnceWelcomeBinding
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.add
 import androidx.fragment.app.commit

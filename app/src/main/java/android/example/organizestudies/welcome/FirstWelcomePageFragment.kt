@@ -1,5 +1,6 @@
-package android.example.organizestudies
+package android.example.organizestudies.welcome
 
+import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentFirstWelcomePageBinding
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -37,8 +38,6 @@ class FirstWelcomePageFragment : Fragment() {
             container,
             false
         )
-
-
 
         return binding.root
     }

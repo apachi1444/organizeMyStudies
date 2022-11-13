@@ -1,12 +1,13 @@
-package android.example.organizestudies
+package android.example.organizestudies.repository
 
+import android.example.organizestudies.entities.User
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface UserDbDao {
     @Insert
-    fun insert(user:User)
+    fun insert(user: User)
 
     @Update
     fun update(user: User)
