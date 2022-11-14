@@ -6,6 +6,11 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
+        android:id="@+id/profileFragment"
+        android:name="android.example.organizestudies.main.ProfileFragment"
+        android:label="My Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
         android:id="@+id/homeFragment"
         android:name="android.example.organizestudies.main.HomeFragment"
         android:label="HomeFragment" >
@@ -13,9 +18,4 @@
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="android.example.organizestudies.main.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
 </navigation>

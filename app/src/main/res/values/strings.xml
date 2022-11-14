@@ -17,4 +17,6 @@
     <string name="yessine">yessine</string>
     <string name="collections">Collections</string>
     <string name="let_s_start">Let\'s Start</string>
+    <string name="search_for_modules_here">Search For Modules Here</string>
+    <string name="recent_pdfs">Recent Pdfs</string>
 </resources>

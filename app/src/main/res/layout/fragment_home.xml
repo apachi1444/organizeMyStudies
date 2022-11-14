@@ -1,52 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".main.HomeFragment">
+        android:layout_height="match_parent">
 
-        <!-- TODO: Update blank fragment layout -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".main.HomeFragment">
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:background="@color/main_green"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <View
+                android:id="@+id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:background="@color/main_green"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/helloText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="52dp"
-            android:text="@string/hello_blank_fragment"
-            app:layout_constraintStart_toStartOf="@id/view"
-            app:layout_constraintTop_toTopOf="@id/view" />
+            <TextView
+                android:id="@+id/helloText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="52dp"
+                android:text="@string/hello_blank_fragment"
+                app:layout_constraintStart_toStartOf="@id/view"
+                app:layout_constraintTop_toTopOf="@id/view" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/let_s_start"
-            app:layout_constraintStart_toStartOf="@id/view"
-            app:layout_constraintTop_toBottomOf="@id/helloText" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/let_s_start"
+                app:layout_constraintStart_toStartOf="@id/view"
+                app:layout_constraintTop_toBottomOf="@id/helloText" />
 
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:layout_width="101dp"
-            android:layout_height="46dp"
-            android:layout_marginTop="52dp"
-            android:id="@+id/homeImageProfile"
-            android:layout_marginEnd="36dp"
-            android:src="@drawable/taylor"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintTop_toTopOf="parent"
-            app:riv_corner_radius="60dp" />
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/homeImageProfile"
+                android:layout_width="101dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="52dp"
+                android:layout_marginEnd="36dp"
+                android:src="@drawable/taylor"
+                app:layout_constraintEnd_toEndOf="@+id/view"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="60dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/editSearchInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/search_input_home_page"
+                android:drawableStart="@drawable/ic_search_icon"
+                android:ems="10"
+                android:hint="@string/search_for_modules_here"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:paddingVertical="16dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/recent_pdf_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/recent_pdfs"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editSearchInput" />
+
+            <HorizontalScrollView
+                android:layout_marginTop="16dp"
+                android:id="@+id/layoutCollection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="always"
+                android:scrollbars="none"
+                app:layout_constraintStart_toStartOf="@id/recent_pdf_text"
+                app:layout_constraintTop_toBottomOf="@id/recent_pdf_text">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/recent_pdf_layout"
+                        />
+
+                    <include layout="@layout/recent_pdf_layout"
+                        />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

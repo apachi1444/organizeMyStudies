@@ -3,18 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/custom_search_icon.xml" value="0.2065" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/header_background.xml" value="0.1385" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/ic_first_image.xml" value="0.124" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/ic_search_icon.xml" value="0.2065" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/ic_search_icon_focused.xml" value="0.2065" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/round_back_button.xml" value="0.2065" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/search_input_home_page.xml" value="0.2065" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/tags_background.xml" value="0.123" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/activity_only_once_start.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/activity_only_once_welcome.xml" value="0.2" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/collection_layout.xml" value="0.11197916666666667" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_first_welcome_page.xml" value="0.11302083333333333" />
-        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_home.xml" value="0.6" />
-        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_profile.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_second_welcome_page.xml" value="0.536" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_seoncd_welcome_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/recent_pdf_layout.xml" value="0.2" />
       </map>
     </option>
   </component>

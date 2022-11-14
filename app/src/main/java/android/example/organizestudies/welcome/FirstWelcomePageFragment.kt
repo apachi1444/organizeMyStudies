@@ -43,10 +43,10 @@ class FirstWelcomePageFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        goToNextPage(view)
+        goToNextPage()
     }
 
-    private fun goToNextPage(view: View) {
+    private fun goToNextPage() {
         binding.startGameButton.setOnClickListener {
             parentFragmentManager.commit {
                 setReorderingAllowed(true).replace<SecondWelcomePageFragment>(R.id.fragment_container_view)
