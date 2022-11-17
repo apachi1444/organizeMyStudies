@@ -3,6 +3,8 @@ package android.example.organizestudies.main
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.ActivityMainBinding
 import android.os.Bundle
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -40,5 +42,12 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        val menuInflater =
+//        inflater.inflate(R.menu.menu_main, menu)
+//        return true
+//    }
+
 
 }

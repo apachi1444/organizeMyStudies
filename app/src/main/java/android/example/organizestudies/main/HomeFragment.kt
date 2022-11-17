@@ -3,9 +3,8 @@ package android.example.organizestudies.main
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentHomeBinding
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -25,12 +24,13 @@ class HomeFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         binding.homeImageProfile.setOnClickListener {
             requireView().findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
@@ -45,7 +45,6 @@ class HomeFragment : Fragment() {
     private fun goToProfile() {
 
 
-
 //        binding.homeImageProfile.setOnClickListener {
 //            Log.i("image Clicked ", "just clicked ")
 //            parentFragmentManager.commit {
@@ -54,4 +53,31 @@ class HomeFragment : Fragment() {
 //        }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_main, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.settingsMenu -> {
+                Toast.makeText(requireContext(), "clicked on the search icon ", Toast.LENGTH_SHORT)
+                    .show()
+                goToSettingsFragment()
+                true
+            }
+            R.id.logMenu -> {
+                logOutButton()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun logOutButton() {
+        requireActivity().finish()
+    }
+
+    private fun goToSettingsFragment() {
+        requireView().findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
+    }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/welcome_activity_navigation"
+    app:startDestination="@id/firstWelcomePageFragment">
+
+    <fragment
+        android:id="@+id/firstWelcomePageFragment"
+        android:name="android.example.organizestudies.welcome.FirstWelcomePageFragment"
+        android:label="FirstWelcomePageFragment" >
+        <action
+            android:id="@+id/action_firstWelcomePageFragment_to_secondWelcomePageFragment"
+            app:destination="@id/secondWelcomePageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondWelcomePageFragment"
+        android:name="android.example.organizestudies.welcome.SecondWelcomePageFragment"
+        android:label="SecondWelcomePageFragment" >
+        <action
+            android:id="@+id/action_secondWelcomePageFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="android.example.organizestudies.welcome.LoginFragment"
+        android:label="fragment_login" />
+</navigation>

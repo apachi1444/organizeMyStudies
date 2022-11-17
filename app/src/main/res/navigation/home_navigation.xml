@@ -13,9 +13,30 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="android.example.organizestudies.main.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="Home">
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_starredFragment"
+            app:destination="@id/starredFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_moduleDetailsFragment"
+            app:destination="@id/moduleDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="android.example.organizestudies.main.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/moduleDetailsFragment"
+        android:name="android.example.organizestudies.main.ModuleDetailsFragment"
+        android:label="ModuleDetailsFragment" />
+    <fragment
+        android:id="@+id/starredFragment"
+        android:name="android.example.organizestudies.main.StarredFragment"
+        android:label="StarredFragment" />
 </navigation>

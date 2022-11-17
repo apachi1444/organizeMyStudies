@@ -19,4 +19,9 @@
     <string name="let_s_start">Let\'s Start</string>
     <string name="search_for_modules_here">Search For Modules Here</string>
     <string name="recent_pdfs">Recent Pdfs</string>
+    <string name="go_to_main_activity">Go To Main Activity</string>
+    <string name="type_your_username_here">your username</string>
+    <string name="your_password">your password</string>
+    <string name="login">Login</string>
+    <string name="welcome_abroad">Welcome Abroad</string>
 </resources>

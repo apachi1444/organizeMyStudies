@@ -81,12 +81,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/editSearchInput" />
 
             <HorizontalScrollView
-                android:layout_marginTop="16dp"
                 android:id="@+id/layoutCollection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
                 android:overScrollMode="always"
                 android:scrollbars="none"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/recent_pdf_text"
                 app:layout_constraintTop_toBottomOf="@id/recent_pdf_text">
 
@@ -95,11 +98,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <include layout="@layout/recent_pdf_layout"
-                        />
+                    <include layout="@layout/recent_pdf_layout" />
 
-                    <include layout="@layout/recent_pdf_layout"
-                        />
+                    <include layout="@layout/recent_pdf_layout" />
+
+                    <include layout="@layout/recent_pdf_layout" />
 
                 </LinearLayout>
 

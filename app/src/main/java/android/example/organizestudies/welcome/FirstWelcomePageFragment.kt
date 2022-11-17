@@ -8,8 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
+import androidx.navigation.findNavController
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -39,18 +38,27 @@ class FirstWelcomePageFragment : Fragment() {
             false
         )
 
+        goToSecondPage(binding)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        goToNextPage()
+//        goToNextPage()
     }
 
-    private fun goToNextPage() {
+    private fun goToSecondPage(binding: FragmentFirstWelcomePageBinding) {
         binding.startGameButton.setOnClickListener {
-            parentFragmentManager.commit {
-                setReorderingAllowed(true).replace<SecondWelcomePageFragment>(R.id.fragment_container_view)
-            }
+            requireView().findNavController()
+                .navigate(R.id.action_firstWelcomePageFragment_to_secondWelcomePageFragment)
         }
     }
+
+//    private fun goToNextPage() {
+//        binding.startGameButton.setOnClickListener {
+//            parentFragmentManager.commit {
+//                setReorderingAllowed(true).replace<SecondWelcomePageFragment>(R.id.)
+//            }
+//        }
+//    }
 }
