@@ -1,14 +1,14 @@
-package android.example.organizestudies.repository
+package android.example.organizestudies.data.dao
 
 import android.content.Context
-import android.example.organizestudies.entities.User
+import android.example.organizestudies.data.entities.User
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [User::class], version = 1, exportSchema = false)
 abstract class UserDb : RoomDatabase() {
-    abstract val userDbDao: UserDbDao
+    abstract fun userDbDao(): UserDbDao
 
     companion object {
         @Volatile

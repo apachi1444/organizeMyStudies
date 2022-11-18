@@ -1,4 +1,4 @@
-package android.example.organizestudies.main
+package android.example.organizestudies.main.fragments
 
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentProfileBinding

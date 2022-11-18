@@ -1,6 +1,6 @@
-package android.example.organizestudies.repository
+package android.example.organizestudies.data.dao
 
-import android.example.organizestudies.entities.User
+import android.example.organizestudies.data.entities.User
 import androidx.lifecycle.LiveData
 import androidx.room.*
 

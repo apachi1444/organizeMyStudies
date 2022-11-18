@@ -1,4 +1,4 @@
-package android.example.organizestudies.entities
+package android.example.organizestudies.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -1,4 +1,4 @@
-package android.example.organizestudies.welcome
+package android.example.organizestudies.welcome.fragments
 
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentFirstWelcomePageBinding
