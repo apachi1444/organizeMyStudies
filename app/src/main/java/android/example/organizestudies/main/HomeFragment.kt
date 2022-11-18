@@ -35,11 +35,13 @@ class HomeFragment : Fragment() {
         binding.homeImageProfile.setOnClickListener {
             requireView().findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
         }
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         goToProfile()
+        goToModulesDetails()
     }
 
     private fun goToProfile() {
@@ -79,5 +81,12 @@ class HomeFragment : Fragment() {
 
     private fun goToSettingsFragment() {
         requireView().findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
+    }
+
+    private fun goToModulesDetails() {
+        binding.springModule.setOnClickListener {
+            requireView().findNavController()
+                .navigate(R.id.action_homeFragment_to_moduleDetailsFragment)
+        }
     }
 }

@@ -28,7 +28,6 @@ class LoginFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         // initialize the dao
-//        dao = UserDb.getInstance(requireContext()).userDbDao
     }
 
     override fun onCreateView(
@@ -37,8 +36,16 @@ class LoginFragment : Fragment() {
     ): View {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+
+        val application = requireNotNull(this.activity).application
+
+
+//        dao = UserDb.getInstance(application).userDbDao
+
         goToMainActivity(binding)
+
         printInputNames()
+
         return binding.root
     }
 

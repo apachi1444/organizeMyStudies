@@ -10,13 +10,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".main.HomeFragment">
+            tools:context=".main.MainActivity">
 
             <View
                 android:id="@+id/view"
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:background="@color/main_green"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +27,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="52dp"
-                android:text="@string/hello_blank_fragment"
+                android:text="@string/hello_taylor"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/view"
                 app:layout_constraintTop_toTopOf="@id/view" />
 
@@ -37,6 +40,8 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/let_s_start"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/view"
                 app:layout_constraintTop_toBottomOf="@id/helloText" />
 
@@ -45,10 +50,12 @@
                 android:layout_width="101dp"
                 android:layout_height="46dp"
                 android:layout_marginTop="52dp"
-                android:layout_marginEnd="36dp"
+                android:layout_marginEnd="4dp"
                 android:src="@drawable/taylor"
+                app:layout_constraintBottom_toTopOf="@+id/editSearchInput"
                 app:layout_constraintEnd_toEndOf="@+id/view"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.31"
                 app:riv_corner_radius="60dp" />
 
             <EditText
@@ -70,15 +77,115 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/listBoxesHomePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:columnCount="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editSearchInput"
+                app:useDefaultMargins="true">
+
+                <LinearLayout
+                    android:id="@+id/starredBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:background="@color/main_green"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_start"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editSearchInput" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:text="Starred"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/starredBox"
+                        app:layout_constraintEnd_toEndOf="@id/starredBox"
+                        app:layout_constraintStart_toStartOf="@id/starredBox" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/usefulLinkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:background="@color/yellow"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_important"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editSearchInput" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Useful Link"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/starredBox"
+                        app:layout_constraintEnd_toEndOf="@id/starredBox"
+                        app:layout_constraintStart_toStartOf="@id/starredBox" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/calendarBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/blue"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_calendar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editSearchInput" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/calendar"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/starredBox"
+                        app:layout_constraintEnd_toEndOf="@id/starredBox"
+                        app:layout_constraintStart_toStartOf="@id/starredBox" />
+
+                </LinearLayout>
+            </androidx.gridlayout.widget.GridLayout>
+
+
             <TextView
                 android:id="@+id/recent_pdf_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/recent_pdfs"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editSearchInput" />
+                app:layout_constraintTop_toBottomOf="@+id/listBoxesHomePage" />
 
             <HorizontalScrollView
                 android:id="@+id/layoutCollection"
@@ -88,14 +195,14 @@
                 android:layout_marginTop="16dp"
                 android:overScrollMode="always"
                 android:scrollbars="none"
-                app:layout_constraintBottom_toBottomOf="parent"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/recent_pdf_text"
                 app:layout_constraintTop_toBottomOf="@id/recent_pdf_text">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <include layout="@layout/recent_pdf_layout" />
@@ -108,6 +215,48 @@
 
             </HorizontalScrollView>
 
+            <TextView
+                android:id="@+id/my_modules_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/my_modules"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutCollection" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/my_modules_text">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <include
+                        android:id="@+id/spring_module"
+                        layout="@layout/single_module_home_page_layout_2" />
+
+                    <include layout="@layout/single_module_home_page_layout_2" />
+
+                    <include layout="@layout/single_module_home_page_layout_2" />
+
+                    <include layout="@layout/single_module_home_page_layout_2" />
+
+                    <include layout="@layout/single_module_home_page_layout_2" />
+
+                    <include layout="@layout/single_module_home_page_layout_2" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>
