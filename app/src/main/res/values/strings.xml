@@ -24,6 +24,9 @@
     <string name="your_password">your password</string>
     <string name="login">Login</string>
     <string name="welcome_abroad">Welcome Abroad</string>
+
+    <string name="header">TextView</string>
+
     <string name="hello_taylor">Hello Taylor</string>
     <string name="my_modules">My Modules</string>
     <string name="calendar">Calendar</string>
