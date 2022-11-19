@@ -22,5 +22,5 @@ interface UserDbDao {
     fun clear()
 
     @Query("SELECT * FROM User ORDER BY userId DESC")
-    fun getAllUsers() : LiveData<List<User>>
+    fun getAllUsers() : List<User>
 }

@@ -60,9 +60,9 @@
             android:id="@+id/userNameInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="350dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/search_input_home_page"
             android:drawableStart="@drawable/ic_user_icon"
@@ -85,12 +85,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginEnd="100dp"
+            android:layout_marginEnd="50dp"
             android:ems="10"
             android:hint="@string/your_password"
             android:inputType="textPassword"
             android:minHeight="48dp"
-            app:boxBackgroundMode="none"
             android:textColorHint="@color/main_grey"
             app:layout_constraintBottom_toTopOf="@+id/goToHomeActivity"
             app:layout_constraintEnd_toEndOf="parent"
@@ -104,10 +103,12 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/search_input_home_page"
                 android:drawableStart="@drawable/ic_lock_icon"
+                android:drawableEnd="@drawable/ic_visibility"
                 android:drawablePadding="8dp"
                 android:keyboardNavigationCluster="true"
                 android:paddingVertical="16dp"
                 android:paddingStart="12dp"
+                android:lineHeight="0dp"
                 android:paddingEnd="12dp"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp">
@@ -123,9 +124,10 @@
             android:layout_marginTop="24dp"
             android:text="@string/login"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.473"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordInput"
+            tools:layout_editor_absoluteY="364dp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -147,31 +149,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="29dp"
-            android:layout_height="30dp"
-            app:layout_constraintBottom_toBottomOf="@+id/passwordInput"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.07"
-            app:layout_constraintStart_toEndOf="@+id/passwordInput"
-            app:layout_constraintTop_toTopOf="@+id/passwordInput"
-            app:layout_constraintVertical_bias="0.567"
-            app:srcCompat="@drawable/ic_face" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="29dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="3dp"
-            app:layout_constraintBottom_toBottomOf="@+id/passwordInput"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView5"
-            app:layout_constraintTop_toTopOf="@+id/passwordInput"
-            app:layout_constraintVertical_bias="0.567"
-            app:srcCompat="@drawable/ic_finger" />
-
+       
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

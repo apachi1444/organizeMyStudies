@@ -2,17 +2,18 @@ package android.example.organizestudies.welcome.fragments
 
 import android.example.organizestudies.R
 import android.example.organizestudies.data.entities.User
-import android.example.organizestudies.main.UserViewModel
+import android.example.organizestudies.viewmodels.UserViewModel
+import android.example.organizestudies.utils.Utils
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import java.util.*
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -52,7 +53,9 @@ class SignupFragment : Fragment() {
         binding.buttonSignUp.setOnClickListener {
             addUserToDB()
         }
+
         return binding.root
+
     }
 
 //    private fun logicMultipleChoiceInput(){
@@ -74,6 +77,8 @@ class SignupFragment : Fragment() {
         }
     }
 
+
+
     private fun addUserToDB() {
         val username = binding.userNameInput.text.toString()
         val password = binding.passwordInput.text.toString()
@@ -82,33 +87,20 @@ class SignupFragment : Fragment() {
         val confirmPassword = binding.passwordInputConfirm.text.toString()
 
         if (checkIfAllInputsAreEmpty(username, password, confirmPassword, levelStudy, grade)) {
-            Toast.makeText(
-                requireContext(),
-                "Please make sure you are filling all fields ",
-                Toast.LENGTH_SHORT
-            ).show()
+            Utils.showToast(requireContext(), "Please make sure you are filling all fields ")
         } else {
             if (!checkPasswordAndConfirmPassword(password, confirmPassword)) {
-                Toast.makeText(
-                    requireContext(),
-                    "Please make sure both passwords match !",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Utils.showToast(requireContext(), "Please make sure both passwords match !")
             } else {
                 if (inputCheck(username, password, confirmPassword, levelStudy, grade)) {
-                    val user = User(1, username, password, grade, levelStudy)
-
+                    val user =
+                        User(UUID.randomUUID().toString(), username, password, grade, levelStudy)
                     myUserViewModel.addUser(user)
-
-                    Toast.makeText(requireContext(), "Successfully added !", Toast.LENGTH_SHORT)
-                        .show()
-
+                    Utils.showToast(requireContext(), "Successfully added !")
                     // navigate back
                     findNavController().navigateUp()
-
                 } else {
-                    Toast.makeText(requireContext(), "Successfully not added !", Toast.LENGTH_SHORT)
-                        .show()
+                    Utils.showToast(requireContext(), "Successfully not added !")
                 }
             }
         }
@@ -152,5 +144,6 @@ class SignupFragment : Fragment() {
         }
         return false
     }
+
 
 }
