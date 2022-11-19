@@ -1,18 +1,20 @@
-package android.example.organizestudies.welcome
+package android.example.organizestudies.welcome.fragments
 
 import android.content.Intent
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentLoginBinding
-import android.example.organizestudies.entities.User
+import android.example.organizestudies.data.entities.User
 import android.example.organizestudies.main.MainActivity
-import android.example.organizestudies.repository.UserDb
-import android.example.organizestudies.repository.UserDbDao
+import android.example.organizestudies.data.dao.UserDb
+import android.example.organizestudies.data.dao.UserDbDao
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 
 
 class LoginFragment : Fragment() {
@@ -21,24 +23,39 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var dao: UserDbDao
 
+    private lateinit var myDb: UserDb
+
     private lateinit var username: CharSequence
     private lateinit var password: CharSequence
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         // initialize the dao
-//        dao = UserDb.getInstance(requireContext()).userDbDao
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        setHasOptionsMenu(true)
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+
+//        val application = requireNotNull(this.activity).application
+//        dao = UserDb.getInstance(application).userDbDao
+
         goToMainActivity(binding)
+
+//        dao = myDb.userDbDao
+
+        binding.userNameInput.addTextChangedListener(
+
+        )
+
         printInputNames()
+
+        goToSignUpPage()
+
         return binding.root
     }
 
@@ -61,6 +78,12 @@ class LoginFragment : Fragment() {
     private fun dbLogicWithUserInputs() {
         val user = User(1, username.toString(), password.toString())
         dao.insert(user)
+    }
+
+    private fun goToSignUpPage() {
+        binding.signUpButton.setOnClickListener {
+            requireView().findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
+        }
     }
 
 }

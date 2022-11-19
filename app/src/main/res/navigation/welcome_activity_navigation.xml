@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/firstWelcomePageFragment"
-        android:name="android.example.organizestudies.welcome.FirstWelcomePageFragment"
+        android:name="android.example.organizestudies.welcome.fragments.FirstWelcomePageFragment"
         android:label="FirstWelcomePageFragment" >
         <action
             android:id="@+id/action_firstWelcomePageFragment_to_secondWelcomePageFragment"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondWelcomePageFragment"
-        android:name="android.example.organizestudies.welcome.SecondWelcomePageFragment"
+        android:name="android.example.organizestudies.welcome.fragments.SecondWelcomePageFragment"
         android:label="SecondWelcomePageFragment" >
         <action
             android:id="@+id/action_secondWelcomePageFragment_to_loginFragment"
@@ -23,6 +23,14 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="android.example.organizestudies.welcome.LoginFragment"
-        android:label="fragment_login" />
+        android:name="android.example.organizestudies.welcome.fragments.LoginFragment"
+        android:label="fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="android.example.organizestudies.welcome.fragments.SignupFragment"
+        android:label="SignupFragment" />
 </navigation>

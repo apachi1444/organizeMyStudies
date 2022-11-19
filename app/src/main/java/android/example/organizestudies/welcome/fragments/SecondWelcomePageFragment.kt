@@ -1,4 +1,4 @@
-package android.example.organizestudies.welcome
+package android.example.organizestudies.welcome.fragments
 
 import android.content.Intent
 import android.content.SharedPreferences

@@ -12,12 +12,16 @@
 
     <color name="main_green">#2DDA93</color>
     <color name="main_grey">#C4C4C4</color>
+    <color name="main_grey_with_alpha_0.3">#70C4C4C4</color>
     <color name="secondary_grey">#D2D2D2</color>
+    <color name="label_grey">#757575</color>
     <color name="yellow">#F7D025</color>
     <color name="bold_green">#25ABF7</color>
     <color name="orange">#FF6262</color>
     <color name="red">#E93551</color>
     <color name="colorBackground">#FBFBFB</color>
+    <color name="blue">#25ABF7</color>
+    <color name="customBlueModuleDetails">#602F91EB</color>
 
 
     <!--    this part for the dark color -->

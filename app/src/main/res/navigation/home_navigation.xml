@@ -26,6 +26,7 @@
         <action
             android:id="@+id/action_homeFragment_to_moduleDetailsFragment"
             app:destination="@id/moduleDetailsFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"

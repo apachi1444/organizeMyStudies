@@ -3,8 +3,6 @@ package android.example.organizestudies.main
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.ActivityMainBinding
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController

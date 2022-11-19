@@ -98,7 +98,7 @@
                             android:layout_marginTop="15dp"
                             android:gravity="center"
                             android:text="@string/_4_98"
-                            android:textColor="#43A047"
+                            android:textColor="@color/main_green"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toStartOf="@id/textFollowing"
@@ -112,7 +112,7 @@
                             android:layout_marginTop="15dp"
                             android:gravity="center"
                             android:text="@string/_541"
-                            android:textColor="#43A047"
+                            android:textColor="@color/main_green"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -126,9 +126,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:gravity="center"
-                            android:text="@string/posts"
+                            android:text="@string/modules"
                             android:textAllCaps="true"
-                            android:textColor="#757575"
+                            android:textColor="@color/label_grey"
                             android:textSize="14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="@id/textPosts"
@@ -141,9 +141,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:gravity="center"
-                            android:text="@string/followers"
+                            android:text="@string/files_label"
                             android:textAllCaps="true"
-                            android:textColor="@color/secondary_grey"
+                            android:textColor="@color/label_grey"
                             android:textSize="14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="@id/textFollowers"
@@ -156,9 +156,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:gravity="center"
-                            android:text="@string/followers"
+                            android:text="@string/favorites"
                             android:textAllCaps="true"
-                            android:textColor="#757575"
+                            android:textColor="@color/label_grey"
                             android:textSize="14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="@id/textFollowing"
@@ -185,12 +185,12 @@
                 app:riv_oval="true" />
 
             <TextView
-                android:id="@+id/textTags"
+                android:id="@+id/textFavoriteFiles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/Tags"
+                android:text="@string/favorites_name"
                 android:textAllCaps="true"
                 android:textColor="@color/main_green"
                 android:textSize="16sp"
@@ -198,56 +198,51 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layoutProfile" />
 
-            <LinearLayout
+            <HorizontalScrollView
                 android:id="@+id/layoutTags"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="25dp"
                 android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@id/textTags"
-                app:layout_constraintTop_toBottomOf="@id/textTags">
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/textFavoriteFiles"
+                app:layout_constraintTop_toBottomOf="@id/textFavoriteFiles">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:background="@drawable/tags_background"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:paddingStart="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="@string/stylish"
-                    android:textColor="@color/main_green"
-                    android:textSize="15sp" />
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:background="@drawable/tags_background"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:paddingStart="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="@string/yessine"
-                    android:textColor="@color/main_green"
-                    android:textSize="15sp" />
+                    <TextView
+                        style="@style/ContainerFavoriteFileOrModuleInProfilePage"
+                        android:background="@drawable/file_favorite_background"
+                        android:text="@string/pdf_spring_1_pdf" />
 
-            </LinearLayout>
+                    <TextView
+                        style="@style/ContainerFavoriteFileOrModuleInProfilePage"
+                        android:background="@drawable/file_favorite_background"
+                        android:text="@string/pdf_spring_1_pdf" />
+
+                    <TextView
+                        style="@style/ContainerFavoriteFileOrModuleInProfilePage"
+                        android:background="@drawable/file_favorite_background"
+                        android:text="@string/pdf_spring_1_pdf" />
+
+                    <TextView
+                        style="@style/ContainerFavoriteFileOrModuleInProfilePage"
+                        android:background="@drawable/file_favorite_background"
+                        android:text="@string/pdf_spring_1_pdf" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
 
             <TextView
-                android:id="@+id/textCollection"
+                android:id="@+id/textModules"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="@string/collections"
+                android:text="@string/my_modules"
                 android:textAllCaps="true"
                 android:textColor="@color/main_green"
                 android:textSize="16sp"
@@ -257,27 +252,25 @@
 
             <HorizontalScrollView
                 android:id="@+id/layoutCollection"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:overScrollMode="never"
                 android:scrollbars="none"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textCollection">
+                app:layout_constraintStart_toStartOf="@+id/textModules"
+                app:layout_constraintTop_toBottomOf="@id/textModules">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <include layout="@layout/collection_layout" />
+                    <include layout="@layout/single_module_home_page_layout_2" />
 
-                    <include layout="@layout/collection_layout" />
+                    <include layout="@layout/single_module_home_page_layout_2" />
 
-                    <include layout="@layout/collection_layout" />
-
-                    <include layout="@layout/collection_layout" />
+                    <include layout="@layout/single_module_home_page_layout_2" />
 
                 </LinearLayout>
 
@@ -289,7 +282,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="@string/collections"
+                android:text="@string/my_files"
                 android:textAllCaps="true"
                 android:textColor="@color/main_green"
                 android:textSize="16sp"
@@ -298,81 +291,35 @@
                 app:layout_constraintTop_toBottomOf="@id/layoutCollection" />
 
             <androidx.gridlayout.widget.GridLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="32dp"
                 android:layout_marginBottom="10dp"
                 app:columnCount="3"
+                app:flow_horizontalAlign="center"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@id/textCollection"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textLatestProducts"
                 app:useDefaultMargins="true">
 
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:layout_width="0dp"
-                    android:layout_height="110dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/taylor"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill"
-                    app:riv_corner_radius="6dp" />
+                <!--                <com.makeramen.roundedimageview.RoundedImageView-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="110dp"-->
+                <!--                    android:scaleType="centerCrop"-->
+                <!--                    android:src="@drawable/taylor"-->
+                <!--                    app:layout_columnWeight="1"-->
+                <!--                    app:layout_gravity="fill"-->
+                <!--                    app:riv_corner_radius="6dp" />-->
 
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:layout_width="0dp"
-                    android:layout_height="110dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill"
-                    app:riv_corner_radius="6dp" />
+                <include layout="@layout/single_module_box_in_profile_page" />
 
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:layout_width="0dp"
-                    android:layout_height="110dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill"
-                    app:riv_corner_radius="6dp" />
+                <include layout="@layout/single_module_box_in_profile_page" />
 
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:layout_width="0dp"
-                    android:layout_height="110dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill"
-                    app:riv_corner_radius="6dp"
-                    tools:ignore="ImageContrastCheck" />
-
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:layout_width="0dp"
-                    android:layout_height="110dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill"
-                    app:riv_corner_radius="6dp" />
-
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:layout_width="0dp"
-                    android:layout_height="110dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill"
-                    app:riv_corner_radius="6dp" />
-
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:layout_width="0dp"
-                    android:layout_height="110dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill"
-                    app:riv_corner_radius="6dp" />
+                <include layout="@layout/single_module_box_in_profile_page" />
+                <include layout="@layout/single_module_box_in_profile_page" />
 
 
             </androidx.gridlayout.widget.GridLayout>
