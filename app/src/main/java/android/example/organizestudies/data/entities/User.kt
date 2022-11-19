@@ -8,5 +8,9 @@ data class User(
     @PrimaryKey(
         autoGenerate = true
     )
-    var userId: Long = 0, var username: String, var password: String
+    var userId: Long = 0,
+    var username: String,
+    var password: String,
+    var grade: String,
+    var levelStudy: String
 )

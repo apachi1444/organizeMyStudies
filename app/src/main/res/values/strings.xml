@@ -49,4 +49,12 @@
     <string name="my_files">My Files</string>
     <string name="home">HOME</string>
     <string name="sign_up_here">Sign Up Here !</string>
+    <string name="sign_up_now">Sign Up Now !</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="your_grade">your grade</string>
+    <string name="your_level_of_study">your level of study</string>
+    <string name="your_password_again">your password again</string>
+    <string name="sign_in_now">Sign In Now !</string>
+    <string name="already_have_an_account">Already Have An Account ?</string>
+    <string name="select_grade">select grade</string>
 </resources>

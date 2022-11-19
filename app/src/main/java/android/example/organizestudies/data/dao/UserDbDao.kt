@@ -16,7 +16,7 @@ interface UserDbDao {
     fun delete(user: User)
 
     @Query("SELECT * FROM User WHERE userId=:key")
-    fun getUserByKey(key : Long)
+    fun getUserByKey(key : Long):User
 
     @Query("Delete FROM User")
     fun clear()

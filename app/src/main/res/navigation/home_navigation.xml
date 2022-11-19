@@ -7,12 +7,11 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="android.example.organizestudies.main.ProfileFragment"
-        android:label="My Profile"
-        tools:layout="@layout/fragment_profile" />
+        android:name="android.example.organizestudies.main.fragments.ProfileFragment"
+        android:label="My Profile" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="android.example.organizestudies.main.HomeFragment"
+        android:name="android.example.organizestudies.main.fragments.HomeFragment"
         android:label="Home">
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
@@ -21,23 +20,23 @@
             android:id="@+id/action_homeFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_starredFragment"
-            app:destination="@id/starredFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_moduleDetailsFragment"
             app:destination="@id/moduleDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_starredFragment"
+            app:destination="@id/starredFragment" />
 
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="android.example.organizestudies.main.SettingsFragment"
+        android:name="android.example.organizestudies.main.fragments.SettingsFragment"
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/moduleDetailsFragment"
-        android:name="android.example.organizestudies.main.ModuleDetailsFragment"
+        android:name="android.example.organizestudies.main.fragments.ModuleDetailsFragment"
         android:label="ModuleDetailsFragment" />
     <fragment
         android:id="@+id/starredFragment"
-        android:name="android.example.organizestudies.main.StarredFragment"
+        android:name="android.example.organizestudies.main.fragments.StarredFragment"
         android:label="StarredFragment" />
 </navigation>

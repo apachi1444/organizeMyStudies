@@ -16,16 +16,14 @@ class OnlyOnceWelcomeActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_only_once_welcome)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
-        val navController = navHostFragment.findNavController()
-
-
+        navController = navHostFragment.findNavController()
 
         setupActionBarWithNavController(navController)
-
 
         NavigationUI.setupActionBarWithNavController(this, navController)
     }

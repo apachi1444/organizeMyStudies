@@ -2,11 +2,10 @@ package android.example.organizestudies.welcome.fragments
 
 import android.content.Intent
 import android.example.organizestudies.R
-import android.example.organizestudies.databinding.FragmentLoginBinding
-import android.example.organizestudies.data.entities.User
-import android.example.organizestudies.main.MainActivity
 import android.example.organizestudies.data.dao.UserDb
 import android.example.organizestudies.data.dao.UserDbDao
+import android.example.organizestudies.databinding.FragmentLoginBinding
+import android.example.organizestudies.main.MainActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -59,10 +58,11 @@ class LoginFragment : Fragment() {
         return binding.root
     }
 
+
     private fun goToMainActivity(binding: FragmentLoginBinding) {
         val intent = Intent(context, MainActivity::class.java)
         username = binding.userNameInput.text
-        password = binding.passwordInput.text
+        password = binding.passwordInput.toString()
         binding.goToHomeActivity.setOnClickListener {
             printInputNames()
 //            dbLogicWithUserInputs()
@@ -76,8 +76,8 @@ class LoginFragment : Fragment() {
     }
 
     private fun dbLogicWithUserInputs() {
-        val user = User(1, username.toString(), password.toString())
-        dao.insert(user)
+//        val user = User(1, username.toString(), password.toString())
+//        dao.insert(user)
     }
 
     private fun goToSignUpPage() {
