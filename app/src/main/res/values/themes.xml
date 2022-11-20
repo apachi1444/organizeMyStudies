@@ -25,7 +25,7 @@
         <item name="android:background">#EFEFEF</item>
         <item name="android:ems">10</item>
         <item name="android:inputType">textPersonName</item>
-        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:focusableInTouchMode">true</item>
     </style>
 
 <!--    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">-->

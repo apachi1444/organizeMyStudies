@@ -60,4 +60,5 @@
     <string name="sign_in_now">Sign In Now !</string>
     <string name="already_have_an_account">Already Have An Account ?</string>
     <string name="select_grade">select grade</string>
+    <string name="name">Name:</string>
 </resources>

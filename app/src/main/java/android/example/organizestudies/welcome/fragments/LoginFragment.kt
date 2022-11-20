@@ -40,6 +40,7 @@ class LoginFragment : Fragment() {
         configurationDbAndViewModel()
         goToMainActivity(binding)
         goToSignUpPage()
+
         return binding.root
     }
 
