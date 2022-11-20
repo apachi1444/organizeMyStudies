@@ -20,11 +20,11 @@
             android:id="@+id/action_homeFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_moduleDetailsFragment"
-            app:destination="@id/moduleDetailsFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_starredFragment"
             app:destination="@id/starredFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_moduleDetailsFragment"
+            app:destination="@id/moduleDetailsFragment" />
 
     </fragment>
     <fragment
@@ -32,11 +32,12 @@
         android:name="android.example.organizestudies.main.fragments.SettingsFragment"
         android:label="SettingsFragment" />
     <fragment
-        android:id="@+id/moduleDetailsFragment"
-        android:name="android.example.organizestudies.main.fragments.ModuleDetailsFragment"
-        android:label="ModuleDetailsFragment" />
-    <fragment
         android:id="@+id/starredFragment"
         android:name="android.example.organizestudies.main.fragments.StarredFragment"
         android:label="StarredFragment" />
+    <fragment
+        android:id="@+id/moduleDetailsFragment"
+        android:name="android.example.organizestudies.main.fragments.ModuleDetailsFragment"
+        android:label="fragment_module_details"
+        tools:layout="@layout/fragment_module_details" />
 </navigation>

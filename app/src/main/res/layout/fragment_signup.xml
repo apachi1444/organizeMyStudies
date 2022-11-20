@@ -46,33 +46,75 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gradeInput" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordInput"
-            style="@style/oneInputFormSignUp"
-            android:background="@drawable/search_input_home_page"
-            android:drawableStart="@drawable/ic_lock_icon"
-            android:hint="@string/your_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:paddingHorizontal="8dp"
+            android:layout_marginTop="16dp"
+            android:textColorHint="@color/main_grey"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/levelStudyInput" />
+            app:layout_constraintTop_toBottomOf="@+id/levelStudyInput"
+            app:passwordToggleEnabled="true">
 
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/oneInputFormSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/search_input_home_page"
+                android:drawableStart="@drawable/ic_lock_icon"
+                android:gravity="center"
+                android:hint="@string/your_password">
 
+            </com.google.android.material.textfield.TextInputEditText>
 
-        <EditText
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordInputConfirm"
-            style="@style/oneInputFormSignUp"
-            android:background="@drawable/search_input_home_page"
-            android:drawableStart="@drawable/ic_lock_icon"
-            android:hint="@string/your_password_again"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:paddingHorizontal="8dp"
+            android:layout_marginTop="16dp"
+            android:textColorHint="@color/main_grey"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordInput"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/oneInputFormSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/search_input_home_page"
+                android:drawableStart="@drawable/ic_lock_icon"
+                android:gravity="center"
+                android:hint="@string/your_password">
+
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+<!--        <EditText-->
+<!--            android:id="@+id/passwordInputConfirm"-->
+<!--            style="@style/oneInputFormSignUp"-->
+<!--            android:background="@drawable/search_input_home_page"-->
+<!--            android:drawableStart="@drawable/ic_lock_icon"-->
+<!--            android:hint="@string/your_password_again"-->
+<!--            android:inputType="textPassword"-->
+<!--            android:paddingHorizontal="8dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/passwordInput" />-->
 
         <Button
             android:id="@+id/buttonSignUp"
@@ -126,10 +168,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="4dp"
+            android:gravity="end"
             android:text="@string/already_have_an_account"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/buttonGoToLogin"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/buttonSignUp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

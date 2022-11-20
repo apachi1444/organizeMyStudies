@@ -12,6 +12,24 @@ class Utils {
                 Toast.LENGTH_SHORT
             ).show()
         }
+
+        fun checkInputsEmptyOrNot(vararg inputs: String): Boolean {
+            var finalBoolean = true
+            inputs.forEach {
+                if (it.isEmpty()) {
+                    finalBoolean = false
+                    return false
+                }
+            }
+            return finalBoolean
+        }
+
+        fun checkPasswordAndConfirmPassword(
+            password: String,
+            confirmPassword: String
+        ): Boolean {
+            return (password == confirmPassword)
+        }
     }
 
 }

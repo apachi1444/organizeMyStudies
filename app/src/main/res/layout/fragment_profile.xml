@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:background="@color/colorBackground"
         android:fitsSystemWindows="true"
-        tools:context=".main.ProfileFragment">
+        tools:context=".main.fragments.ProfileFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

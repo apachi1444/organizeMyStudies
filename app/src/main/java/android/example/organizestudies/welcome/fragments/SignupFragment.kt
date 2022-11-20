@@ -2,10 +2,9 @@ package android.example.organizestudies.welcome.fragments
 
 import android.example.organizestudies.R
 import android.example.organizestudies.data.entities.User
-import android.example.organizestudies.viewmodels.UserViewModel
 import android.example.organizestudies.utils.Utils
+import android.example.organizestudies.viewmodels.UserViewModel
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.async
+import kotlinx.coroutines.runBlocking
 import java.util.*
 
 private const val ARG_PARAM1 = "param1"
@@ -23,7 +24,7 @@ class SignupFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private var items = arrayListOf<String>("GI", "GE", "GRT", "GIL")
+    private var items = arrayListOf("GI", "GE", "GRT", "GIL")
 
     private lateinit var myUserViewModel: UserViewModel
     private lateinit var binding: android.example.organizestudies.databinding.FragmentSignupBinding
@@ -47,6 +48,7 @@ class SignupFragment : Fragment() {
         myUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_signup, container, false)
+
 
         goToBackToLoginPage()
 
@@ -78,21 +80,20 @@ class SignupFragment : Fragment() {
     }
 
 
-
     private fun addUserToDB() {
         val username = binding.userNameInput.text.toString()
-        val password = binding.passwordInput.text.toString()
+        val password = binding.passwordInput.editText?.text.toString()
         val grade = binding.gradeInput.text.toString()
         val levelStudy = binding.levelStudyInput.text.toString()
-        val confirmPassword = binding.passwordInputConfirm.text.toString()
+        val confirmPassword = binding.passwordInputConfirm.editText?.text.toString()
 
-        if (checkIfAllInputsAreEmpty(username, password, confirmPassword, levelStudy, grade)) {
+        if (!Utils.checkInputsEmptyOrNot(username, password, confirmPassword, levelStudy, grade)) {
             Utils.showToast(requireContext(), "Please make sure you are filling all fields ")
         } else {
-            if (!checkPasswordAndConfirmPassword(password, confirmPassword)) {
+            if (!Utils.checkPasswordAndConfirmPassword(password, confirmPassword)) {
                 Utils.showToast(requireContext(), "Please make sure both passwords match !")
             } else {
-                if (inputCheck(username, password, confirmPassword, levelStudy, grade)) {
+                if (!checkUserNotExistingInOurDb(username)) {
                     val user =
                         User(UUID.randomUUID().toString(), username, password, grade, levelStudy)
                     myUserViewModel.addUser(user)
@@ -100,7 +101,7 @@ class SignupFragment : Fragment() {
                     // navigate back
                     findNavController().navigateUp()
                 } else {
-                    Utils.showToast(requireContext(), "Successfully not added !")
+                    Utils.showToast(requireContext(), "Username already exists !")
                 }
             }
         }
@@ -108,41 +109,15 @@ class SignupFragment : Fragment() {
 
     }
 
-    private fun inputCheck(
+    private fun checkUserNotExistingInOurDb(
         username: String,
-        password: String,
-        confirmPassword: String,
-        levelStudy: String,
-        grade: String
     ): Boolean {
-        return !(TextUtils.isEmpty(username) && TextUtils.isEmpty(password) && TextUtils.isEmpty(
-            confirmPassword
-        ) && TextUtils.isEmpty(levelStudy) && TextUtils.isEmpty(grade))
-    }
-
-    private fun checkPasswordAndConfirmPassword(
-        password: String,
-        confirmPassword: String
-    ): Boolean {
-        return (password == confirmPassword)
-    }
-
-    private fun checkIfAllInputsAreEmpty(
-        username: String,
-        password: String,
-        confirmPassword: String,
-        levelStudy: String,
-        grade: String
-    ): Boolean {
-
-        if (username.isEmpty() && password.isEmpty()
-            && confirmPassword.isEmpty()
-            && levelStudy.isEmpty()
-            && grade.isEmpty()
-        ) {
-            return true
+        var boolean = true
+        runBlocking {
+            val user = async { myUserViewModel.getUserByUsername(username) }
+            if (user == null) boolean = false
         }
-        return false
+        return boolean
     }
 
 

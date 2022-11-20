@@ -2,7 +2,6 @@ package android.example.organizestudies.data.repo
 
 import android.example.organizestudies.data.dao.UserDbDao
 import android.example.organizestudies.data.entities.User
-import androidx.lifecycle.LiveData
 
 // abstract access to multiple data sources
 class UserRepository(private val userDbDao: UserDbDao) {
@@ -15,5 +14,13 @@ class UserRepository(private val userDbDao: UserDbDao) {
 
     fun getAllUsers(): List<User> {
         return userDbDao.getAllUsers()
+    }
+
+    fun getUserByUsernameAndPassword(username: String, password: String): User {
+        return userDbDao.getUserByUsernameAndPassword(username, password)
+    }
+
+    fun getUserByUsername(username: String) : User {
+        return userDbDao.getUserByUsername(username)
     }
 }
