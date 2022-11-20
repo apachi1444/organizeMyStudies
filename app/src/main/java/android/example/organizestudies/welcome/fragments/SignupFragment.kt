@@ -120,5 +120,4 @@ class SignupFragment : Fragment() {
         return boolean
     }
 
-
 }

@@ -1,6 +1,8 @@
 package android.example.organizestudies.data.dao
 
+import android.example.organizestudies.data.entities.Module
 import android.example.organizestudies.data.entities.User
+import android.example.organizestudies.data.entities.UserWithModules
 import androidx.room.*
 
 @Dao
@@ -28,4 +30,11 @@ interface UserDbDao {
 
     @Query("SELECT * FROM User WHERE username =:username LIMIT 1")
     fun getUserByUsername(username: String): User
+
+//    @Insert(onConflict = OnConflictStrategy.REPLACE)
+//    suspend fun insertModule(module: Module)
+//
+//    @Transaction
+//    @Query("SELECT * FROM User where userId=:userId")
+//    suspend fun getUserWithModules(userId: String): List<UserWithModules>
 }

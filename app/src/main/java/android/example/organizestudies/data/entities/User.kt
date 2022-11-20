@@ -54,7 +54,6 @@ import androidx.room.PrimaryKey
 //}
 
 @Entity
-
 class User(
     @PrimaryKey
     var userId: String,

@@ -18,6 +18,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
@@ -88,13 +89,12 @@ class LoginFragment : Fragment() {
             Utils.showToast(requireContext(), Errors.FILL_ALL_FIELDS_ERRORS)
         } else {
             runBlocking {
-                launch {
-                    print("$username $password")
+                launch(Dispatchers.IO) {
                     val user = myUserViewModel.getUserByUsernameAndPassword(
                         username,
                         password
                     )
-                    print(user.toString() + "skdljqfsdf")
+
                     if (user == null) {
                         Log.i("login", "no")
                         Utils.showToast(

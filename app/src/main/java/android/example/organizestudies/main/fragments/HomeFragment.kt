@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -35,13 +36,19 @@ class HomeFragment : Fragment() {
         binding.homeImageProfile.setOnClickListener {
             requireView().findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
         }
-
+        goToStarredFragment()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         goToProfile()
         goToModulesDetails()
+    }
+
+    private fun goToStarredFragment() {
+        binding.starredBox.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_starredFragment)
+        }
     }
 
     private fun goToProfile() {

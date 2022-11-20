@@ -1,14 +1,19 @@
 package android.example.organizestudies.data.dao
 
 import android.content.Context
+import android.example.organizestudies.data.entities.File
+import android.example.organizestudies.data.entities.Module
 import android.example.organizestudies.data.entities.User
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [User::class], version = 5, exportSchema = false)
+@Database(entities = [User::class, File::class, Module::class], version = 7, exportSchema = false)
 abstract class UserDb : RoomDatabase() {
+
     abstract fun userDbDao(): UserDbDao
+//    abstract fun moduleDao(): ModuleDao
+//    abstract fun fileDao(): FileDao
 
     companion object {
         @Volatile
