@@ -9,14 +9,28 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="match_parent"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools">
+            <ImageView
+                android:id="@+id/imageButton"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:padding="8dp"
+                android:background="@drawable/roundcorner"
+                android:adjustViewBounds="true"
+                android:elevation="100dp"
+                android:translationX="320dp"
+                android:translationY="-20dp"
+                app:srcCompat="@drawable/check" />
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="413dp"
                 android:layout_height="40dp"
                 android:orientation="horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/linearLayout3"
@@ -93,7 +107,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
                 android:layout_width="330dp"
-                android:layout_height="360dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/layout_bg"
                 android:elevation="10dp"
                 android:orientation="vertical"
@@ -133,7 +147,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginRight="10dp"
-                        android:layout_weight="1"
                         android:textColor="@color/label_grey"
                         android:drawableEnd="@drawable/pen"
                         android:text="Aimad Ezzahar"
@@ -258,6 +271,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/info_field"
                     android:elevation="10dp"
+                    android:layout_marginBottom="20dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -281,13 +295,7 @@
 
                 </LinearLayout>
 
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="end"
-                    android:background="@drawable/roundcorner"
-                    app:srcCompat="@drawable/check" />
+
 
             </LinearLayout>
 

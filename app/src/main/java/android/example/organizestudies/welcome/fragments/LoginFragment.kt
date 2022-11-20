@@ -48,13 +48,9 @@ class LoginFragment : Fragment() {
 
 //        dao = myDb.userDbDao
 
-        binding.userNameInput.addTextChangedListener(
+        //printInputNames()
 
-        )
-
-        printInputNames()
-
-        goToSignUpPage()
+        //goToSignUpPage()
 
         return binding.root
     }
@@ -75,10 +71,6 @@ class LoginFragment : Fragment() {
         binding.textView3.text = password
     }
 
-    private fun dbLogicWithUserInputs() {
-        val user = User(1, username.toString(), password.toString())
-        dao.insert(user)
-    }
 
     private fun goToSignUpPage() {
         binding.signUpButton.setOnClickListener {
