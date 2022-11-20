@@ -58,12 +58,9 @@ class LoginFragment : Fragment() {
 
         Log.i("haha", "$username $password")
         binding.goToHomeActivity.setOnClickListener {
-            runBlocking {
-                print("$username $password")
-                checkUserExistsInOurDb()
-            }
+            checkUserExistsInOurDb()
 //            dbLogicWithUserInputs()
-//            startActivity(intent)
+            startActivity(intent)
         }
     }
 
