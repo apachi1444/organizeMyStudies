@@ -120,21 +120,24 @@
                     android:elevation="10dp"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextTextPersonName"
                         style="@style/input"
                         android:text="Name:"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/nameInput"
+                        style="@style/input"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
+                        android:textColor="@color/label_grey"
                         android:drawableEnd="@drawable/pen"
-                        android:text="Aimad Ezzahar" />
+                        android:text="Aimad Ezzahar"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                 </LinearLayout>
 
@@ -145,21 +148,24 @@
                     android:elevation="10dp"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextTextPersonName2"
                         style="@style/input"
                         android:text="Email:"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/emailInput"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
+                        style="@style/input"
+                        android:textColor="@color/label_grey"
                         android:drawableEnd="@drawable/pen"
-                        android:text="imadezzahar@gmail.com" />
+                        android:text="imadezzahar@gmail.com"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                 </LinearLayout>
 
@@ -170,13 +176,13 @@
                     android:elevation="10dp"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextTextPersonName3"
                         style="@style/input"
                         android:text="Field:"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/fieldInput"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -184,7 +190,10 @@
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
                         android:drawableEnd="@drawable/pen"
-                        android:text="GI" />
+                        android:text="GI"
+                        android:textColor="@color/label_grey"
+                        style="@style/input"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                 </LinearLayout>
 
@@ -195,13 +204,13 @@
                     android:elevation="10dp"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextTextPersonName4"
                         style="@style/input"
                         android:text="Level:"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/levelInput"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -209,7 +218,10 @@
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
                         android:drawableEnd="@drawable/pen"
-                        android:text="5eme annee" />
+                        android:text="5eme annee"
+                        style="@style/input"
+                        android:textColor="@color/label_grey"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                 </LinearLayout>
 
@@ -220,13 +232,13 @@
                     android:elevation="10dp"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextTextPersonName5"
                         style="@style/input"
                         android:text="Password:"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/passwordInput"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -234,7 +246,10 @@
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
                         android:drawableEnd="@drawable/pen"
-                        android:text="***********" />
+                        android:text="***********"
+                        style="@style/input"
+                        android:textColor="@color/label_grey"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                 </LinearLayout>
 
@@ -245,13 +260,13 @@
                     android:elevation="10dp"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextTextPersonName6"
                         style="@style/input"
                         android:text="Confirm Password:"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/confirmationInput"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -259,7 +274,10 @@
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
                         android:drawableEnd="@drawable/pen"
-                        android:text="***********" />
+                        android:text="***********"
+                        style="@style/input"
+
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                 </LinearLayout>
 
