@@ -1,6 +1,9 @@
 package android.example.organizestudies.utils
 
 import android.content.Context
+import android.content.Intent
+import android.example.organizestudies.main.MainActivity
+import android.util.Log
 import android.widget.Toast
 
 class Utils {
@@ -21,6 +24,7 @@ class Utils {
         fun checkInputsEmptyOrNot(vararg inputs: String): Boolean {
             var finalBoolean = true
             inputs.forEach {
+                Log.i("boolean", it)
                 if (it.isEmpty()) {
                     finalBoolean = false
                     return false
@@ -35,6 +39,16 @@ class Utils {
         ): Boolean {
             return (password == confirmPassword)
         }
+
+        fun getSharedPreferences() {
+
+        }
+
+        fun goToActivity(context: Context, classActivity: Class<MainActivity>) {
+            val intent = Intent(context, classActivity)
+            context.startActivity(intent)
+        }
+
     }
 
 }

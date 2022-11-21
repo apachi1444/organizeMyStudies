@@ -1,6 +1,5 @@
 package android.example.organizestudies.welcome.fragments
 
-import android.content.Intent
 import android.example.organizestudies.R
 import android.example.organizestudies.data.dao.UserDb
 import android.example.organizestudies.data.dao.UserDbDao
@@ -10,17 +9,19 @@ import android.example.organizestudies.utils.Errors
 import android.example.organizestudies.utils.Utils
 import android.example.organizestudies.viewmodels.UserViewModel
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 
 class LoginFragment : Fragment() {
@@ -28,17 +29,24 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var dao: UserDbDao
     private lateinit var myUserViewModel: UserViewModel
-    private lateinit var username: String
-    private lateinit var password: String
+    private var username: String = ""
+    private var password: String = ""
+
+    private lateinit var usernameInputText: EditText
+    private lateinit var passwordInputText: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+
         configurationDbAndViewModel()
+
         goToMainActivity(binding)
+
         goToSignUpPage()
 
         return binding.root
@@ -53,16 +61,19 @@ class LoginFragment : Fragment() {
 
 
     private fun goToMainActivity(binding: FragmentLoginBinding) {
-        val intent = Intent(context, MainActivity::class.java)
-        print(binding.userNameInput.text.toString() + "jdsjfj")
-        username = binding.userNameInput.text.toString()
-        password = binding.passwordInput.editText?.text.toString()
 
-        Log.i("haha", "$username $password")
+        usernameInputText = binding.userNameInput
+        passwordInputText = binding.passwordInput.editText!!
+
+        usernameInputText.addTextChangedListener {
+            username = it.toString()
+        }
+
+        passwordInputText.addTextChangedListener {
+            password = it.toString()
+        }
         binding.goToHomeActivity.setOnClickListener {
             checkUserExistsInOurDb()
-//            dbLogicWithUserInputs()
-            startActivity(intent)
         }
     }
 
@@ -85,29 +96,31 @@ class LoginFragment : Fragment() {
 //        }
 //    }
 
+    @OptIn(DelicateCoroutinesApi::class)
     private fun checkUserExistsInOurDb() {
-        if (!Utils.checkInputsEmptyOrNot(username, password)) {
-            Utils.showToast(requireContext(), Errors.FILL_ALL_FIELDS_ERRORS)
-        } else {
-            runBlocking {
-                launch(Dispatchers.IO) {
-                    val user = myUserViewModel.getUserByUsernameAndPassword(
-                        username,
-                        password
-                    )
+        GlobalScope.launch(Dispatchers.Main) {
+            if (!Utils.checkInputsEmptyOrNot(username, password)) {
+                requireActivity().runOnUiThread {
+                    Utils.showToast(requireContext(), Errors.FILL_ALL_FIELDS_ERRORS)
+                }
+            } else {
 
-                    if (user == null) {
-                        Log.i("login", "no")
-                        Utils.showToast(
-                            requireContext(),
-                            "Please check your username and password !"
-                        )
-                    } else {
-                        Log.i("login", "yes")
+                val user = myUserViewModel.getUserByUsernameAndPassword(
+                    username,
+                    password
+                )
+                if (user == null) {
+                    requireActivity().runOnUiThread {
+                        Utils.showToast(requireContext(), "Make sure your coordinates are valid !")
+                    }
+                } else {
+                    requireActivity().runOnUiThread {
+                        makeLoginAndPasswordInputsEmpty()
+                        Utils.goToActivity(requireContext() , MainActivity::class.java)
                     }
                 }
-
             }
+
         }
     }
 
@@ -116,6 +129,11 @@ class LoginFragment : Fragment() {
         binding.signUpButton.setOnClickListener {
             requireView().findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
+    }
+
+    private fun makeLoginAndPasswordInputsEmpty() {
+        username = ""
+        password = ""
     }
 
 

@@ -42,6 +42,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun bottomNavigationLogic() {
         bottomNavigationView = binding.bottomNavigation
+
+        // when we click on the plus button
+        // a pop up will appear showing all modules available
+        // and then we should 
+
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> Utils.showToast(applicationContext, "HOME")

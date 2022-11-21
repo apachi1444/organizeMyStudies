@@ -93,7 +93,7 @@ class SignupFragment : Fragment() {
             if (!Utils.checkPasswordAndConfirmPassword(password, confirmPassword)) {
                 Utils.showToast(requireContext(), "Please make sure both passwords match !")
             } else {
-                if (!checkUserNotExistingInOurDb(username)) {
+                if (checkUserNotExistingInOurDb(username)) {
                     val user =
                         User(UUID.randomUUID().toString(), username, password, grade, levelStudy)
                     myUserViewModel.addUser(user)
