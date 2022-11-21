@@ -9,77 +9,74 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools">
+            android:layout_height="match_parent">
+
             <ImageView
                 android:id="@+id/imageButton"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:padding="8dp"
-                android:background="@drawable/roundcorner"
-                android:adjustViewBounds="true"
-                android:elevation="100dp"
                 android:layout_marginTop="-16dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/roundcorner"
+                android:elevation="100dp"
+                android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="@id/linearLayout5"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
                 app:srcCompat="@drawable/check" />
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="413dp"
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/layoutImages"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
+                app:columnCount="3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/linearLayout3"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/langImage"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:contentDescription="TODO"
-                    tools:srcCompat="@drawable/language" />
+                    android:contentDescription="@string/todo"
+                    app:layout_columnWeight="1"
+                    android:src="@drawable/ic_qr_code" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/lightImage"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:contentDescription="TODO"
-                    tools:srcCompat="@drawable/light" />
+                    android:contentDescription="@string/todo"
+                    app:layout_columnWeight="1"
+                    android:src="@drawable/light" />
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/soundImage"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:contentDescription="@string/todo"
+                    app:layout_columnWeight="1"
+                    android:src="@drawable/sound" />
 
-                    tools:srcCompat="@drawable/sound" />
-
-            </LinearLayout>
+            </androidx.gridlayout.widget.GridLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
-                android:layout_width="413dp"
-                android:layout_height="19dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                app:layout_constraintTop_toBottomOf="@id/layoutImages">
 
                 <TextView
                     android:id="@+id/textView13"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="English"
+                    android:text="@string/english"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -88,7 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Light Mode"
+                    android:text="@string/light_mode"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -97,18 +94,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Sound On"
+                    android:text="@string/sound_on"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textFontWeight="100" />
+                    android:textFontWeight="100"
+                    tools:targetApi="p" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
                 android:background="@drawable/layout_bg"
                 android:elevation="10dp"
                 android:orientation="vertical"
@@ -149,10 +147,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginRight="10dp"
-                        android:textColor="@color/label_grey"
                         android:drawableEnd="@drawable/pen"
                         android:text="Aimad Ezzahar"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/label_grey" />
 
                 </LinearLayout>
 
@@ -171,16 +169,16 @@
 
                     <EditText
                         android:id="@+id/emailInput"
+                        style="@style/input"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
-                        style="@style/input"
-                        android:textColor="@color/label_grey"
                         android:drawableEnd="@drawable/pen"
                         android:text="imadezzahar@gmail.com"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/label_grey" />
 
                 </LinearLayout>
 
@@ -199,6 +197,7 @@
 
                     <EditText
                         android:id="@+id/fieldInput"
+                        style="@style/input"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -206,9 +205,8 @@
                         android:layout_weight="1"
                         android:drawableEnd="@drawable/pen"
                         android:text="GI"
-                        android:textColor="@color/label_grey"
-                        style="@style/input"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/label_grey" />
 
                 </LinearLayout>
 
@@ -227,6 +225,7 @@
 
                     <EditText
                         android:id="@+id/levelInput"
+                        style="@style/input"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -234,9 +233,8 @@
                         android:layout_weight="1"
                         android:drawableEnd="@drawable/pen"
                         android:text="5eme annee"
-                        style="@style/input"
-                        android:textColor="@color/label_grey"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/label_grey" />
 
                 </LinearLayout>
 
@@ -255,49 +253,48 @@
 
                     <EditText
                         android:id="@+id/passwordInput"
+                        style="@style/input"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
+                        android:autofillHints=""
                         android:drawableEnd="@drawable/pen"
-                        android:text="***********"
-                        style="@style/input"
-                        android:textColor="@color/label_grey"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                        android:text="@string/stars_password"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/label_grey" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/info_field"
                     android:elevation="10dp"
-                    android:layout_marginBottom="20dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/editTextTextPersonName6"
                         style="@style/input"
-                        android:text="Confirm Password:"
+                        android:text="@string/confirm_password"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
                     <EditText
                         android:id="@+id/confirmationInput"
-                        android:layout_width="wrap_content"
+                        style="@style/input"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
                         android:layout_weight="1"
                         android:drawableEnd="@drawable/pen"
-                        android:text="***********"
-                        style="@style/input"
+                        android:text="@string/stars_password"
 
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                 </LinearLayout>
-
-
 
             </LinearLayout>
 
@@ -308,7 +305,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/gradient_background"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintBottom_toTopOf="@+id/layoutImages"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">

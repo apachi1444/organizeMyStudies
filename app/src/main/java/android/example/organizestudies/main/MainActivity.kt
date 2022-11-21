@@ -4,7 +4,6 @@ import android.example.organizestudies.R
 import android.example.organizestudies.databinding.ActivityMainBinding
 import android.example.organizestudies.utils.Utils
 import android.os.Bundle
-import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -19,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
     private lateinit var bottomNavigationView: BottomNavigationView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,12 +41,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun bottomNavigationLogic() {
-        bottomNavigationView = binding.bottomNavigation as BottomNavigationView
+        bottomNavigationView = binding.bottomNavigation
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> Utils.showToast(applicationContext, "HOME")
                 R.id.person -> Utils.showToast(applicationContext, "HAHA")
-                R.id.settings -> Utils.showToast(applicationContext, "HEHEH")
+                R.id.settings -> Utils.showToast(applicationContext, "HERE")
             }
             true
         }

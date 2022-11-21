@@ -7,6 +7,9 @@ class Utils {
 
     companion object {
 
+        val
+                CHOOSE_PDF_FROM_DEVICE = 1001
+
         fun showToast(context: Context, msg: String) {
             Toast.makeText(
                 context,

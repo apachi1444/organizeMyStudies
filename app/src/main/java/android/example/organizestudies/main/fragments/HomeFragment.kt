@@ -1,7 +1,9 @@
 package android.example.organizestudies.main.fragments
 
+import android.content.Intent
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentHomeBinding
+import android.example.organizestudies.utils.Utils
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -9,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -16,6 +19,8 @@ private const val ARG_PARAM2 = "param2"
 class HomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     private lateinit var binding: FragmentHomeBinding
 
@@ -33,16 +38,24 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        binding.homeImageProfile.setOnClickListener {
-            requireView().findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
-        }
-        goToStarredFragment()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         goToProfile()
+        goToStarredFragment()
+        callChooseFromDevice()
         goToModulesDetails()
+    }
+
+
+    private fun callChooseFromDevice() {
+        binding.calendarBox.setOnClickListener {
+            var intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            intent.type = "application/*"
+            startActivityForResult(intent, Utils.CHOOSE_PDF_FROM_DEVICE)
+        }
     }
 
     private fun goToStarredFragment() {
@@ -51,9 +64,11 @@ class HomeFragment : Fragment() {
         }
     }
 
+
     private fun goToProfile() {
-
-
+        binding.homeImageProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+        }
 //        binding.homeImageProfile.setOnClickListener {
 //            Log.i("image Clicked ", "just clicked ")
 //            parentFragmentManager.commit {
@@ -61,6 +76,7 @@ class HomeFragment : Fragment() {
 //            }
 //        }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_main, menu)
