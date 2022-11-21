@@ -5,7 +5,7 @@
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         tools:context=".main.MainActivity">
 
         <!--        <androidx.fragment.app.FragmentContainerView-->
@@ -16,7 +16,7 @@
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment_container"
             android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:defaultNavHost="true"
             app:navGraph="@navigation/home_navigation" />
@@ -25,12 +25,13 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="start"
-            android:background="@color/black"
-            app:labelVisibilityMode="labeled"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:itemIconTint="@color/main_grey"
+            app:itemTextColor="@color/main_grey"
+            app:labelVisibilityMode="auto"
             app:menu="@menu/bottom_nav_menu" />
+
 
     </LinearLayout>
 </layout>

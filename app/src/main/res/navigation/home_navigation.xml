@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/starredFragment"
         android:name="android.example.organizestudies.main.fragments.StarredFragment"
-        android:label="StarredFragment" />
+        android:label="j" />
     <fragment
         android:id="@+id/moduleDetailsFragment"
         android:name="android.example.organizestudies.main.fragments.ModuleDetailsFragment"
