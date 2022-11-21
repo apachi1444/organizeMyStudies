@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_firstWelcomePageFragment_to_secondWelcomePageFragment"
             app:destination="@id/secondWelcomePageFragment" />
+        <action
+            android:id="@+id/action_firstWelcomePageFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondWelcomePageFragment"

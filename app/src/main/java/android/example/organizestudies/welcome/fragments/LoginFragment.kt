@@ -9,6 +9,7 @@ import android.example.organizestudies.utils.Errors
 import android.example.organizestudies.utils.Utils
 import android.example.organizestudies.viewmodels.UserViewModel
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -100,11 +101,14 @@ class LoginFragment : Fragment() {
     private fun checkUserExistsInOurDb() {
         GlobalScope.launch(Dispatchers.Main) {
             if (!Utils.checkInputsEmptyOrNot(username, password)) {
+                Log.i(
+                    "haha",
+                    Utils.readingFromSharedPreferences(requireContext(), "username").toString()
+                )
                 requireActivity().runOnUiThread {
                     Utils.showToast(requireContext(), Errors.FILL_ALL_FIELDS_ERRORS)
                 }
             } else {
-
                 val user = myUserViewModel.getUserByUsernameAndPassword(
                     username,
                     password
@@ -115,8 +119,18 @@ class LoginFragment : Fragment() {
                     }
                 } else {
                     requireActivity().runOnUiThread {
+                        Utils.insertingKeyIntoSharedPreferences(
+                            requireContext(),
+                            "username",
+                            user.username
+                        )
+                        Utils.insertingKeyIntoSharedPreferences(
+                            requireContext(),
+                            "id",
+                            user.userId
+                        )
                         makeLoginAndPasswordInputsEmpty()
-                        Utils.goToActivity(requireContext() , MainActivity::class.java)
+                        Utils.startActivity(requireContext(), MainActivity::class.java)
                     }
                 }
             }
@@ -132,6 +146,8 @@ class LoginFragment : Fragment() {
     }
 
     private fun makeLoginAndPasswordInputsEmpty() {
+        binding.userNameInput.setText("")
+        binding.passwordInput.editText?.setText("")
         username = ""
         password = ""
     }

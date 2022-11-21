@@ -1,10 +1,9 @@
 package android.example.organizestudies.welcome.fragments
 
-import android.content.Intent
-import android.content.SharedPreferences
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentSecondWelcomePageBinding
 import android.example.organizestudies.main.MainActivity
+import android.example.organizestudies.utils.Utils
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +19,6 @@ class SecondWelcomePageFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentSecondWelcomePageBinding
-    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -32,17 +30,16 @@ class SecondWelcomePageFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_second_welcome_page,
             container,
             false
         )
-        binding.startGameButton.setOnClickListener {
-            requireView().findNavController()
-                .navigate(R.id.action_secondWelcomePageFragment_to_loginFragment)
-        }
+
+        goToMainActivity()
+
         return binding.root
     }
 
@@ -61,8 +58,13 @@ class SecondWelcomePageFragment : Fragment() {
     private fun goToMainActivity() {
 
         binding.startGameButton.setOnClickListener {
-            val intent = Intent(requireActivity().applicationContext, MainActivity::class.java)
-            startActivity(intent)
+            if (Utils.checkUserLoggedIn(requireContext())) {
+                Utils.startActivity(requireContext(), MainActivity::class.java)
+            } else {
+                requireView().findNavController()
+                    .navigate(R.id.action_secondWelcomePageFragment_to_loginFragment)
+            }
+
         }
 
     }

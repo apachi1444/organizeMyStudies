@@ -45,7 +45,8 @@ class MainActivity : AppCompatActivity() {
 
         // when we click on the plus button
         // a pop up will appear showing all modules available
-        // and then we should 
+        // and then we should select the module to insert into it
+        // the file selected !
 
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {

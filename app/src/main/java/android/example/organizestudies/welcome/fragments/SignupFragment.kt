@@ -8,6 +8,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -20,11 +23,12 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 
-class SignupFragment : Fragment() {
+class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private var param1: String? = null
     private var param2: String? = null
 
     private var items = arrayListOf("GI", "GE", "GRT", "GIL")
+    private lateinit var spinner: Spinner
 
     private lateinit var myUserViewModel: UserViewModel
     private lateinit var binding: android.example.organizestudies.databinding.FragmentSignupBinding
@@ -49,6 +53,7 @@ class SignupFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_signup, container, false)
 
+        configurationSpinnerGrades()
 
         goToBackToLoginPage()
 
@@ -73,6 +78,32 @@ class SignupFragment : Fragment() {
 //        }
 //    }
 
+    private fun configurationSpinnerGrades() {
+        spinner = binding.gradeInput
+        var adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.gradeStrings,
+            android.R.layout.simple_spinner_item
+        )
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+        spinner.onItemSelectedListener = this
+    }
+
+    private fun configurationSpinnerLevelOfStudy() {
+        spinner = binding.levelStudyInput
+        var adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.levelOfStudyStrings,
+            android.R.layout.simple_spinner_item
+        )
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+        spinner.onItemSelectedListener = this
+    }
+
     private fun goToBackToLoginPage() {
         binding.buttonGoToLogin.setOnClickListener {
             findNavController().navigateUp()
@@ -83,8 +114,8 @@ class SignupFragment : Fragment() {
     private fun addUserToDB() {
         val username = binding.userNameInput.text.toString()
         val password = binding.passwordInput.editText?.text.toString()
-        val grade = binding.gradeInput.text.toString()
-        val levelStudy = binding.levelStudyInput.text.toString()
+        val grade = binding.gradeInput.selectedItem.toString()
+        val levelStudy = binding.levelStudyInput.selectedItem.toString()
         val confirmPassword = binding.passwordInputConfirm.editText?.text.toString()
 
         if (!Utils.checkInputsEmptyOrNot(username, password, confirmPassword, levelStudy, grade)) {
@@ -118,6 +149,15 @@ class SignupFragment : Fragment() {
             if (user == null) boolean = false
         }
         return boolean
+    }
+
+    override fun onItemSelected(p0: AdapterView<*>, p1: View?, p2: Int, p3: Long) {
+        var text = p0.getItemAtPosition(p2).toString()
+        Utils.showToast(p0.context, text)
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+        TODO("Not yet implemented")
     }
 
 }

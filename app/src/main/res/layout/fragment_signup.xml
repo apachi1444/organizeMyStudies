@@ -22,25 +22,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-        <EditText
+        <Spinner
+            android:entries="@array/gradeStrings"
             android:id="@+id/gradeInput"
             style="@style/oneInputFormSignUp"
             android:background="@drawable/search_input_home_page"
-            android:drawableStart="@drawable/ic_grad"
-            android:hint="@string/your_grade"
-            android:paddingHorizontal="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userNameInput" />
 
-        <EditText
+        <Spinner
             android:id="@+id/levelStudyInput"
+            android:entries="@array/levelOfStudyStrings"
             style="@style/oneInputFormSignUp"
             android:background="@drawable/search_input_home_page"
-            android:drawableStart="@drawable/ic_school_icon"
-            android:hint="@string/your_level_of_study"
-            android:paddingHorizontal="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +46,8 @@
             android:id="@+id/passwordInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
             android:layout_marginTop="16dp"
+            android:inputType="textPassword"
             android:textColorHint="@color/main_grey"
             app:boxBackgroundMode="none"
             app:hintEnabled="false"
@@ -78,8 +74,8 @@
             android:id="@+id/passwordInputConfirm"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
             android:layout_marginTop="16dp"
+            android:inputType="textPassword"
             android:textColorHint="@color/main_grey"
             app:boxBackgroundMode="none"
             app:hintEnabled="false"
@@ -103,18 +99,18 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-<!--        <EditText-->
-<!--            android:id="@+id/passwordInputConfirm"-->
-<!--            style="@style/oneInputFormSignUp"-->
-<!--            android:background="@drawable/search_input_home_page"-->
-<!--            android:drawableStart="@drawable/ic_lock_icon"-->
-<!--            android:hint="@string/your_password_again"-->
-<!--            android:inputType="textPassword"-->
-<!--            android:paddingHorizontal="8dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.0"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/passwordInput" />-->
+        <!--        <EditText-->
+        <!--            android:id="@+id/passwordInputConfirm"-->
+        <!--            style="@style/oneInputFormSignUp"-->
+        <!--            android:background="@drawable/search_input_home_page"-->
+        <!--            android:drawableStart="@drawable/ic_lock_icon"-->
+        <!--            android:hint="@string/your_password_again"-->
+        <!--            android:inputType="textPassword"-->
+        <!--            android:paddingHorizontal="8dp"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.0"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/passwordInput" />-->
 
         <Button
             android:id="@+id/buttonSignUp"

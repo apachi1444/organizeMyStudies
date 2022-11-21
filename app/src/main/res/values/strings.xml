@@ -70,4 +70,20 @@
     <string name="light_mode">Light Mode</string>
     <string name="sound_on">Sound On</string>
     <string name="english">English</string>
+
+    <string-array name="gradeStrings">
+        <item>Select Your Grade</item>
+        <item>GI</item>
+        <item>GE</item>
+        <item>GRT</item>
+        <item>GIL</item>
+    </string-array>
+
+    <string-array name="levelOfStudyStrings">
+        <item>Select Your Level Of Study</item>
+        <item>3rd Year</item>
+        <item>4th Year</item>
+        <item>5th Year</item>
+    </string-array>
+
 </resources>

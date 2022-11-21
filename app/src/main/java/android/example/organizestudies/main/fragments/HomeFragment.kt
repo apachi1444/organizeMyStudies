@@ -4,7 +4,9 @@ import android.content.Intent
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentHomeBinding
 import android.example.organizestudies.utils.Utils
+import android.example.organizestudies.welcome.OnlyOnceWelcomeActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -42,6 +44,12 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val username = Utils.readingFromSharedPreferences(requireContext(), "username")
+        val id = Utils.readingFromSharedPreferences(requireContext(), "id")
+
+        Log.i("bool", username.toString())
+        Log.i("bool", id.toString())
+
         goToProfile()
         goToStarredFragment()
         callChooseFromDevice()
@@ -99,7 +107,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun logOutButton() {
+        Utils.deletingInformationFromSharedPreferencesWhenLogOut(requireContext())
         requireActivity().finish()
+        Utils.startActivity(requireContext(), OnlyOnceWelcomeActivity::class.java)
+
     }
 
     private fun goToSettingsFragment() {

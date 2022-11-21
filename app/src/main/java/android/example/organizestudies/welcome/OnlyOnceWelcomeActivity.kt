@@ -23,9 +23,9 @@ class OnlyOnceWelcomeActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
         navController = navHostFragment.findNavController()
 
-        setupActionBarWithNavController(navController)
-
-        NavigationUI.setupActionBarWithNavController(this, navController)
+//        setupActionBarWithNavController(navController)
+//
+//        NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
