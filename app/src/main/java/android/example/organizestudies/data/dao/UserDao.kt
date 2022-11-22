@@ -20,9 +20,6 @@ interface UserDao {
     @Insert
     fun insert(userModuleCrossRef: UserModuleCrossRef)
 
-    @Query("SELECT * FROM User WHERE userId=:key")
-    fun getUserByKey(key: Long): User
-
     @Query("SELECT * FROM User WHERE username=:username AND password =:password LIMIT 1")
     fun getUserByUsernameAndPassword(username: String, password: String): User
 
@@ -37,8 +34,8 @@ interface UserDao {
 
 
     @Transaction
-    @Query("SELECT * FROM User ")
-    fun getUsersWithModules(): List<UserWithModules>
+    @Query("SELECT * FROM User WHERE userId=:userId")
+    fun getUsersWithModules(userId: String): List<UserWithModules>
 
 //    @Insert(onConflict = OnConflictStrategy.REPLACE)
 //    suspend fun insertModule(module: Module)

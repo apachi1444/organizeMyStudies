@@ -3,9 +3,11 @@ package android.example.organizestudies.viewmodels
 import android.app.Application
 import android.example.organizestudies.data.entities.User
 import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
+import android.example.organizestudies.data.entities.relations.UserWithModules
 import android.example.organizestudies.data.repo.ModuleRepository
 import android.example.organizestudies.data.repo.UserRepository
 import android.example.organizestudies.utils.ModuleUtils
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -31,6 +33,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun getModulesUser(userId: String): List<UserWithModules> {
+        return userRepository.getModulesUser(userId)
+    }
+
     fun addModules(user: User) {
         CoroutineScope(Dispatchers.IO).launch {
             val modules = ModuleUtils.getModules(user)
@@ -43,6 +49,9 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
                         it.moduleName
                     )
                 )
+            }
+            userRepository.getModulesUser(user.userId).forEach {
+                Log.i("haha", it.toString())
             }
         }
     }
@@ -66,9 +75,6 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun delete(user: User) {
-
-    }
 
     fun getAllUsers(): LiveData<List<User>> {
         return readAllData

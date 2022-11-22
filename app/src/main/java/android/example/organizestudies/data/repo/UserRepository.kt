@@ -5,6 +5,7 @@ import android.example.organizestudies.data.dao.UserDao
 import android.example.organizestudies.data.dao.db.UserDb
 import android.example.organizestudies.data.entities.User
 import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
+import android.example.organizestudies.data.entities.relations.UserWithModules
 import androidx.lifecycle.LiveData
 
 // abstract access to multiple data sources
@@ -19,6 +20,10 @@ data class UserRepository(private val application: Application) {
 
     fun getAllUsers(): LiveData<List<User>> {
         return readAllData
+    }
+
+    fun getModulesUser(userId: String): List<UserWithModules> {
+        return userDao.getUsersWithModules(userId)
     }
 
     fun getUserByUsernameAndPassword(username: String, password: String): User {

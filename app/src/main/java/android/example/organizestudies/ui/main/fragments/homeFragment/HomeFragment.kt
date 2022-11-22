@@ -2,17 +2,24 @@ package android.example.organizestudies.ui.main.fragments.homeFragment
 
 import android.content.Intent
 import android.example.organizestudies.R
+import android.example.organizestudies.data.entities.Module
 import android.example.organizestudies.databinding.FragmentHomeBinding
 import android.example.organizestudies.ui.welcome.activities.OnlyOnceWelcomeActivity
 import android.example.organizestudies.utils.Utils
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -22,8 +29,7 @@ class HomeFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var bottomNavigationView: BottomNavigationView
-
-
+    private lateinit var homeViewModel: HomeViewModel
 
     private lateinit var binding: FragmentHomeBinding
 
@@ -41,6 +47,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+
+        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+
         return binding.root
     }
 
@@ -52,11 +61,31 @@ class HomeFragment : Fragment() {
 //        Log.i("bool", id.toString())
 
         updatingHelloText()
-
         goToProfile()
+        getModulesUser()
         goToStarredFragment()
         callChooseFromDevice()
         goToModulesDetails()
+
+
+    }
+
+    private fun getModulesUser() {
+        GlobalScope.launch(Dispatchers.IO) {
+            var list: List<Module>
+            val liste = async {
+                homeViewModel.getAllModules(
+                    Utils.readingFromSharedPreferences(
+                        requireContext(),
+                        "username"
+                    )!!
+                )
+
+            }
+            if (liste.isCompleted) {
+                Log.i("list", liste.getCompleted().toString())
+            }
+        }
     }
 
     private fun updatingHelloText() {
