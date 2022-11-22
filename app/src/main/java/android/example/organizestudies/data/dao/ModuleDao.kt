@@ -16,4 +16,7 @@ interface ModuleDao {
     @Transaction
     @Query("SELECT * FROM Module where moduleId=:moduleId")
     suspend fun getModuleWithFiles(moduleId: String): List<ModuleWithFiles>
+
+    @Query("SELECT * FROM Module WHERE grade=:grade AND levelStudy =:levelStudy")
+    fun findModulesByGradeAndLevelStudy(grade: String, levelStudy: String) : List<Module>
 }

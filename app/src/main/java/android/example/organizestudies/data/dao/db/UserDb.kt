@@ -4,6 +4,7 @@ import android.content.Context
 import android.example.organizestudies.data.dao.FileDao
 import android.example.organizestudies.data.dao.ModuleDao
 import android.example.organizestudies.data.dao.UserDao
+import android.example.organizestudies.data.dao.UserModuleCrossRefDao
 import android.example.organizestudies.data.entities.File
 import android.example.organizestudies.data.entities.Module
 import android.example.organizestudies.data.entities.User
@@ -23,7 +24,7 @@ import kotlinx.coroutines.launch
 
 @Database(
     entities = [User::class, File::class, Module::class, UserModuleCrossRef::class],
-    version = 11,
+    version = 12,
     exportSchema = true
 )
 abstract class UserDb : RoomDatabase() {
@@ -31,6 +32,7 @@ abstract class UserDb : RoomDatabase() {
     abstract fun userDbDao(): UserDao
     abstract fun moduleDao(): ModuleDao
     abstract fun fileDao(): FileDao
+    abstract fun userModuleCrossRefDao() : UserModuleCrossRefDao
 
 
     companion object {
@@ -73,30 +75,7 @@ abstract class UserDb : RoomDatabase() {
             override fun onCreate(@NonNull db: SupportSQLiteDatabase) {
                 super.onCreate(db)
                 val moduleDao: ModuleDao = INSTANCE!!.moduleDao()
-                CoroutineScope(Dispatchers.IO).launch {
-                    val module = Module(
-                        StringsUtils.generateRandomUUID(),
-                        "Spring Boot",
-                        false,
-                        "Mr Atlas",
-                        "GI",
-                        "5th Year",
-                        1,
-                        StringsUtils.convertEnumToString(HashTagsModules.BackEnd)
-                    )
-                    val module1 = Module(
-                        StringsUtils.generateRandomUUID(),
-                        "BI",
-                        false,
-                        "Mr Ameur",
-                        "GI",
-                        "5th Year",
-                        1,
-                        StringsUtils.convertEnumToString(HashTagsModules.Data)
-                    )
-                    moduleDao.insert(module)
-                    moduleDao.insert(module1)
-                }
+
 //                PopulateDbAsyncTask(INSTANCE!!).execute()
             }
         }

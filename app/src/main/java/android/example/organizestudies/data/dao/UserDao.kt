@@ -1,6 +1,7 @@
 package android.example.organizestudies.data.dao
 
 import android.example.organizestudies.data.entities.User
+import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
 import android.example.organizestudies.data.entities.relations.UserWithModules
 import androidx.lifecycle.LiveData
 import androidx.room.*
@@ -15,6 +16,9 @@ interface UserDao {
 
     @Delete
     fun delete(user: User)
+
+    @Insert
+    fun insert(userModuleCrossRef: UserModuleCrossRef)
 
     @Query("SELECT * FROM User WHERE userId=:key")
     fun getUserByKey(key: Long): User
@@ -35,10 +39,6 @@ interface UserDao {
     @Transaction
     @Query("SELECT * FROM User ")
     fun getUsersWithModules(): List<UserWithModules>
-
-    @Transaction
-    @Query("SELECT * FROM user")
-    fun getAllFullOrders(): List<UserWithModules>
 
 //    @Insert(onConflict = OnConflictStrategy.REPLACE)
 //    suspend fun insertModule(module: Module)

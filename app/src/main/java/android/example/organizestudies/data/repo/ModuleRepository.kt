@@ -9,9 +9,12 @@ data class ModuleRepository(private val application: Application) {
 
     private var moduleDao: ModuleDao = UserDb.getInstance(application).moduleDao()
 
-    fun addModule(module: Module) {
+    fun add(module: Module) {
         moduleDao.insert(module)
     }
 
+    fun getModulesByGradeAndLevelStudy(grade: String, levelStudy: String): List<Module> {
+        return moduleDao.findModulesByGradeAndLevelStudy(grade, levelStudy)
+    }
 
 }

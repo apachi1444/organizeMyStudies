@@ -57,12 +57,16 @@ class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         goToBackToLoginPage()
 
-        binding.buttonSignUp.setOnClickListener {
-            addUserToDB()
-        }
+        addUserToDbWhenClickingOnSignupButton()
 
         return binding.root
 
+    }
+
+    private fun addUserToDbWhenClickingOnSignupButton() {
+        binding.buttonSignUp.setOnClickListener {
+            addUserToDB()
+        }
     }
 
 //    private fun logicMultipleChoiceInput(){
@@ -90,6 +94,7 @@ class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
         spinner.adapter = adapter
         spinner.onItemSelectedListener = this
     }
+
 
     private fun configurationSpinnerLevelOfStudy() {
         spinner = binding.levelStudyInput
@@ -125,10 +130,15 @@ class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 Utils.showToast(requireContext(), "Please make sure both passwords match !")
             } else {
                 if (checkUserNotExistingInOurDb(username)) {
+
                     val user =
                         User(UUID.randomUUID().toString(), username, password, grade, levelStudy)
+
                     myUserViewModel.addUser(user)
+                    myUserViewModel.addModulesToUser(user)
+
                     Utils.showToast(requireContext(), "Successfully added !")
+
                     // navigate back
                     findNavController().navigateUp()
                 } else {

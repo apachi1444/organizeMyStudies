@@ -4,6 +4,7 @@ import android.app.Application
 import android.example.organizestudies.data.dao.UserDao
 import android.example.organizestudies.data.dao.db.UserDb
 import android.example.organizestudies.data.entities.User
+import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
 import androidx.lifecycle.LiveData
 
 // abstract access to multiple data sources
@@ -26,6 +27,10 @@ data class UserRepository(private val application: Application) {
 
     fun getUserByUsername(username: String): User {
         return userDao.getUserByUsername(username)
+    }
+
+    fun addUserModuleCrossRefModel(userModuleCrossRef: UserModuleCrossRef) {
+        userDao.insert(userModuleCrossRef)
     }
 
 
