@@ -1,4 +1,4 @@
-package android.example.organizestudies.ui.welcome.fragments
+package android.example.organizestudies.ui.welcome.fragments.signupFragment
 
 import android.example.organizestudies.R
 import android.example.organizestudies.data.entities.User
@@ -135,7 +135,7 @@ class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
                         User(UUID.randomUUID().toString(), username, password, grade, levelStudy)
 
                     myUserViewModel.addUser(user)
-                    myUserViewModel.addModulesToUser(user)
+                    myUserViewModel.addModules(user)
 
                     Utils.showToast(requireContext(), "Successfully added !")
 

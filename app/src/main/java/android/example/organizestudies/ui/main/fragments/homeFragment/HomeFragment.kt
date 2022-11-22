@@ -1,9 +1,9 @@
-package android.example.organizestudies.ui.welcome.main.fragments
+package android.example.organizestudies.ui.main.fragments.homeFragment
 
 import android.content.Intent
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentHomeBinding
-import android.example.organizestudies.ui.welcome.OnlyOnceWelcomeActivity
+import android.example.organizestudies.ui.welcome.activities.OnlyOnceWelcomeActivity
 import android.example.organizestudies.utils.Utils
 import android.os.Bundle
 import android.view.*
@@ -22,6 +22,8 @@ class HomeFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var bottomNavigationView: BottomNavigationView
+
+
 
     private lateinit var binding: FragmentHomeBinding
 

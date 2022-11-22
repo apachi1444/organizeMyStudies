@@ -1,4 +1,4 @@
-package android.example.organizestudies.ui.welcome.fragments
+package android.example.organizestudies.ui.welcome.fragments.firstWelcomePageFragment
 
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentFirstWelcomePageBinding
@@ -50,7 +50,7 @@ class FirstWelcomePageFragment : Fragment() {
     private fun goToSecondPage(binding: FragmentFirstWelcomePageBinding) {
         binding.startGameButton.setOnClickListener {
             requireView().findNavController()
-                .navigate(R.id.action_firstWelcomePageFragment_to_secondWelcomePageFragment)
+                .navigate(R.id.action_firstWelcomePageFragment_to_secondWelcomePageFragment2)
         }
     }
 

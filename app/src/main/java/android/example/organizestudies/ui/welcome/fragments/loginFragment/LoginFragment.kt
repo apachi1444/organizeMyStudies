@@ -1,8 +1,8 @@
-package android.example.organizestudies.ui.welcome.fragments
+package android.example.organizestudies.ui.welcome.fragments.loginFragment
 
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentLoginBinding
-import android.example.organizestudies.ui.welcome.main.MainActivity
+import android.example.organizestudies.ui.main.activities.MainActivity
 import android.example.organizestudies.utils.Errors
 import android.example.organizestudies.utils.Utils
 import android.example.organizestudies.viewmodels.UserViewModel
@@ -140,7 +140,7 @@ class LoginFragment : Fragment() {
 
     private fun goToSignUpPage() {
         binding.signUpButton.setOnClickListener {
-            requireView().findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
+            requireView().findNavController().navigate(R.id.action_loginFragment_to_signupFragment2)
         }
     }
 

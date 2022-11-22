@@ -15,7 +15,7 @@
         android:theme="@style/Theme.OrganizeStudies"
         tools:targetApi="31">
         <activity
-            android:name="android.example.organizestudies.ui.welcome.OnlyOnceWelcomeActivity"
+            android:name="android.example.organizestudies.ui.welcome.activities.OnlyOnceWelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="android.example.organizestudies.ui.welcome.main.MainActivity"
+            android:name="android.example.organizestudies.ui.main.activities.MainActivity"
             android:exported="true">
 
         </activity>

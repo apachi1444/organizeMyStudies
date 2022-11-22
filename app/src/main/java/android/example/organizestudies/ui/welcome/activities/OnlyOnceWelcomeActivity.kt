@@ -1,8 +1,7 @@
-package android.example.organizestudies.ui.welcome
+package android.example.organizestudies.ui.welcome.activities
 
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.ActivityOnlyOnceWelcomeBinding
-import android.example.organizestudies.viewmodels.WelcomeViewModel
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -23,7 +22,7 @@ class OnlyOnceWelcomeActivity : AppCompatActivity() {
 
         welcomeViewModel = ViewModelProvider(this)[WelcomeViewModel::class.java]
 
-        addingModulesToDb()
+//        addingModulesToDb()
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
@@ -34,9 +33,9 @@ class OnlyOnceWelcomeActivity : AppCompatActivity() {
 //        NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
-    fun addingModulesToDb() {
-        welcomeViewModel.addModules()
-    }
+//    private fun addingModulesToDb() {
+//        welcomeViewModel.addModules()
+//    }
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()

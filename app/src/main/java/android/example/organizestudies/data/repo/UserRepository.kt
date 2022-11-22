@@ -33,5 +33,4 @@ data class UserRepository(private val application: Application) {
         userDao.insert(userModuleCrossRef)
     }
 
-
 }

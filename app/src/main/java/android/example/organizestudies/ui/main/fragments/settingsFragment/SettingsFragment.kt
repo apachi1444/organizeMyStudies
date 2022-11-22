@@ -1,19 +1,23 @@
-package android.example.organizestudies.ui.welcome.main.fragments
+package android.example.organizestudies.ui.main.fragments.settingsFragment
 
 import android.example.organizestudies.R
-import android.example.organizestudies.databinding.FragmentProfileBinding
+import android.example.organizestudies.databinding.FragmentSettingsBinding
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class ProfileFragment : Fragment() {
+
+class SettingsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var binding: FragmentProfileBinding
+
+    private lateinit var binding: FragmentSettingsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -26,11 +30,15 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
-
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings, container, false)
+        toggleImageSoundWhenClicked()
         return binding.root
     }
 
 
-
+    private fun toggleImageSoundWhenClicked() {
+        binding.soundImage.setOnClickListener {
+            binding.soundImage.setImageResource(R.drawable.sound_off_img)
+        }
+    }
 }

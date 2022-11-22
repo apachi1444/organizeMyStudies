@@ -5,9 +5,11 @@ import android.example.organizestudies.data.entities.User
 import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
 import android.example.organizestudies.data.repo.ModuleRepository
 import android.example.organizestudies.data.repo.UserRepository
+import android.example.organizestudies.utils.ModuleUtils
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -26,6 +28,22 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     fun addUser(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
             userRepository.addUser(user)
+        }
+    }
+
+    fun addModules(user: User) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val modules = ModuleUtils.getModules(user)
+            modules.forEach {
+                userRepository.addUserModuleCrossRefModel(
+                    UserModuleCrossRef(
+                        user.userId,
+                        it.moduleId,
+                        user.username,
+                        it.moduleName
+                    )
+                )
+            }
         }
     }
 
