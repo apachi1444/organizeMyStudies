@@ -1,12 +1,12 @@
 package android.example.organizestudies.data.dao
 
-import android.example.organizestudies.data.entities.Module
 import android.example.organizestudies.data.entities.User
-import android.example.organizestudies.data.entities.UserWithModules
+import android.example.organizestudies.data.entities.relations.UserWithModules
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
-interface UserDbDao {
+interface UserDao {
     @Insert
     fun insert(user: User)
 
@@ -26,10 +26,19 @@ interface UserDbDao {
     fun clear()
 
     @Query("SELECT * FROM User ORDER BY userId DESC")
-    fun getAllUsers(): List<User>
+    fun getAllUsers(): LiveData<List<User>>
 
     @Query("SELECT * FROM User WHERE username =:username LIMIT 1")
     fun getUserByUsername(username: String): User
+
+
+    @Transaction
+    @Query("SELECT * FROM User ")
+    fun getUsersWithModules(): List<UserWithModules>
+
+    @Transaction
+    @Query("SELECT * FROM user")
+    fun getAllFullOrders(): List<UserWithModules>
 
 //    @Insert(onConflict = OnConflictStrategy.REPLACE)
 //    suspend fun insertModule(module: Module)

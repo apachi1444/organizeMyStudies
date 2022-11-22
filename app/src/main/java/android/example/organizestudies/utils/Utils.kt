@@ -1,11 +1,9 @@
 package android.example.organizestudies.utils
 
-import android.app.Activity
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.SharedPreferences
-import android.example.organizestudies.main.MainActivity
 import android.util.Log
 import android.widget.Toast
 

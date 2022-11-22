@@ -7,11 +7,11 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="android.example.organizestudies.main.fragments.ProfileFragment"
+        android:name="android.example.organizestudies.ui.welcome.main.fragments.ProfileFragment"
         android:label="My Profile" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="android.example.organizestudies.main.fragments.HomeFragment"
+        android:name="android.example.organizestudies.ui.welcome.main.fragments.HomeFragment"
         android:label="Home">
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
@@ -29,15 +29,15 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="android.example.organizestudies.main.fragments.SettingsFragment"
+        android:name="android.example.organizestudies.ui.welcome.main.fragments.SettingsFragment"
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/starredFragment"
-        android:name="android.example.organizestudies.main.fragments.StarredFragment"
+        android:name="android.example.organizestudies.ui.welcome.main.fragments.StarredFragment"
         android:label="j" />
     <fragment
         android:id="@+id/moduleDetailsFragment"
-        android:name="android.example.organizestudies.main.fragments.ModuleDetailsFragment"
+        android:name="android.example.organizestudies.ui.welcome.main.fragments.ModuleDetailsFragment"
         android:label="fragment_module_details"
         tools:layout="@layout/fragment_module_details" />
 </navigation>

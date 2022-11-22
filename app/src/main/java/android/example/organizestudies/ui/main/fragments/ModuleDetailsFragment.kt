@@ -1,4 +1,4 @@
-package android.example.organizestudies.main.fragments
+package android.example.organizestudies.ui.welcome.main.fragments
 
 import android.example.organizestudies.R
 import android.os.Bundle

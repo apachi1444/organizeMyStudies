@@ -1,8 +1,8 @@
-package android.example.organizestudies.welcome.fragments
+package android.example.organizestudies.ui.welcome.fragments
 
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentSecondWelcomePageBinding
-import android.example.organizestudies.main.MainActivity
+import android.example.organizestudies.ui.welcome.main.MainActivity
 import android.example.organizestudies.utils.Utils
 import android.os.Bundle
 import android.view.LayoutInflater

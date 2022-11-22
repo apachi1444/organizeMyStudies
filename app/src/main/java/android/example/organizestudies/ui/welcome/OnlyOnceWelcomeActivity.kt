@@ -1,4 +1,4 @@
-package android.example.organizestudies.welcome
+package android.example.organizestudies.ui.welcome
 
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.ActivityOnlyOnceWelcomeBinding
@@ -8,8 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
 
 class OnlyOnceWelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOnlyOnceWelcomeBinding

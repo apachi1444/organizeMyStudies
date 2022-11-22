@@ -1,23 +1,22 @@
 package android.example.organizestudies.viewmodels
 
 import android.app.Application
-import android.example.organizestudies.data.dao.UserDb
 import android.example.organizestudies.data.entities.User
 import android.example.organizestudies.data.repo.UserRepository
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
-    //    private val readAllData: LiveData<List<User>>
     private val repository: UserRepository
+    private var readAllData: LiveData<List<User>>
 
     init {
-        val userDao = UserDb.getInstance(application).userDbDao()
-        repository = UserRepository(userDao)
-//        readAllData = repository.readAllData
+        repository = UserRepository(application)
+        readAllData = repository.getAllUsers()
     }
 
     fun addUser(user: User) {
@@ -26,12 +25,14 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    suspend fun getAllUsers(): List<User> {
-        return withContext(Dispatchers.IO) {
-            repository.getAllUsers()
-        }
+    fun delete(user: User) {
 
     }
+
+    fun getAllUsers(): LiveData<List<User>> {
+        return readAllData
+    }
+
 
     suspend fun getUserByUsernameAndPassword(username: String, password: String): User {
         return withContext(Dispatchers.IO) {

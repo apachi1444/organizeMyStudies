@@ -1,12 +1,11 @@
-package android.example.organizestudies.main.fragments
+package android.example.organizestudies.ui.welcome.main.fragments
 
 import android.content.Intent
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.FragmentHomeBinding
+import android.example.organizestudies.ui.welcome.OnlyOnceWelcomeActivity
 import android.example.organizestudies.utils.Utils
-import android.example.organizestudies.welcome.OnlyOnceWelcomeActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -44,16 +43,24 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val username = Utils.readingFromSharedPreferences(requireContext(), "username")
-        val id = Utils.readingFromSharedPreferences(requireContext(), "id")
+//        val username = Utils.readingFromSharedPreferences(requireContext(), "username")
+//        val id = Utils.readingFromSharedPreferences(requireContext(), "id")
+//
+//        Log.i("bool", username.toString())
+//        Log.i("bool", id.toString())
 
-        Log.i("bool", username.toString())
-        Log.i("bool", id.toString())
+        updatingHelloText()
 
         goToProfile()
         goToStarredFragment()
         callChooseFromDevice()
         goToModulesDetails()
+    }
+
+    private fun updatingHelloText() {
+        val usernameFromSharedPreferences =
+            Utils.readingFromSharedPreferences(requireContext(), "username")
+        binding.helloText.text = "Hello $usernameFromSharedPreferences"
     }
 
 
@@ -123,4 +130,6 @@ class HomeFragment : Fragment() {
                 .navigate(R.id.action_homeFragment_to_moduleDetailsFragment)
         }
     }
+
+
 }

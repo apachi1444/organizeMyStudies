@@ -70,6 +70,8 @@
     <string name="light_mode">Light Mode</string>
     <string name="sound_on">Sound On</string>
     <string name="english">English</string>
+    <string name="choose_your_module">Choose Your Module</string>
+    <string name="ok">Ok</string>
 
     <string-array name="gradeStrings">
         <item>Select Your Grade</item>

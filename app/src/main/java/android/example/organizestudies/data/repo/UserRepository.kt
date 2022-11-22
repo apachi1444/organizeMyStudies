@@ -1,26 +1,32 @@
 package android.example.organizestudies.data.repo
 
-import android.example.organizestudies.data.dao.UserDbDao
+import android.app.Application
+import android.example.organizestudies.data.dao.UserDao
+import android.example.organizestudies.data.dao.db.UserDb
 import android.example.organizestudies.data.entities.User
+import androidx.lifecycle.LiveData
 
 // abstract access to multiple data sources
-class UserRepository(private val userDbDao: UserDbDao) {
+data class UserRepository(private val application: Application) {
 
-//    val readAllData: LiveData<List<User>> = userDbDao.getAllUsers()
+    private var userDao: UserDao = UserDb.getInstance(application).userDbDao()
+    private var readAllData: LiveData<List<User>> = userDao.getAllUsers()
 
     fun addUser(user: User) {
-        userDbDao.insert(user)
+        userDao.insert(user)
     }
 
-    fun getAllUsers(): List<User> {
-        return userDbDao.getAllUsers()
+    fun getAllUsers(): LiveData<List<User>> {
+        return readAllData
     }
 
     fun getUserByUsernameAndPassword(username: String, password: String): User {
-        return userDbDao.getUserByUsernameAndPassword(username, password)
+        return userDao.getUserByUsernameAndPassword(username, password)
     }
 
-    fun getUserByUsername(username: String) : User {
-        return userDbDao.getUserByUsername(username)
+    fun getUserByUsername(username: String): User {
+        return userDao.getUserByUsername(username)
     }
+
+
 }

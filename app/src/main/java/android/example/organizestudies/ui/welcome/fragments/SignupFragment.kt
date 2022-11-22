@@ -1,4 +1,4 @@
-package android.example.organizestudies.welcome.fragments
+package android.example.organizestudies.ui.welcome.fragments
 
 import android.example.organizestudies.R
 import android.example.organizestudies.data.entities.User

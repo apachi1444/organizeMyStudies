@@ -1,16 +1,17 @@
 package android.example.organizestudies.data.dao
 
 import android.example.organizestudies.data.entities.File
-import android.example.organizestudies.data.entities.ModuleWithFiles
-import android.example.organizestudies.data.entities.UserWithModules
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Transaction
+import android.example.organizestudies.data.entities.Module
+import android.example.organizestudies.data.entities.relations.ModuleWithFiles
+import androidx.room.*
 
+@Dao
 interface ModuleDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFile(file: File)
+
+    @Insert
+    fun insert(module: Module)
 
     @Transaction
     @Query("SELECT * FROM Module where moduleId=:moduleId")

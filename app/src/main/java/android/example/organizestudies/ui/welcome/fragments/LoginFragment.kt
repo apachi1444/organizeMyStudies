@@ -1,10 +1,8 @@
-package android.example.organizestudies.welcome.fragments
+package android.example.organizestudies.ui.welcome.fragments
 
 import android.example.organizestudies.R
-import android.example.organizestudies.data.dao.UserDb
-import android.example.organizestudies.data.dao.UserDbDao
 import android.example.organizestudies.databinding.FragmentLoginBinding
-import android.example.organizestudies.main.MainActivity
+import android.example.organizestudies.ui.welcome.main.MainActivity
 import android.example.organizestudies.utils.Errors
 import android.example.organizestudies.utils.Utils
 import android.example.organizestudies.viewmodels.UserViewModel
@@ -28,7 +26,6 @@ import kotlinx.coroutines.launch
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var dao: UserDbDao
     private lateinit var myUserViewModel: UserViewModel
     private var username: String = ""
     private var password: String = ""
@@ -50,12 +47,14 @@ class LoginFragment : Fragment() {
 
         goToSignUpPage()
 
+//        myUserViewModel.getAllUsers().observe(viewLifecycleOwner, Observer {
+//            Utils.showToast(requireContext(), "haha")
+//        })
+
         return binding.root
     }
 
     private fun configurationDbAndViewModel() {
-        val application = requireNotNull(this.activity).application
-        dao = UserDb.getInstance(application).userDbDao()
         setHasOptionsMenu(true)
         myUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
     }

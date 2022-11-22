@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context=".main.MainActivity">
+        tools:context=".ui.welcome.main.MainActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -70,22 +70,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageModule" />
 
-
-            <TextView
-                android:id="@+id/secondTag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/tags_background"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="8dp"
-                android:text="@string/backend"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/firstTag"
-                app:layout_constraintStart_toEndOf="@+id/firstTag" />
 
             <TextView
                 android:id="@+id/textView6"

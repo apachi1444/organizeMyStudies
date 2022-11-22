@@ -1,9 +1,11 @@
-package android.example.organizestudies.main
+package android.example.organizestudies.ui.welcome.main
 
+import android.app.Dialog
 import android.example.organizestudies.R
 import android.example.organizestudies.databinding.ActivityMainBinding
 import android.example.organizestudies.utils.Utils
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -51,12 +53,29 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> Utils.showToast(applicationContext, "HOME")
-                R.id.person -> Utils.showToast(applicationContext, "HAHA")
+                R.id.add -> {
+                    Utils.showToast(applicationContext, "HAHA")
+                    showDialogAddFile()
+                }
                 R.id.settings -> Utils.showToast(applicationContext, "HERE")
             }
             true
         }
 
+    }
+
+    private fun showDialogAddFile() {
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.custom_popup_add_file)
+        dialog.show()
+        closeDialog(dialog)
+    }
+
+    private fun closeDialog(dialog: Dialog) {
+        val buttonClose = dialog.findViewById<ImageView>(R.id.btn_close)
+        buttonClose.setOnClickListener {
+            dialog.dismiss()
+        }
     }
 
 
