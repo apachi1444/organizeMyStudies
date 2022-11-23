@@ -12,6 +12,8 @@ class Utils {
 
     companion object {
 
+        const val CURRENT_VERSION_DB = 16
+
         const val
                 CHOOSE_PDF_FROM_DEVICE = 1001
 
@@ -86,7 +88,7 @@ class Utils {
             context.startActivity(intent)
         }
 
-        fun<T> navigateToSpecificFragment(context: Context , activity: T){
+        fun <T> navigateToSpecificFragment(context: Context, activity: T) {
 
         }
 

@@ -2,7 +2,7 @@ package android.example.organizestudies.data.repo
 
 import android.app.Application
 import android.example.organizestudies.data.dao.UserDao
-import android.example.organizestudies.data.dao.db.UserDb
+import android.example.organizestudies.data.db.UserDb
 import android.example.organizestudies.data.entities.User
 import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
 import android.example.organizestudies.data.entities.relations.UserWithModules
@@ -22,8 +22,8 @@ data class UserRepository(private val application: Application) {
         return readAllData
     }
 
-    fun getModulesUser(userId: String): List<UserWithModules> {
-        return userDao.getUsersWithModules(userId)
+    fun getModulesUser(userName: String): List<UserWithModules> {
+        return userDao.getUsersWithModules(userName)
     }
 
     fun getUserByUsernameAndPassword(username: String, password: String): User {

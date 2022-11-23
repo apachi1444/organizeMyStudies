@@ -3,6 +3,7 @@ package android.example.organizestudies.viewmodels
 import android.app.Application
 import android.example.organizestudies.data.entities.User
 import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
+import android.example.organizestudies.data.entities.relations.UserModuleId
 import android.example.organizestudies.data.entities.relations.UserWithModules
 import android.example.organizestudies.data.repo.ModuleRepository
 import android.example.organizestudies.data.repo.UserRepository
@@ -43,10 +44,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             modules.forEach {
                 userRepository.addUserModuleCrossRefModel(
                     UserModuleCrossRef(
-                        user.userId,
-                        it.moduleId,
+                        UserModuleId(user.userId, it.moduleId),
                         user.username,
-                        it.moduleName
+                        it.moduleName,
+                        false
                     )
                 )
             }
@@ -68,7 +69,15 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             listModules.forEach {
 
                 val userModuleCrossRef =
-                    UserModuleCrossRef(user.userId, it.moduleId, user.username, it.moduleName)
+                    UserModuleCrossRef(
+                        UserModuleId(
+                            user.userId,
+                            it.moduleId
+                        ),
+                        user.username,
+                        it.moduleName,
+                        false
+                    )
 
                 userRepository.addUserModuleCrossRefModel(userModuleCrossRef)
             }

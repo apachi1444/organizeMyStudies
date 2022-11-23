@@ -2,9 +2,9 @@ package android.example.organizestudies.ui.main.fragments.homeFragment
 
 import android.content.Intent
 import android.example.organizestudies.R
-import android.example.organizestudies.data.entities.Module
+import android.example.organizestudies.data.entities.relations.UserWithModules
 import android.example.organizestudies.databinding.FragmentHomeBinding
-import android.example.organizestudies.ui.welcome.activities.OnlyOnceWelcomeActivity
+import android.example.organizestudies.ui.welcome.activities.WelcomeActivity
 import android.example.organizestudies.utils.Utils
 import android.os.Bundle
 import android.util.Log
@@ -13,12 +13,11 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 private const val ARG_PARAM1 = "param1"
@@ -30,6 +29,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var homeViewModel: HomeViewModel
+
+    private var listModules: List<UserWithModules> = ArrayList()
 
     private lateinit var binding: FragmentHomeBinding
 
@@ -46,8 +47,8 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         return binding.root
@@ -67,25 +68,25 @@ class HomeFragment : Fragment() {
         callChooseFromDevice()
         goToModulesDetails()
 
-
     }
 
     private fun getModulesUser() {
-        GlobalScope.launch(Dispatchers.IO) {
-            var list: List<Module>
-            val liste = async {
-                homeViewModel.getAllModules(
-                    Utils.readingFromSharedPreferences(
-                        requireContext(),
-                        "username"
-                    )!!
-                )
 
-            }
-            if (liste.isCompleted) {
-                Log.i("list", liste.getCompleted().toString())
+        lifecycleScope.launch(Dispatchers.Main) {
+            listModules = homeViewModel.getAllModules(
+                Utils.readingFromSharedPreferences(
+                    requireContext(),
+                    "username"
+                )!!
+            )
+        }
+
+        listModules.forEach {
+            it.modules.forEach { module ->
+                Log.i("log", module.toString())
             }
         }
+
     }
 
     private fun updatingHelloText() {
@@ -147,7 +148,7 @@ class HomeFragment : Fragment() {
     private fun logOutButton() {
         Utils.deletingInformationFromSharedPreferencesWhenLogOut(requireContext())
         requireActivity().finish()
-        Utils.startActivity(requireContext(), OnlyOnceWelcomeActivity::class.java)
+        Utils.startActivity(requireContext(), WelcomeActivity::class.java)
 
     }
 

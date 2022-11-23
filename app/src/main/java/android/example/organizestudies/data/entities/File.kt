@@ -2,6 +2,7 @@ package android.example.organizestudies.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity
 data class File(
@@ -9,7 +10,7 @@ data class File(
     var fileId: String,
     var filename: String,
     var extension: String,
-    val moduleIdCorresponding: String,
-    val starred: Boolean,
-
+    var moduleIdCorresponding: String,
+    var starred: Boolean,
+    var lastTimeOpen: Date
 )

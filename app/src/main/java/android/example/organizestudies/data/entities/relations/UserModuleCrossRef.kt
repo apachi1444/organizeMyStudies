@@ -1,12 +1,16 @@
 package android.example.organizestudies.data.entities.relations
 
+import androidx.room.Embedded
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-@Entity(primaryKeys = ["userId", "moduleId"], tableName = "user_module_table")
-
+@Entity(tableName = "user_module_table")
 data class UserModuleCrossRef(
-    val userId: String,
-    val moduleId: String,
+    @PrimaryKey
+    @Embedded
+    val userModuleId: UserModuleId,
     val userName: String,
-    val moduleName: String
+    val moduleName: String,
+    var starred: Boolean,
 )
+

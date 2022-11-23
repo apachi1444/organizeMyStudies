@@ -1,4 +1,4 @@
-package android.example.organizestudies.data.dao.db
+package android.example.organizestudies.data.db
 
 import android.content.Context
 import android.example.organizestudies.data.dao.FileDao
@@ -11,20 +11,18 @@ import android.example.organizestudies.data.entities.User
 import android.example.organizestudies.data.entities.enums.HashTagsModules
 import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
 import android.example.organizestudies.utils.StringsUtils
+import android.example.organizestudies.utils.Utils
 import android.os.AsyncTask
 import androidx.annotation.NonNull
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 
 @Database(
     entities = [User::class, File::class, Module::class, UserModuleCrossRef::class],
-    version = 12,
+    version = Utils.CURRENT_VERSION_DB,
     exportSchema = true
 )
 abstract class UserDb : RoomDatabase() {
@@ -32,7 +30,7 @@ abstract class UserDb : RoomDatabase() {
     abstract fun userDbDao(): UserDao
     abstract fun moduleDao(): ModuleDao
     abstract fun fileDao(): FileDao
-    abstract fun userModuleCrossRefDao() : UserModuleCrossRefDao
+    abstract fun userModuleCrossRefDao(): UserModuleCrossRefDao
 
 
     companion object {
@@ -71,7 +69,7 @@ abstract class UserDb : RoomDatabase() {
             }
         }
 
-        private val roomCallback: Callback = object : RoomDatabase.Callback() {
+        private val roomCallback: Callback = object : Callback() {
             override fun onCreate(@NonNull db: SupportSQLiteDatabase) {
                 super.onCreate(db)
                 val moduleDao: ModuleDao = INSTANCE!!.moduleDao()
@@ -89,7 +87,6 @@ abstract class UserDb : RoomDatabase() {
                 val module = Module(
                     StringsUtils.generateRandomUUID(),
                     "Spring Boot",
-                    false,
                     "Mr Atlas",
                     "GI",
                     "5th Year",
@@ -99,7 +96,6 @@ abstract class UserDb : RoomDatabase() {
                 val module1 = Module(
                     StringsUtils.generateRandomUUID(),
                     "BI",
-                    false,
                     "Mr Ameur",
                     "GI",
                     "5th Year",

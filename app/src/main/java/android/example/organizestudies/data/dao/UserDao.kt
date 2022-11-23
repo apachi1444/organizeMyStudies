@@ -34,8 +34,8 @@ interface UserDao {
 
 
     @Transaction
-    @Query("SELECT * FROM User WHERE userId=:userId")
-    fun getUsersWithModules(userId: String): List<UserWithModules>
+    @Query("SELECT * FROM User WHERE username=:userName")
+    fun getUsersWithModules(userName: String): List<UserWithModules>
 
 //    @Insert(onConflict = OnConflictStrategy.REPLACE)
 //    suspend fun insertModule(module: Module)
