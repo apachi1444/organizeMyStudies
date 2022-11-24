@@ -4,11 +4,10 @@ import android.app.Application
 import android.example.organizestudies.data.entities.User
 import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
 import android.example.organizestudies.data.entities.relations.UserModuleId
-import android.example.organizestudies.data.entities.relations.UserWithModules
 import android.example.organizestudies.data.repo.ModuleRepository
 import android.example.organizestudies.data.repo.UserRepository
 import android.example.organizestudies.utils.ModuleUtils
-import android.util.Log
+import android.example.organizestudies.utils.StringsUtils
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -34,9 +33,6 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun getModulesUser(userId: String): List<UserWithModules> {
-        return userRepository.getModulesUser(userId)
-    }
 
     fun addModules(user: User) {
         CoroutineScope(Dispatchers.IO).launch {
@@ -44,6 +40,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             modules.forEach {
                 userRepository.addUserModuleCrossRefModel(
                     UserModuleCrossRef(
+                        StringsUtils.generateRandomUUID(),
                         UserModuleId(user.userId, it.moduleId),
                         user.username,
                         it.moduleName,
@@ -51,9 +48,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
                     )
                 )
             }
-            userRepository.getModulesUser(user.userId).forEach {
-                Log.i("haha", it.toString())
-            }
+            
         }
     }
 
@@ -70,6 +65,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
 
                 val userModuleCrossRef =
                     UserModuleCrossRef(
+                        StringsUtils.generateRandomUUID(),
                         UserModuleId(
                             user.userId,
                             it.moduleId

@@ -18,16 +18,8 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
 import java.util.*
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-
 class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
-    private var param1: String? = null
-    private var param2: String? = null
 
-    private var items = arrayListOf("GI", "GE", "GRT", "GIL")
     private lateinit var spinner: Spinner
 
     private lateinit var myUserViewModel: UserViewModel
@@ -35,14 +27,6 @@ class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
 //    private lateinit var autoCompleteTextView: AutoCompleteTextView
 //    private lateinit var arrayAdapter: ArrayAdapter<String>
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -96,19 +80,6 @@ class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     }
 
-
-    private fun configurationSpinnerLevelOfStudy() {
-        spinner = binding.levelStudyInput
-        var adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.levelOfStudyStrings,
-            android.R.layout.simple_spinner_item
-        )
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
-        spinner.onItemSelectedListener = this
-    }
 
     private fun goToBackToLoginPage() {
         binding.buttonGoToLogin.setOnClickListener {

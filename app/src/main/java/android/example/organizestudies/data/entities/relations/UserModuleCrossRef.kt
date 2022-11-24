@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "user_module_table")
 data class UserModuleCrossRef(
     @PrimaryKey
+    val userModuleIdsCombined: String,
     @Embedded
     val userModuleId: UserModuleId,
     val userName: String,

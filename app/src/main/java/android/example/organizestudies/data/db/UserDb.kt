@@ -8,23 +8,24 @@ import android.example.organizestudies.data.dao.UserModuleCrossRefDao
 import android.example.organizestudies.data.entities.File
 import android.example.organizestudies.data.entities.Module
 import android.example.organizestudies.data.entities.User
-import android.example.organizestudies.data.entities.enums.HashTagsModules
 import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
-import android.example.organizestudies.utils.StringsUtils
-import android.example.organizestudies.utils.Utils
+import android.example.organizestudies.utils.Const
+import android.example.organizestudies.utils.Converters
 import android.os.AsyncTask
 import androidx.annotation.NonNull
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 
 
 @Database(
     entities = [User::class, File::class, Module::class, UserModuleCrossRef::class],
-    version = Utils.CURRENT_VERSION_DB,
+    version = Const.CURRENT_VERSION_DB,
     exportSchema = true
 )
+@TypeConverters(Converters::class)
 abstract class UserDb : RoomDatabase() {
 
     abstract fun userDbDao(): UserDao
@@ -61,6 +62,7 @@ abstract class UserDb : RoomDatabase() {
                         // will destruct and rebuild the db in the case of upgrading the db )
                         .addCallback(roomCallback)
                         .fallbackToDestructiveMigration()
+                        .allowMainThreadQueries()
                         .build()
                     INSTANCE = instance
                 }
@@ -82,28 +84,28 @@ abstract class UserDb : RoomDatabase() {
             AsyncTask<Void?, Void?, Void?>() {
             private var moduleDao: ModuleDao = db.moduleDao()
 
-            @Deprecated("Deprecated in Java")
+            @Deprecated("Deprecated in Java", ReplaceWith("null"))
             override fun doInBackground(vararg p0: Void?): Void? {
-                val module = Module(
-                    StringsUtils.generateRandomUUID(),
-                    "Spring Boot",
-                    "Mr Atlas",
-                    "GI",
-                    "5th Year",
-                    1,
-                    StringsUtils.convertEnumToString(HashTagsModules.BackEnd)
-                )
-                val module1 = Module(
-                    StringsUtils.generateRandomUUID(),
-                    "BI",
-                    "Mr Ameur",
-                    "GI",
-                    "5th Year",
-                    1,
-                    StringsUtils.convertEnumToString(HashTagsModules.Data)
-                )
-                moduleDao.insert(module)
-                moduleDao.insert(module1)
+//                val module = Module(
+//                    StringsUtils.generateRandomUUID(),
+//                    "Spring Boot",
+//                    "Mr Atlas",
+//                    "GI",
+//                    "5th Year",
+//                    1,
+//                    StringsUtils.convertEnumToString(HashTagsModules.BackEnd)
+//                )
+//                val module1 = Module(
+//                    StringsUtils.generateRandomUUID(),
+//                    "BI",
+//                    "Mr Ameur",
+//                    "GI",
+//                    "5th Year",
+//                    1,
+//                    StringsUtils.convertEnumToString(HashTagsModules.Data)
+//                )
+//                moduleDao.insert(module)
+//                moduleDao.insert(module1)
                 return null
             }
         }

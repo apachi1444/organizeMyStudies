@@ -11,7 +11,7 @@ data class UserWithModules(
     val user: User,
     @Relation(
         parentColumn = "userId",
-        entityColumn = "moduleId",
+        entityColumn = "moduleName",
         associateBy = Junction(UserModuleCrossRef::class)
     )
     val modules: List<Module>

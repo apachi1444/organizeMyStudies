@@ -1,45 +1,30 @@
 package android.example.organizestudies.ui.main.fragments.homeFragment
 
-import android.content.Intent
 import android.example.organizestudies.R
-import android.example.organizestudies.data.entities.relations.UserWithModules
 import android.example.organizestudies.databinding.FragmentHomeBinding
 import android.example.organizestudies.ui.welcome.activities.WelcomeActivity
 import android.example.organizestudies.utils.Utils
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class HomeFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
 
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var homeViewModel: HomeViewModel
 
-    private var listModules: List<UserWithModules> = ArrayList()
 
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
         setHasOptionsMenu(true)
     }
 
@@ -63,46 +48,26 @@ class HomeFragment : Fragment() {
 
         updatingHelloText()
         goToProfile()
-        getModulesUser()
         goToStarredFragment()
-        callChooseFromDevice()
+//        showModulesUser()
         goToModulesDetails()
 
     }
 
-    private fun getModulesUser() {
+//    private fun showModulesUser() {
+//        val list = homeViewModel.getModulesUser(lifecycleScope, requireContext())
+//        list.forEach { it ->
+//            it.modules.forEach {
+//                Log.i("module ${it.grade}", it.toString())
+//            }
+//        }
+//    }
 
-        lifecycleScope.launch(Dispatchers.Main) {
-            listModules = homeViewModel.getAllModules(
-                Utils.readingFromSharedPreferences(
-                    requireContext(),
-                    "username"
-                )!!
-            )
-        }
-
-        listModules.forEach {
-            it.modules.forEach { module ->
-                Log.i("log", module.toString())
-            }
-        }
-
-    }
 
     private fun updatingHelloText() {
         val usernameFromSharedPreferences =
             Utils.readingFromSharedPreferences(requireContext(), "username")
         binding.helloText.text = "Hello $usernameFromSharedPreferences"
-    }
-
-
-    private fun callChooseFromDevice() {
-        binding.calendarBox.setOnClickListener {
-            var intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-            intent.addCategory(Intent.CATEGORY_OPENABLE)
-            intent.type = "application/*"
-            startActivityForResult(intent, Utils.CHOOSE_PDF_FROM_DEVICE)
-        }
     }
 
     private fun goToStarredFragment() {
@@ -149,7 +114,6 @@ class HomeFragment : Fragment() {
         Utils.deletingInformationFromSharedPreferencesWhenLogOut(requireContext())
         requireActivity().finish()
         Utils.startActivity(requireContext(), WelcomeActivity::class.java)
-
     }
 
     private fun goToSettingsFragment() {

@@ -10,7 +10,10 @@ data class File(
     var fileId: String,
     var filename: String,
     var extension: String,
-    var moduleIdCorresponding: String,
     var starred: Boolean,
-    var lastTimeOpen: Date
+
+    var lastTimeOpened: Date,
+    var createdAt: Date,
+
+    var moduleIdCorresponding: String,
 )

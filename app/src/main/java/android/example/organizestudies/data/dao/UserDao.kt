@@ -35,7 +35,7 @@ interface UserDao {
 
     @Transaction
     @Query("SELECT * FROM User WHERE username=:userName")
-    fun getUsersWithModules(userName: String): List<UserWithModules>
+    fun getUsersWithModules(userName: String): LiveData<List<UserWithModules>>
 
 //    @Insert(onConflict = OnConflictStrategy.REPLACE)
 //    suspend fun insertModule(module: Module)

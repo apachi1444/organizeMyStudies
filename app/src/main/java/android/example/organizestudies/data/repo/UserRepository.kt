@@ -22,7 +22,7 @@ data class UserRepository(private val application: Application) {
         return readAllData
     }
 
-    fun getModulesUser(userName: String): List<UserWithModules> {
+    fun getModulesUser(userName: String): LiveData<List<UserWithModules>> {
         return userDao.getUsersWithModules(userName)
     }
 

@@ -9,7 +9,7 @@ data class UserModuleCrossRefWithFiles(
     val userModuleCrossRef: UserModuleCrossRef,
 
     @Relation(
-        parentColumn = "userModuleId",
+        parentColumn = "userModuleIdsCombined",
         entityColumn = "moduleIdCorresponding"
     )
     val files: List<File>
