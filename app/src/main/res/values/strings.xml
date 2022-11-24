@@ -72,6 +72,10 @@
     <string name="english">English</string>
     <string name="choose_your_module">Choose Your Module</string>
     <string name="ok">Ok</string>
+    <string name="your_file_name">Your File Name :</string>
+    <string name="choose_your_file">Choose Your File</string>
+    <string name="done">done</string>
+    <string name="click_here">Click Here !</string>
 
     <string-array name="gradeStrings">
         <item>Select Your Grade</item>

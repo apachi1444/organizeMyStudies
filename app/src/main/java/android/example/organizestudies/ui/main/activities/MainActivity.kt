@@ -1,5 +1,6 @@
 package android.example.organizestudies.ui.main.activities
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
 import android.example.organizestudies.R
@@ -8,10 +9,13 @@ import android.example.organizestudies.databinding.CustomPopupAddFileBinding
 import android.example.organizestudies.utils.Const
 import android.example.organizestudies.utils.Utils
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -35,6 +39,19 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
 
     private val listModules = ArrayList<String>()
+
+
+    // Receiver
+    private val getResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+        { result: ActivityResult ->
+            Log.i("intenthaha", result.toString())
+            if (result.resultCode == Activity.RESULT_OK) {
+                val intent = result.data?.getStringExtra("input")
+                print(intent)
+                // Handle the Intent
+            }
+        }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,14 +79,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
 
         mainActivityViewModel.allModules.observe(this) { it ->
-            it.forEach { it ->
-                it.modules.forEach {
+            it.forEach { ite ->
+                ite.modules.forEach {
                     listModules.add(it.moduleName)
                 }
             }
         }
-        configurationSpinnerModules()
 
+        configurationSpinnerModules()
         bottomNavigationLogic()
 
         NavigationUI.setupActionBarWithNavController(this, navController)
@@ -92,16 +109,17 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         }
 
     }
-
-    private fun choosePdfFromDevice() {
-        bindingCustomPopupAddFileBinding.btnOk.setOnClickListener {
-            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-            intent.addCategory(Intent.CATEGORY_OPENABLE)
-            intent.type = "application/*"
-            startActivityForResult(intent, Const.CHOOSE_PDF_FROM_DEVICE)
-        }
-
-    }
+//
+//    private fun choosePdfFromDevice(): ActivityResultLauncher<Intent> {
+////        bindingCustomPopupAddFileBinding.btnOk.setOnClickListener {
+////            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+////            intent.addCategory(Intent.CATEGORY_OPENABLE)
+////            intent.type = "application/*"
+////            startActivityForResult(intent, Const.CHOOSE_PDF_FROM_DEVICE)
+////        }
+//
+//
+//    }
 
     private fun showDialogAddFile() {
         val dialog = Dialog(this)
@@ -110,9 +128,17 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         dialog.setContentView(bindingCustomPopupAddFileBinding.root)
         configurationSpinnerModules()
         dialog.show()
-        choosePdfFromDevice()
+
+        bindingCustomPopupAddFileBinding.fileName.setOnClickListener {
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            intent.type = "application/*"
+            startActivity(intent , Const.CHOOSE_PDF_FROM_DEVICE)
+        }
+
         closeDialog(dialog)
     }
+
 
 //    private fun getModulesNames(): List<String> {
 //        val list = mainActivityViewModel.getModulesUser(this.lifecycleScope, applicationContext)
