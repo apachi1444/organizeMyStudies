@@ -27,7 +27,7 @@ class ModuleUtils {
             "5th Year",
             1,
             StringsUtils.convertEnumToString(HashTagsModules.Data),
-            R.drawable.uml_image
+            R.drawable.bi
         )
 
         private val moduleMobile = Module(
@@ -37,7 +37,7 @@ class ModuleUtils {
             "5th Year",
             1,
             StringsUtils.convertEnumToString(HashTagsModules.Mobile),
-            R.drawable.uml_image
+            R.drawable.mobile
         )
         private val moduleUnix = Module(
             "Unix",

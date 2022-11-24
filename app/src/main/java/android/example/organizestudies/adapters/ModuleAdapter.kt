@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class ModuleAdapter :
+class ModuleAdapter(val onModuleListener: OnModuleListener) :
     RecyclerView.Adapter<ModuleAdapter.ViewHolder>() {
     var dataSet = listOf<Module>()
         set(value) {
@@ -18,7 +18,8 @@ class ModuleAdapter :
             notifyDataSetChanged()
         }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View, private val onModuleListener: OnModuleListener) :
+        RecyclerView.ViewHolder(view), View.OnClickListener {
         val textView: TextView
         val imageView: ImageView
 
@@ -26,7 +27,16 @@ class ModuleAdapter :
             // Define click listener for the ViewHolder's View.
             textView = view.findViewById(R.id.textModule)
             imageView = view.findViewById(R.id.imageModule)
+            view.setOnClickListener(this)
         }
+
+        override fun onClick(p0: View?) {
+            onModuleListener.onModuleClick(adapterPosition)
+        }
+    }
+
+    fun getModuleAtPosition(position: Int): Module {
+        return dataSet[position]
     }
 
     // Create new views (invoked by the layout manager)
@@ -34,7 +44,7 @@ class ModuleAdapter :
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.single_module_home_page_layout_2, viewGroup, false)
-        return ViewHolder(view)
+        return ViewHolder(view, onModuleListener)
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -49,4 +59,7 @@ class ModuleAdapter :
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
 
+    interface OnModuleListener {
+        fun onModuleClick(position: Int)
+    }
 }

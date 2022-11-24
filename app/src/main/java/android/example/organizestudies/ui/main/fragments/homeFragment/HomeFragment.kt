@@ -18,13 +18,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener {
 
     private lateinit var homeViewModel: HomeViewModel
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var bindingSingleModuleHomePageLayout2Binding: SingleModuleHomePageLayout2Binding
-    private var moduleAdapter: ModuleAdapter = ModuleAdapter()
+    private var moduleAdapter: ModuleAdapter = ModuleAdapter(this)
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +51,7 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         homeViewModel.allModules.observe(viewLifecycleOwner) {
@@ -122,10 +123,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun goToModulesDetails() {
-//        binding.springModule.setOnClickListener {
-//            requireView().findNavController()
-//                .navigate(R.id.action_homeFragment_to_moduleDetailsFragment)
-//        }
+
+    }
+
+    override fun onModuleClick(position: Int) {
+        moduleAdapter.dataSet[position]
+        findNavController().navigate(R.id.action_homeFragment_to_moduleDetailsFragment)
     }
 
 
