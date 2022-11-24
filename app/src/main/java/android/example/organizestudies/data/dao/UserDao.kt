@@ -26,12 +26,11 @@ interface UserDao {
     @Query("Delete FROM User")
     fun clear()
 
-    @Query("SELECT * FROM User ORDER BY userId DESC")
+    @Query("SELECT * FROM User ORDER BY username DESC")
     fun getAllUsers(): LiveData<List<User>>
 
     @Query("SELECT * FROM User WHERE username =:username LIMIT 1")
     fun getUserByUsername(username: String): User
-
 
     @Transaction
     @Query("SELECT * FROM User WHERE username=:userName")

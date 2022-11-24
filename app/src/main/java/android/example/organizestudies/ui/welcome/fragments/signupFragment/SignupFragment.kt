@@ -17,7 +17,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
-import java.util.*
+
 class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private lateinit var spinner: Spinner
@@ -104,7 +104,7 @@ class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 if (checkUserNotExistingInOurDb(username)) {
 
                     val user =
-                        User(UUID.randomUUID().toString(), username, password, grade, levelStudy)
+                        User(username, password, grade, levelStudy)
 
                     myUserViewModel.addUser(user)
                     myUserViewModel.addModules(user)

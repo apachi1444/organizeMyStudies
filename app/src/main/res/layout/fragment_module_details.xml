@@ -147,7 +147,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/filesTitle">
 
-                <include layout="@layout/file_name_in_module_details_fragment" />
+                <include layout="@layout/file_row_item_in_module_details" />
 
             </LinearLayout>
 

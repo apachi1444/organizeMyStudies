@@ -41,14 +41,12 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
                 userRepository.addUserModuleCrossRefModel(
                     UserModuleCrossRef(
                         StringsUtils.generateRandomUUID(),
-                        UserModuleId(user.userId, it.moduleId),
-                        user.username,
-                        it.moduleName,
+                        UserModuleId(user.username, it.moduleName),
                         false
                     )
                 )
             }
-            
+
         }
     }
 
@@ -67,11 +65,9 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
                     UserModuleCrossRef(
                         StringsUtils.generateRandomUUID(),
                         UserModuleId(
-                            user.userId,
-                            it.moduleId
+                            user.username,
+                            it.moduleName
                         ),
-                        user.username,
-                        it.moduleName,
                         false
                     )
 

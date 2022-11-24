@@ -76,6 +76,7 @@
     <string name="choose_your_file">Choose Your File</string>
     <string name="done">done</string>
     <string name="click_here">Click Here !</string>
+    <string name="pdf_image">pdf_image</string>
 
     <string-array name="gradeStrings">
         <item>Select Your Grade</item>

@@ -126,7 +126,7 @@ class LoginFragment : Fragment() {
                         Utils.insertingKeyIntoSharedPreferences(
                             requireContext(),
                             "id",
-                            user.userId
+                            user.username
                         )
                         makeLoginAndPasswordInputsEmpty()
                         Utils.startActivity(requireContext(), MainActivity::class.java)

@@ -222,43 +222,33 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
+
                 android:text="@string/my_modules"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layoutCollection" />
 
-            <HorizontalScrollView
+            <LinearLayout
                 android:id="@+id/horizontal_scroll_my_modules"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
+                android:orientation="horizontal"
                 android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/my_modules_text">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/recycler_view"
+                    android:layout_height="match_parent">
 
-                    <include
-                        android:id="@+id/spring_module"
-                        layout="@layout/single_module_home_page_layout_2" />
+                </androidx.recyclerview.widget.RecyclerView>
 
-                    <include layout="@layout/single_module_home_page_layout_2" />
-
-                    <include layout="@layout/single_module_home_page_layout_2" />
-
-                    <include layout="@layout/single_module_home_page_layout_2" />
-
-                    <include layout="@layout/single_module_home_page_layout_2" />
-
-                    <include layout="@layout/single_module_home_page_layout_2" />
-
-                </LinearLayout>
-            </HorizontalScrollView>
+            </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

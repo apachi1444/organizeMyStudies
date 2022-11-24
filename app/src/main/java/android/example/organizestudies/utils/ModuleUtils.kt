@@ -3,6 +3,7 @@ package android.example.organizestudies.utils
 import android.example.organizestudies.R
 import android.example.organizestudies.data.entities.Module
 import android.example.organizestudies.data.entities.User
+import android.example.organizestudies.data.entities.enums.Grades
 import android.example.organizestudies.data.entities.enums.HashTagsModules
 
 class ModuleUtils {
@@ -11,21 +12,18 @@ class ModuleUtils {
     companion object {
 
         private val moduleSpringBoot = Module(
-            StringsUtils.generateRandomUUID(),
             "Spring Boot",
-
             "Mr Atlas",
-            "GI",
+            Grades.GI.toString(),
             "5th Year",
             1,
             StringsUtils.convertEnumToString(HashTagsModules.BackEnd),
             R.drawable.springboot
         )
         private val moduleBI = Module(
-            StringsUtils.generateRandomUUID(),
             "BI",
             "Mr Ameur",
-            "GI",
+            Grades.GI.toString(),
             "5th Year",
             1,
             StringsUtils.convertEnumToString(HashTagsModules.Data),
@@ -33,18 +31,26 @@ class ModuleUtils {
         )
 
         private val moduleMobile = Module(
-            StringsUtils.generateRandomUUID(),
             "Mobile",
             "Mme Bouzid",
-            "GI",
+            Grades.GI.toString(),
+            "5th Year",
+            1,
+            StringsUtils.convertEnumToString(HashTagsModules.Mobile),
+            R.drawable.uml_image
+        )
+        private val moduleUnix = Module(
+            "Unix",
+            "Mr Oumoun",
+            Grades.GI.toString(),
             "5th Year",
             1,
             StringsUtils.convertEnumToString(HashTagsModules.Data),
-            R.drawable.uml_image
+            R.drawable.unix_image
         )
 
         private val modules = arrayListOf(
-            moduleBI, moduleSpringBoot, moduleMobile
+            moduleBI, moduleSpringBoot, moduleMobile, moduleUnix
         )
 
         fun getAllModules(): ArrayList<Module> {
@@ -62,7 +68,5 @@ class ModuleUtils {
             }
             return finalList
         }
-
-
     }
 }

@@ -1,11 +1,12 @@
 package android.example.organizestudies.data.entities
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-@Entity(primaryKeys = ["moduleName"])
+@Entity
 data class Module
     (
-    var moduleId: String,
+    @PrimaryKey
     var moduleName: String,
     var professor: String,
     var grade: String,

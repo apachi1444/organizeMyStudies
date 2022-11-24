@@ -70,10 +70,9 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/round_back_button"
                 android:gravity="center"
-                android:padding="16dp"
                 android:hint="@string/click_here"
-                android:textColorHint="@color/label_grey"
-                android:textSize="20sp" />
+                android:padding="16dp"
+                android:textColorHint="@color/label_grey" />
 
 
             <Button
@@ -83,6 +82,7 @@
                 android:layout_gravity="center"
                 android:layout_marginVertical="24dp"
                 android:backgroundTint="@color/white"
+                android:gravity="center"
                 android:text="@string/done"
                 android:textColor="@color/black" />
         </LinearLayout>

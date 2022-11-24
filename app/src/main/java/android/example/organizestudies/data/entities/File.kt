@@ -7,7 +7,6 @@ import java.util.*
 @Entity
 data class File(
     @PrimaryKey
-    var fileId: String,
     var filename: String,
     var extension: String,
     var starred: Boolean,

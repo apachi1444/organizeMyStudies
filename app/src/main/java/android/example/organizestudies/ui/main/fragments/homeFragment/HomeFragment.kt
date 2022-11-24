@@ -1,7 +1,9 @@
 package android.example.organizestudies.ui.main.fragments.homeFragment
 
 import android.example.organizestudies.R
+import android.example.organizestudies.adapters.ModuleAdapter
 import android.example.organizestudies.databinding.FragmentHomeBinding
+import android.example.organizestudies.databinding.SingleModuleHomePageLayout2Binding
 import android.example.organizestudies.ui.welcome.activities.WelcomeActivity
 import android.example.organizestudies.utils.Utils
 import android.os.Bundle
@@ -12,16 +14,18 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 
 class HomeFragment : Fragment() {
 
-    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var homeViewModel: HomeViewModel
 
-
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var bindingSingleModuleHomePageLayout2Binding: SingleModuleHomePageLayout2Binding
+    private var moduleAdapter: ModuleAdapter = ModuleAdapter()
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,33 +40,29 @@ class HomeFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
+        recyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(
+            requireActivity().applicationContext,
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
+        recyclerView.setHasFixedSize(true)
+        recyclerView.adapter = moduleAdapter
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        val username = Utils.readingFromSharedPreferences(requireContext(), "username")
-//        val id = Utils.readingFromSharedPreferences(requireContext(), "id")
-//
-//        Log.i("bool", username.toString())
-//        Log.i("bool", id.toString())
-
+        homeViewModel.allModules.observe(viewLifecycleOwner) {
+            it.forEach { userModules ->
+                moduleAdapter.dataSet = userModules.modules
+            }
+        }
         updatingHelloText()
         goToProfile()
         goToStarredFragment()
-//        showModulesUser()
         goToModulesDetails()
-
     }
-
-//    private fun showModulesUser() {
-//        val list = homeViewModel.getModulesUser(lifecycleScope, requireContext())
-//        list.forEach { it ->
-//            it.modules.forEach {
-//                Log.i("module ${it.grade}", it.toString())
-//            }
-//        }
-//    }
-
 
     private fun updatingHelloText() {
         val usernameFromSharedPreferences =
@@ -110,6 +110,7 @@ class HomeFragment : Fragment() {
         }
     }
 
+
     private fun logOutButton() {
         Utils.deletingInformationFromSharedPreferencesWhenLogOut(requireContext())
         requireActivity().finish()
@@ -121,10 +122,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun goToModulesDetails() {
-        binding.springModule.setOnClickListener {
-            requireView().findNavController()
-                .navigate(R.id.action_homeFragment_to_moduleDetailsFragment)
-        }
+//        binding.springModule.setOnClickListener {
+//            requireView().findNavController()
+//                .navigate(R.id.action_homeFragment_to_moduleDetailsFragment)
+//        }
     }
 
 

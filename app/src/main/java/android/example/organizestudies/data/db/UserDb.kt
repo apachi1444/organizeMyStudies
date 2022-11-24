@@ -9,7 +9,7 @@ import android.example.organizestudies.data.entities.File
 import android.example.organizestudies.data.entities.Module
 import android.example.organizestudies.data.entities.User
 import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
-import android.example.organizestudies.utils.Const
+import android.example.organizestudies.utils.consts.ConstNumbers
 import android.example.organizestudies.utils.Converters
 import android.os.AsyncTask
 import androidx.annotation.NonNull
@@ -22,7 +22,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(
     entities = [User::class, File::class, Module::class, UserModuleCrossRef::class],
-    version = Const.CURRENT_VERSION_DB,
+    version = ConstNumbers.CURRENT_VERSION_DB,
     exportSchema = true
 )
 @TypeConverters(Converters::class)

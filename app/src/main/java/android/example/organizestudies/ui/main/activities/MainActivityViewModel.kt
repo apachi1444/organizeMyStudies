@@ -1,11 +1,15 @@
 package android.example.organizestudies.ui.main.activities
 
 import android.app.Application
+import android.content.Intent
 import android.example.organizestudies.data.entities.File
 import android.example.organizestudies.data.entities.relations.UserWithModules
 import android.example.organizestudies.data.repo.FileRepository
 import android.example.organizestudies.data.repo.UserRepository
 import android.example.organizestudies.utils.Utils
+import android.net.Uri
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -24,6 +28,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
     fun addFile(file: File) = viewModelScope.launch(Dispatchers.IO) {
         fileRepository.insertFile(file)
     }
+
 
 
     //    fun getModulesUser(

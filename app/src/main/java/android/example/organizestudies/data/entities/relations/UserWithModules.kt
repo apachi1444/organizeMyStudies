@@ -10,7 +10,7 @@ data class UserWithModules(
     @Embedded
     val user: User,
     @Relation(
-        parentColumn = "userId",
+        parentColumn = "username",
         entityColumn = "moduleName",
         associateBy = Junction(UserModuleCrossRef::class)
     )
