@@ -1,15 +1,13 @@
 package android.example.organizestudies.ui.main.activities
 
 import android.app.Application
-import android.content.Intent
 import android.example.organizestudies.data.entities.File
 import android.example.organizestudies.data.entities.relations.UserWithModules
 import android.example.organizestudies.data.repo.FileRepository
+import android.example.organizestudies.data.repo.UserModuleCrossRefRepository
 import android.example.organizestudies.data.repo.UserRepository
 import android.example.organizestudies.utils.Utils
-import android.net.Uri
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
+import android.example.organizestudies.utils.consts.ConstKeys
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -20,15 +18,20 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
 
     private var userRepository: UserRepository = UserRepository(application)
     private var fileRepository: FileRepository = FileRepository(application)
+    private var userModuleCrossRefRepository = UserModuleCrossRefRepository(application)
 
     val allModules: LiveData<List<UserWithModules>> =
         userRepository.getModulesUser(Utils.readingFromSharedPreferences(application, "username")!!)
 
 
-    fun addFile(file: File) = viewModelScope.launch(Dispatchers.IO) {
-        fileRepository.insertFile(file)
-    }
+    fun addFile(file: File) =
+        viewModelScope.launch(Dispatchers.IO) {
+            fileRepository.insertFile(file)
+        }
 
+    fun getUserModuleIdCombined(username: String, moduleName: String): String {
+        return userModuleCrossRefRepository.getIdCombined(username, moduleName)
+    }
 
 
     //    fun getModulesUser(

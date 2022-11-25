@@ -9,6 +9,7 @@ import android.example.organizestudies.databinding.CustomPopupAddFileBinding
 import android.example.organizestudies.utils.DateUtils
 import android.example.organizestudies.utils.StringsUtils
 import android.example.organizestudies.utils.Utils
+import android.example.organizestudies.utils.consts.ConstKeys
 import android.example.organizestudies.utils.consts.ObjectStorage
 import android.net.Uri
 import android.os.Bundle
@@ -18,7 +19,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -44,31 +44,41 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     // Receiver
     private val getResult =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-        { result: ActivityResult ->
-            val data: Intent? = result.data
+        registerForActivityResult(ActivityResultContracts.OpenDocument())
+        { result: Uri? ->
+            val data: String? = result?.encodedPath
             if (data != null) {
-                val sUri: Uri? = data.data
+                val sUri: String = data
                 bindingCustomPopupAddFileBinding.fileName.text =
-                    StringsUtils.MESSAGE_SUCCESS_FILE_UPLOADED
-
-                Utils.showToast(applicationContext , currentSpinnerItem)
+                    sUri
                 val file = File(
-                    sUri.toString(),
+                    sUri,
                     ObjectStorage.PDF_EXTENSION,
                     false,
                     DateUtils.getDateNow(),
                     DateUtils.getDateNow(),
-                    currentSpinnerItem
+                    moduleUserIdCombined()
                 )
 
-                addFileToDb(file)
+                bindingCustomPopupAddFileBinding.btnOk.setOnClickListener {
+                    mainActivityViewModel.addFile(file)
+                }
+
+                closeDialog(dialog)
 
             } else {
                 bindingCustomPopupAddFileBinding.fileName.text =
                     StringsUtils.MESSAGE_ERROR_WHEN_FILE_UPLOADED
             }
         }
+
+    private fun moduleUserIdCombined() = mainActivityViewModel.getUserModuleIdCombined(
+        Utils.readingFromSharedPreferences(
+            applicationContext,
+            ConstKeys.USERNAME
+        )!!,
+        currentSpinnerItem
+    )
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,6 +96,9 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         bindingCustomPopupAddFileBinding = CustomPopupAddFileBinding.bind(view)
         spinner = bindingCustomPopupAddFileBinding.listModulesSpinner
+
+        dialog = Dialog(this)
+        dialog.setContentView(bindingCustomPopupAddFileBinding.root)
 
         // this part for the controller
         navController = navHostFragment.navController
@@ -134,25 +147,15 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     private fun showDialogAddFile() {
 
-        dialog = Dialog(this)
-        dialog.setContentView(bindingCustomPopupAddFileBinding.root)
-
         configurationSpinnerModules()
 
         bindingCustomPopupAddFileBinding.fileName.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "application/pdf"
-            getResult.launch(intent)
+            getResult.launch(arrayOf("application/pdf"))
         }
         dialog.show()
         closeDialog(dialog)
-    }
-
-    private fun addFileToDb(file: File) {
-        bindingCustomPopupAddFileBinding.btnOk.setOnClickListener {
-            mainActivityViewModel.addFile(file)
-            closeDialog(dialog)
-        }
     }
 
     private fun configurationSpinnerModules() {
@@ -176,8 +179,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         buttonClose.setOnClickListener {
             dialog.dismiss()
         }
+        bindingCustomPopupAddFileBinding.btnOk.setOnClickListener {
+            dialog.dismiss()
+        }
     }
-
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()

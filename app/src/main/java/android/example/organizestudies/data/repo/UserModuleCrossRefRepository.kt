@@ -10,10 +10,9 @@ class UserModuleCrossRefRepository(private val application: Application) {
     private val userModuleCrossRefDao: UserModuleCrossRefDao =
         UserDb.getInstance(application).userModuleCrossRefDao()
 
-    fun addModulesIntoUser(user: User, modules: List<Module>) {
-        modules.forEach {
-//            userModuleCrossRefDao.addModuleToUser(user, it)
-        }
+
+    fun getIdCombined(username: String, moduleName: String): String {
+        return userModuleCrossRefDao.getIdCombined(username,moduleName)
     }
 
 }

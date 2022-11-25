@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class ModuleAdapter(val onModuleListener: OnModuleListener) :
+class ModuleAdapter(private val onModuleListener: OnModuleListener) :
     RecyclerView.Adapter<ModuleAdapter.ViewHolder>() {
     var dataSet = listOf<Module>()
         set(value) {

@@ -12,4 +12,8 @@ interface UserModuleCrossRefDao {
     @Query("SELECT * FROM user_module_table where userModuleIdsCombined=:moduleUserId")
     suspend fun getFiles(moduleUserId: String): List<UserModuleCrossRefWithFiles>
 
+    @Query("SELECT userModuleIdsCombined FROM user_module_table WHERE username =:username AND moduleName =:moduleName")
+    fun getIdCombined(username: String, moduleName: String): String
+
+
 }

@@ -15,7 +15,6 @@ interface ModuleDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(module: Module)
 
-
     @Query("SELECT * FROM Module WHERE grade=:grade AND levelStudy =:levelStudy")
     fun findModulesByGradeAndLevelStudy(grade: String, levelStudy: String): List<Module>
 }
