@@ -17,4 +17,7 @@ interface ModuleDao {
 
     @Query("SELECT * FROM Module WHERE grade=:grade AND levelStudy =:levelStudy")
     fun findModulesByGradeAndLevelStudy(grade: String, levelStudy: String): List<Module>
+
+    @Query("SELECT imageModule FROM Module WHERE moduleName =:moduleName")
+    fun getModuleImage(moduleName: String): Int
 }

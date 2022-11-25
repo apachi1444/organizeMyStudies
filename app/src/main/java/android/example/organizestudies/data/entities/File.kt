@@ -10,9 +10,8 @@ data class File(
     var filename: String,
     var extension: String,
     var starred: Boolean,
-
     var lastTimeOpened: Date,
     var createdAt: Date,
-
     var moduleIdCorresponding: String,
+    var moduleImage : Int
 )

@@ -35,10 +35,6 @@ class ModuleAdapter(private val onModuleListener: OnModuleListener) :
         }
     }
 
-    fun getModuleAtPosition(position: Int): Module {
-        return dataSet[position]
-    }
-
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
@@ -49,7 +45,6 @@ class ModuleAdapter(private val onModuleListener: OnModuleListener) :
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         viewHolder.imageView.setImageResource(dataSet[position].imageModule)
@@ -62,4 +57,5 @@ class ModuleAdapter(private val onModuleListener: OnModuleListener) :
     interface OnModuleListener {
         fun onModuleClick(position: Int)
     }
+
 }

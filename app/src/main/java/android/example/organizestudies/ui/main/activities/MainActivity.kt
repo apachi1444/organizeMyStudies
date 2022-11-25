@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private lateinit var dialog: Dialog
     private var currentSpinnerItem: String = ""
     private val listModules = ArrayList<String>()
+    private var uriFile: String = ""
 
     // Receiver
     private val getResult =
@@ -51,19 +52,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 val sUri: String = data
                 bindingCustomPopupAddFileBinding.fileName.text =
                     sUri
-                val file = File(
-                    sUri,
-                    ObjectStorage.PDF_EXTENSION,
-                    false,
-                    DateUtils.getDateNow(),
-                    DateUtils.getDateNow(),
-                    moduleUserIdCombined()
-                )
-
-                bindingCustomPopupAddFileBinding.btnOk.setOnClickListener {
-                    mainActivityViewModel.addFile(file)
-                }
-
+                uriFile = sUri
                 closeDialog(dialog)
 
             } else {
@@ -105,6 +94,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         setupActionBarWithNavController(navController)
 
         val navController = navHostFragment.findNavController()
+
         mainActivityViewModel.allModules.observe(this) { it ->
             it.forEach { ite ->
                 ite.modules.forEach {
@@ -112,6 +102,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 }
             }
         }
+
+
 
         configurationSpinnerModules()
         bottomNavigationLogic()
@@ -158,6 +150,19 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         closeDialog(dialog)
     }
 
+    private fun addFileToDb() {
+        val file = File(
+            uriFile,
+            ObjectStorage.PDF_EXTENSION,
+            false,
+            DateUtils.getDateNow(),
+            DateUtils.getDateNow(),
+            moduleUserIdCombined(),
+            mainActivityViewModel.getModuleImage(currentSpinnerItem)
+        )
+        mainActivityViewModel.addFile(file)
+    }
+
     private fun configurationSpinnerModules() {
         listModules.forEach {
             Log.i("haha", it)
@@ -180,6 +185,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             dialog.dismiss()
         }
         bindingCustomPopupAddFileBinding.btnOk.setOnClickListener {
+            addFileToDb()
             dialog.dismiss()
         }
     }

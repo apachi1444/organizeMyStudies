@@ -1,11 +1,12 @@
 package android.example.organizestudies.ui.main.fragments.homeFragment
 
 import android.example.organizestudies.R
+import android.example.organizestudies.adapters.FileAdapter
 import android.example.organizestudies.adapters.ModuleAdapter
 import android.example.organizestudies.databinding.FragmentHomeBinding
-import android.example.organizestudies.databinding.SingleModuleHomePageLayout2Binding
 import android.example.organizestudies.ui.welcome.activities.WelcomeActivity
 import android.example.organizestudies.utils.Utils
+import android.example.organizestudies.utils.consts.ConstKeys
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -18,14 +19,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
-class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener {
+class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener, FileAdapter.OnFileListener {
 
     private lateinit var homeViewModel: HomeViewModel
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var bindingSingleModuleHomePageLayout2Binding: SingleModuleHomePageLayout2Binding
+
+    //    private lateinit var bindingSingleModuleHomePageLayout2Binding: SingleModuleHomePageLayout2Binding
     private var moduleAdapter: ModuleAdapter = ModuleAdapter(this)
     private lateinit var recyclerView: RecyclerView
+    private lateinit var recycleViewFiles: RecyclerView
+    private var fileAdapter: FileAdapter = FileAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +44,7 @@ class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
+        // recycler view of modules
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(
             requireActivity().applicationContext,
@@ -49,16 +54,37 @@ class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener {
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = moduleAdapter
 
+        // recycler view of files
+        recycleViewFiles = binding.recyclerViewRecentPdfsOpened
+        recycleViewFiles.layoutManager = LinearLayoutManager(
+            requireActivity().applicationContext,
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
+        recycleViewFiles.setHasFixedSize(true)
+        recycleViewFiles.adapter = fileAdapter
+
         return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         homeViewModel.allModules.observe(viewLifecycleOwner) {
             it.forEach { userModules ->
                 moduleAdapter.dataSet = userModules.modules
             }
         }
+
+        homeViewModel.allFiles(
+            Utils.readingFromSharedPreferences(
+                requireContext(),
+                ConstKeys.USERNAME
+            )!!
+        ).observe(viewLifecycleOwner) {
+            fileAdapter.dataSet = it
+        }
+
         updatingHelloText()
         goToProfile()
         goToStarredFragment()
@@ -129,6 +155,11 @@ class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener {
     override fun onModuleClick(position: Int) {
         moduleAdapter.dataSet[position]
         findNavController().navigate(R.id.action_homeFragment_to_moduleDetailsFragment)
+    }
+
+    override fun onFileClick(position: Int) {
+        fileAdapter.dataSet[position]
+        Utils.showToast(requireContext(), "clicked")
     }
 
 

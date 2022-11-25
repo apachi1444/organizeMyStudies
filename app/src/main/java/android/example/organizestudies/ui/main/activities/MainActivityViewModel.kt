@@ -4,10 +4,10 @@ import android.app.Application
 import android.example.organizestudies.data.entities.File
 import android.example.organizestudies.data.entities.relations.UserWithModules
 import android.example.organizestudies.data.repo.FileRepository
+import android.example.organizestudies.data.repo.ModuleRepository
 import android.example.organizestudies.data.repo.UserModuleCrossRefRepository
 import android.example.organizestudies.data.repo.UserRepository
 import android.example.organizestudies.utils.Utils
-import android.example.organizestudies.utils.consts.ConstKeys
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -18,6 +18,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
 
     private var userRepository: UserRepository = UserRepository(application)
     private var fileRepository: FileRepository = FileRepository(application)
+    private var moduleRepository: ModuleRepository = ModuleRepository(application)
     private var userModuleCrossRefRepository = UserModuleCrossRefRepository(application)
 
     val allModules: LiveData<List<UserWithModules>> =
@@ -30,7 +31,13 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         }
 
     fun getUserModuleIdCombined(username: String, moduleName: String): String {
-        return userModuleCrossRefRepository.getIdCombined(username, moduleName)
+        return userModuleCrossRefRepository.getOneIdCombined(username, moduleName)
+    }
+
+    fun getModuleImage(moduleName: String): Int {
+        return moduleRepository.getModuleImage(
+            moduleName
+        )
     }
 
 

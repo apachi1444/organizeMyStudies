@@ -6,13 +6,17 @@ import android.example.organizestudies.data.db.UserDb
 import android.example.organizestudies.data.entities.Module
 import android.example.organizestudies.data.entities.User
 
-class UserModuleCrossRefRepository(private val application: Application) {
+class UserModuleCrossRefRepository(application: Application) {
     private val userModuleCrossRefDao: UserModuleCrossRefDao =
         UserDb.getInstance(application).userModuleCrossRefDao()
 
 
-    fun getIdCombined(username: String, moduleName: String): String {
-        return userModuleCrossRefDao.getIdCombined(username,moduleName)
+    fun getIdCombined(username: String): List<String> {
+        return userModuleCrossRefDao.getIdCombined(username)
+    }
+
+    fun getOneIdCombined(username: String, moduleName: String): String {
+        return userModuleCrossRefDao.getOneIdCombined(username , moduleName)
     }
 
 }

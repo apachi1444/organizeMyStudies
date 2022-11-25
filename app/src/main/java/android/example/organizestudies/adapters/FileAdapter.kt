@@ -1,35 +1,36 @@
 package android.example.organizestudies.adapters
 
 import android.example.organizestudies.R
-import android.example.organizestudies.data.entities.Module
+import android.example.organizestudies.data.entities.File
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class FileAdapter(private val onModuleListener: OnFileListener) :
+class FileAdapter(private val onFileListener: FileAdapter.OnFileListener) :
     RecyclerView.Adapter<FileAdapter.ViewHolder>() {
-    private var dataSet = listOf<Module>()
+    var dataSet = listOf<File>()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    class ViewHolder(view: View, private val onModuleListener: OnFileListener) :
+    class ViewHolder(view: View, private val onFileListener: OnFileListener) :
         RecyclerView.ViewHolder(view), View.OnClickListener {
         val textView: TextView
         val imageView: ImageView
 
         init {
             // Define click listener for the ViewHolder's View.
-            textView = view.findViewById(R.id.textModule)
-            imageView = view.findViewById(R.id.imageModule)
+            textView = view.findViewById(R.id.fileName)
+            imageView = view.findViewById(R.id.moduleImage)
             view.setOnClickListener(this)
         }
 
         override fun onClick(p0: View?) {
-            onModuleListener.onFileClick(adapterPosition)
+            onFileListener.onFileClick(adapterPosition)
         }
     }
 
@@ -41,11 +42,14 @@ class FileAdapter(private val onModuleListener: OnFileListener) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        holder.imageView.setImageResource(dataSet[position].moduleImage)
+        holder.textView.text = dataSet[position].filename
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FileAdapter.ViewHolder {
-        TODO("Not yet implemented")
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.recent_pdf_layout, parent, false)
+        return ViewHolder(view, onFileListener)
     }
 }
 

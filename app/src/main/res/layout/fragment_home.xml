@@ -188,33 +188,28 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/listBoxesHomePage" />
 
-            <HorizontalScrollView
+            <LinearLayout
                 android:id="@+id/layoutCollection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
+                android:orientation="horizontal"
                 android:overScrollMode="always"
                 android:scrollbars="none"
-
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/recent_pdf_text"
                 app:layout_constraintTop_toBottomOf="@id/recent_pdf_text">
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_recent_pdfs_opened"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent">
 
-                    <include layout="@layout/recent_pdf_layout" />
+                </androidx.recyclerview.widget.RecyclerView>
 
-                    <include layout="@layout/recent_pdf_layout" />
-
-                    <include layout="@layout/recent_pdf_layout" />
-
-                </LinearLayout>
-
-            </HorizontalScrollView>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/my_modules_text"
@@ -242,8 +237,8 @@
                 app:layout_constraintTop_toBottomOf="@id/my_modules_text">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
                     android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                 </androidx.recyclerview.widget.RecyclerView>

@@ -68,6 +68,7 @@ class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private fun configurationSpinnerGrades() {
         spinner = binding.gradeInput
+
         var adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.gradeStrings,
@@ -108,7 +109,6 @@ class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
                     myUserViewModel.addUser(user)
                     myUserViewModel.addModules(user)
-
                     Utils.showToast(requireContext(), "Successfully added !")
 
                     // navigate back
