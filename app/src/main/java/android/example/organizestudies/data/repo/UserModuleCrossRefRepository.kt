@@ -19,4 +19,12 @@ class UserModuleCrossRefRepository(application: Application) {
         return userModuleCrossRefDao.getOneIdCombined(username , moduleName)
     }
 
+    fun starModule(username: String, moduleName: String) {
+        userModuleCrossRefDao.starModule(username , moduleName)
+    }
+
+    fun countUserModules(username: String) : Int {
+        return userModuleCrossRefDao.countUserModules(username)
+    }
+
 }

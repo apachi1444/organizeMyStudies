@@ -30,6 +30,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
+                android:id="@+id/iconStar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-36dp"
@@ -72,7 +73,7 @@
 
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/titleModule"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -92,8 +93,7 @@
                 android:textSize="19sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/firstTag"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
+                app:layout_constraintTop_toBottomOf="@+id/titleModule" />
 
             <TextView
                 android:id="@+id/filesTitle"
@@ -103,11 +103,11 @@
                 android:text="@string/files"
                 android:textSize="19sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintStart_toStartOf="@+id/professorName"
                 app:layout_constraintTop_toBottomOf="@+id/semesterText" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/periodTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -116,7 +116,7 @@
                 android:textSize="19sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/textView5"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/titleModule" />
 
             <TextView
                 android:id="@+id/semesterText"
@@ -125,11 +125,11 @@
                 android:layout_marginTop="6dp"
                 android:text="@string/_1st_semester"
                 android:textSize="19sp"
-                app:layout_constraintStart_toStartOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                app:layout_constraintStart_toStartOf="@+id/periodTitle"
+                app:layout_constraintTop_toBottomOf="@+id/periodTitle" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/professorName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -139,17 +139,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="@id/filesTitle"
                 app:layout_constraintTop_toBottomOf="@id/filesTitle">
 
-                <include layout="@layout/file_row_item_in_module_details" />
-
-            </LinearLayout>
+            </androidx.recyclerview.widget.RecyclerView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

@@ -11,6 +11,7 @@ import android.example.organizestudies.utils.Utils
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavController
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -38,6 +39,10 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         return moduleRepository.getModuleImage(
             moduleName
         )
+    }
+
+    fun goToFragmentFromBottomBarNavigation(navController: NavController, action : Int){
+        navController.navigate(action)
     }
 
 

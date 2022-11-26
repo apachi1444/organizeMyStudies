@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class FileAdapter(private val onFileListener: FileAdapter.OnFileListener) :
+class FileAdapter(private val onFileListener: OnFileListener) :
     RecyclerView.Adapter<FileAdapter.ViewHolder>() {
     var dataSet = listOf<File>()
         set(value) {

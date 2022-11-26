@@ -17,6 +17,10 @@ data class ModuleRepository(private val application: Application) {
         return moduleDao.findModulesByGradeAndLevelStudy(grade, levelStudy)
     }
 
+    fun getModuleByModuleName(moduleName: String): Module {
+        return moduleDao.getModuleByModuleName(moduleName)
+    }
+
     fun getModuleImage(moduleName: String): Int {
         return moduleDao.getModuleImage(moduleName)
     }

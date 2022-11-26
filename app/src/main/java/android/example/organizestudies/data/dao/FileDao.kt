@@ -10,9 +10,18 @@ interface FileDao {
     fun insertFile(file: File)
 
     @Transaction
-    @Query("SELECT * FROM File WHERE  moduleIdCorresponding=:fk")
-    fun getFiles(fk: String): List<File>
+    @Query("SELECT * FROM File WHERE username=:fk")
+    fun getFiles(fk: String): LiveData<List<File>>
 
+    @Transaction
+    @Query("SELECT * FROM File WHERE moduleName =:moduleName")
+    fun getFilesByModule(moduleName: String): LiveData<List<File>>
+
+    @Query("UPDATE File SET starred = CASE starred WHEN 0 THEN 1 ELSE 0 END WHERE filename=:filename")
+    fun toggleStar(filename: String)
+
+    @Query("SELECT count(*) FROM File WHERE username =:username")
+    fun countUserFiles(username: String): Int
 //    @Query("SELECT * FROM file ORDER BY lastTimeOpened DESC")
 //    fun getFilesDependingOnDateOpen()
 }

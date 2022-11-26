@@ -6,6 +6,7 @@ import android.example.organizestudies.R
 import android.example.organizestudies.data.entities.File
 import android.example.organizestudies.databinding.ActivityMainBinding
 import android.example.organizestudies.databinding.CustomPopupAddFileBinding
+import android.example.organizestudies.ui.main.fragments.homeFragment.HomeFragment
 import android.example.organizestudies.utils.DateUtils
 import android.example.organizestudies.utils.StringsUtils
 import android.example.organizestudies.utils.Utils
@@ -22,6 +23,8 @@ import android.widget.Spinner
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -102,9 +105,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 }
             }
         }
-
-
-
         configurationSpinnerModules()
         bottomNavigationLogic()
         NavigationUI.setupActionBarWithNavController(this, navController)
@@ -115,7 +115,12 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         bottomNavigationView = binding.bottomNavigation
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.home -> Utils.showToast(applicationContext, "spinner.selectedItem.toString()")
+                R.id.home -> {
+//                    supportFragmentManager.commit {
+//
+//                        setReorderingAllowed(true).replace<HomeFragment>(R.id.nav_host_fragment_container)
+//                    }
+                }
                 R.id.add -> {
                     showDialogAddFile()
                 }
@@ -123,7 +128,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             true
         }
-
     }
 //
 //    private fun choosePdfFromDevice(): ActivityResultLauncher<Intent> {
@@ -158,7 +162,9 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             DateUtils.getDateNow(),
             DateUtils.getDateNow(),
             moduleUserIdCombined(),
-            mainActivityViewModel.getModuleImage(currentSpinnerItem)
+            mainActivityViewModel.getModuleImage(currentSpinnerItem),
+            currentSpinnerItem,
+            Utils.readingFromSharedPreferences(applicationContext, ConstKeys.USERNAME)!!,
         )
         mainActivityViewModel.addFile(file)
     }
@@ -180,14 +186,18 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     private fun closeDialog(dialog: Dialog) {
+
         val buttonClose = bindingCustomPopupAddFileBinding.btnClose
+
         buttonClose.setOnClickListener {
             dialog.dismiss()
         }
+
         bindingCustomPopupAddFileBinding.btnOk.setOnClickListener {
             addFileToDb()
             dialog.dismiss()
         }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

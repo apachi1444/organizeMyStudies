@@ -20,4 +20,7 @@ interface ModuleDao {
 
     @Query("SELECT imageModule FROM Module WHERE moduleName =:moduleName")
     fun getModuleImage(moduleName: String): Int
+
+    @Query("SELECT * FROM module WHERE moduleName =:moduleName")
+    fun getModuleByModuleName(moduleName: String): Module
 }

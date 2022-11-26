@@ -15,12 +15,20 @@ data class FileRepository(private val application: Application) {
         fileDao.insertFile(file)
     }
 
-    fun getFiles(fk: List<String>): LiveData<List<File>> {
-        val list: MutableLiveData<List<File>> = MutableLiveData()
-        fk.forEach { one_fk ->
-            list.value = fileDao.getFiles(one_fk)
-        }
-        return list
+    fun getFiles(fk: String): LiveData<List<File>> {
+        return fileDao.getFiles(fk)
+    }
+
+    fun getFilesByModule(moduleName : String): LiveData<List<File>>{
+        return fileDao.getFilesByModule(moduleName)
+    }
+
+    fun toggleStar(fileName : String){
+        fileDao.toggleStar(fileName)
+    }
+
+    fun countUserFiles(username: String): Int {
+        return fileDao.countUserFiles(username)
     }
 
 }

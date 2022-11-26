@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,7 +23,6 @@ import androidx.recyclerview.widget.RecyclerView
 class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener, FileAdapter.OnFileListener {
 
     private lateinit var homeViewModel: HomeViewModel
-
     private lateinit var binding: FragmentHomeBinding
 
     //    private lateinit var bindingSingleModuleHomePageLayout2Binding: SingleModuleHomePageLayout2Binding
@@ -154,7 +154,9 @@ class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener, FileAdapter.OnF
 
     override fun onModuleClick(position: Int) {
         moduleAdapter.dataSet[position]
-        findNavController().navigate(R.id.action_homeFragment_to_moduleDetailsFragment)
+        val navDirections: NavDirections =
+            HomeFragmentDirections.actionHomeFragmentToModuleDetailsFragment(moduleAdapter.dataSet[position].moduleName)
+        findNavController().navigate(navDirections)
     }
 
     override fun onFileClick(position: Int) {

@@ -56,7 +56,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="45dp"
                             android:gravity="center"
-                            android:text="@string/yessine_jaoua"
+
                             android:textColor="#43A047"
                             android:textSize="18sp"
                             android:textStyle="bold"
@@ -78,7 +78,7 @@
                             app:layout_constraintTop_toBottomOf="@id/textName" />
 
                         <TextView
-                            android:id="@+id/textPosts"
+                            android:id="@+id/numberModules"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
@@ -87,12 +87,12 @@
                             android:textColor="@color/main_green"
                             android:textSize="15sp"
                             android:textStyle="bold"
-                            app:layout_constraintEnd_toStartOf="@id/textFollowers"
+                            app:layout_constraintEnd_toStartOf="@id/numberFiles"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/textAbout" />
 
                         <TextView
-                            android:id="@+id/textFollowers"
+                            android:id="@+id/numberFiles"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
@@ -101,24 +101,10 @@
                             android:textColor="@color/main_green"
                             android:textSize="16sp"
                             android:textStyle="bold"
-                            app:layout_constraintEnd_toStartOf="@id/textFollowing"
-                            app:layout_constraintStart_toEndOf="@id/textPosts"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/numberModules"
                             app:layout_constraintTop_toBottomOf="@id/textAbout" />
 
-                        <TextView
-                            android:id="@+id/textFollowing"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
-                            android:gravity="center"
-                            android:text="@string/_541"
-                            android:textColor="@color/main_green"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/textFollowers"
-                            app:layout_constraintTop_toBottomOf="@id/textAbout"
-                            app:layout_goneMarginTop="15dp" />
 
                         <TextView
                             android:id="@+id/textPostsLabel"
@@ -131,9 +117,9 @@
                             android:textColor="@color/label_grey"
                             android:textSize="14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@id/textPosts"
-                            app:layout_constraintStart_toStartOf="@id/textPosts"
-                            app:layout_constraintTop_toBottomOf="@id/textPosts" />
+                            app:layout_constraintEnd_toEndOf="@id/numberModules"
+                            app:layout_constraintStart_toStartOf="@id/numberModules"
+                            app:layout_constraintTop_toBottomOf="@id/numberModules" />
 
                         <TextView
                             android:id="@+id/textFollowersLabel"
@@ -146,24 +132,10 @@
                             android:textColor="@color/label_grey"
                             android:textSize="14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@id/textFollowers"
-                            app:layout_constraintStart_toStartOf="@id/textFollowers"
-                            app:layout_constraintTop_toBottomOf="@id/textFollowers" />
+                            app:layout_constraintEnd_toEndOf="@id/numberFiles"
+                            app:layout_constraintStart_toStartOf="@id/numberFiles"
+                            app:layout_constraintTop_toBottomOf="@id/numberFiles" />
 
-                        <TextView
-                            android:id="@+id/textFollowingLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="center"
-                            android:text="@string/favorites"
-                            android:textAllCaps="true"
-                            android:textColor="@color/label_grey"
-                            android:textSize="14sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@id/textFollowing"
-                            app:layout_constraintStart_toStartOf="@id/textFollowing"
-                            app:layout_constraintTop_toBottomOf="@id/textFollowing" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -184,97 +156,6 @@
                 app:riv_border_width="1dp"
                 app:riv_oval="true" />
 
-            <TextView
-                android:id="@+id/textFavoriteFiles"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:text="@string/favorites_name"
-                android:textAllCaps="true"
-                android:textColor="@color/main_green"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutProfile" />
-
-            <HorizontalScrollView
-                android:id="@+id/layoutTags"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal"
-                android:scrollbars="none"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/textFavoriteFiles"
-                app:layout_constraintTop_toBottomOf="@id/textFavoriteFiles">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        style="@style/ContainerFavoriteFileOrModuleInProfilePage"
-                        android:background="@drawable/file_favorite_background"
-                        android:text="@string/pdf_spring_1_pdf" />
-
-                    <TextView
-                        style="@style/ContainerFavoriteFileOrModuleInProfilePage"
-                        android:background="@drawable/file_favorite_background"
-                        android:text="@string/pdf_spring_1_pdf" />
-
-                    <TextView
-                        style="@style/ContainerFavoriteFileOrModuleInProfilePage"
-                        android:background="@drawable/file_favorite_background"
-                        android:text="@string/pdf_spring_1_pdf" />
-
-                    <TextView
-                        style="@style/ContainerFavoriteFileOrModuleInProfilePage"
-                        android:background="@drawable/file_favorite_background"
-                        android:text="@string/pdf_spring_1_pdf" />
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <TextView
-                android:id="@+id/textModules"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/my_modules"
-                android:textAllCaps="true"
-                android:textColor="@color/main_green"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTags" />
-
-            <HorizontalScrollView
-                android:id="@+id/layoutCollection"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:overScrollMode="never"
-                android:scrollbars="none"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textModules"
-                app:layout_constraintTop_toBottomOf="@id/textModules">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <include layout="@layout/single_module_home_page_layout_2" />
-
-                    <include layout="@layout/single_module_home_page_layout_2" />
-
-                    <include layout="@layout/single_module_home_page_layout_2" />
-
-                </LinearLayout>
-
-            </HorizontalScrollView>
 
             <TextView
                 android:id="@+id/textLatestProducts"
@@ -288,7 +169,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutCollection" />
+                app:layout_constraintTop_toBottomOf="@id/layoutProfile" />
 
             <androidx.gridlayout.widget.GridLayout
                 android:layout_width="wrap_content"
@@ -319,6 +200,13 @@
                 <include layout="@layout/single_module_box_in_profile_page" />
 
                 <include layout="@layout/single_module_box_in_profile_page" />
+
+                <include layout="@layout/single_module_box_in_profile_page" />
+
+                <include layout="@layout/single_module_box_in_profile_page" />
+
+                <include layout="@layout/single_module_box_in_profile_page" />
+
                 <include layout="@layout/single_module_box_in_profile_page" />
 
 

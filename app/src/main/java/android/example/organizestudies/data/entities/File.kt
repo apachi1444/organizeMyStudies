@@ -13,5 +13,7 @@ data class File(
     var lastTimeOpened: Date,
     var createdAt: Date,
     var moduleIdCorresponding: String,
-    var moduleImage : Int
+    var moduleImage: Int,
+    var moduleName : String,
+    var username: String
 )

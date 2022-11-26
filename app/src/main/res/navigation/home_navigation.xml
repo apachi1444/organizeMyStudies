@@ -39,5 +39,9 @@
         android:id="@+id/moduleDetailsFragment"
         android:name="android.example.organizestudies.ui.main.fragments.moduleDetailsFragment.ModuleDetailsFragment"
         android:label="fragment_module_details"
-        tools:layout="@layout/fragment_module_details" />
+        tools:layout="@layout/fragment_module_details" >
+        <argument
+            android:name="moduleName"
+            app:argType="string" />
+    </fragment>
 </navigation>

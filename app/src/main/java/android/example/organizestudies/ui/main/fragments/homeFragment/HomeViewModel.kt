@@ -25,9 +25,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         )
 
     fun allFiles(username: String): LiveData<List<File>> =
-        fileRepository.getFiles(
-            userModuleCrossRefRepository.getIdCombined(username)
-        )
+        fileRepository.getFiles(username)
 
 
 }
