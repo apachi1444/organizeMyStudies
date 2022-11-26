@@ -40,7 +40,6 @@ class FileAdapterSingleModule(
         }
 
         override fun onClick(p0: View?) {
-
             onFileSingleModuleListener.onFileClick(adapterPosition)
         }
 

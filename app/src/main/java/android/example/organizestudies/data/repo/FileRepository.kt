@@ -31,4 +31,8 @@ data class FileRepository(private val application: Application) {
         return fileDao.countUserFiles(username)
     }
 
+    fun getFilesByModuleAndUsername(moduleName: String, username: String): LiveData<List<File>> {
+        return fileDao.getFilesByModuleAndUsername(moduleName,username)
+    }
+
 }

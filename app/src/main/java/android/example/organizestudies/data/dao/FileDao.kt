@@ -22,6 +22,9 @@ interface FileDao {
 
     @Query("SELECT count(*) FROM File WHERE username =:username")
     fun countUserFiles(username: String): Int
+
+    @Query("SELECT * FROM File WHERE username =:username AND moduleName =:moduleName")
+    fun getFilesByModuleAndUsername(moduleName: String, username: String): LiveData<List<File>>
 //    @Query("SELECT * FROM file ORDER BY lastTimeOpened DESC")
 //    fun getFilesDependingOnDateOpen()
 }

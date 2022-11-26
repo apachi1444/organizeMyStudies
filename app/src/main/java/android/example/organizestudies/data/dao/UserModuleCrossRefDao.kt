@@ -1,5 +1,7 @@
 package android.example.organizestudies.data.dao
 
+import android.example.organizestudies.data.entities.relations.UserWithModules
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
@@ -16,10 +18,13 @@ interface UserModuleCrossRefDao {
     fun getOneIdCombined(username: String, moduleName: String): String
 
     @Transaction
-    @Query("UPDATE user_module_table SET starred=1 WHERE username =:username AND moduleName =:moduleName")
+    @Query("UPDATE user_module_table SET starred = CASE starred WHEN 0 THEN 1 ELSE 0 END WHERE username =:username AND moduleName =:moduleName")
     fun starModule(username: String, moduleName: String)
 
     @Query("SELECT Count(*) FROM user_module_table WHERE username=:username")
     fun countUserModules(username: String): Int
+//
+//    @Query("SELECT * FROM user_module_table WHERE username =:username AND starred=1")
+//    fun getStarredModules(username: String): LiveData<List<UserWithModules>>
 
 }

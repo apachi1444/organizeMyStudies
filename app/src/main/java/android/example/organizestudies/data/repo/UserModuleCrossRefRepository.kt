@@ -5,6 +5,8 @@ import android.example.organizestudies.data.dao.UserModuleCrossRefDao
 import android.example.organizestudies.data.db.UserDb
 import android.example.organizestudies.data.entities.Module
 import android.example.organizestudies.data.entities.User
+import android.example.organizestudies.data.entities.relations.UserWithModules
+import androidx.lifecycle.LiveData
 
 class UserModuleCrossRefRepository(application: Application) {
     private val userModuleCrossRefDao: UserModuleCrossRefDao =
@@ -26,5 +28,9 @@ class UserModuleCrossRefRepository(application: Application) {
     fun countUserModules(username: String) : Int {
         return userModuleCrossRefDao.countUserModules(username)
     }
+
+//    fun getStarredModules(username: String): LiveData<List<UserWithModules>> {
+//        return userModuleCrossRefDao.getStarredModules(username)
+//    }
 
 }

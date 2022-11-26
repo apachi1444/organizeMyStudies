@@ -77,6 +77,13 @@
     <string name="done">done</string>
     <string name="click_here">Click Here !</string>
     <string name="pdf_image">pdf_image</string>
+    <string name="username">Username</string>
+    <string name="password">Password:</string>
+    <string name="level">Level:</string>
+    <string name="marrakesh_morocco">Marrakesh, Morocco</string>
+    <string name="category">Category</string>
+    <string name="date">Date</string>
+    <string name="starred_files">Starred Files</string>
 
     <string-array name="gradeStrings">
         <item>Select Your Grade</item>

@@ -25,7 +25,6 @@ class ModuleDetailsFragment : Fragment(), FileAdapterSingleModule.OnFileSingleMo
     private lateinit var moduleDetailsViewModel: ModuleDetailsViewModel
     private lateinit var moduleName: String
     private lateinit var fileAdapterSingleModule: FileAdapterSingleModule
-
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
@@ -55,7 +54,12 @@ class ModuleDetailsFragment : Fragment(), FileAdapterSingleModule.OnFileSingleMo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val module = moduleDetailsViewModel.getModule(moduleName)
-        moduleDetailsViewModel.files(moduleName).observe(viewLifecycleOwner) {
+        moduleDetailsViewModel.files(
+            module.moduleName, Utils.readingFromSharedPreferences(
+                requireContext(),
+                ConstKeys.USERNAME
+            )!!
+        ).observe(viewLifecycleOwner) {
             fileAdapterSingleModule.dataSet = it
         }
         updateUi(module)
@@ -82,5 +86,6 @@ class ModuleDetailsFragment : Fragment(), FileAdapterSingleModule.OnFileSingleMo
     }
 
     override fun onFileClick(position: Int) {
+
     }
 }

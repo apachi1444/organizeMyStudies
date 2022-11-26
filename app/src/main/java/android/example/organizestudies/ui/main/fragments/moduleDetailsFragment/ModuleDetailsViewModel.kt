@@ -16,8 +16,8 @@ class ModuleDetailsViewModel(application: Application) : AndroidViewModel(applic
         UserModuleCrossRefRepository(application)
     private val fileRepository: FileRepository = FileRepository(application)
 
-    fun files(moduleName: String): LiveData<List<File>> {
-        return fileRepository.getFilesByModule(moduleName)
+    fun files(moduleName: String , username: String): LiveData<List<File>> {
+        return fileRepository.getFilesByModuleAndUsername(moduleName , username)
     }
 
     fun getModule(moduleName: String): Module {

@@ -38,4 +38,8 @@ data class UserRepository(private val application: Application) {
         userDao.insert(userModuleCrossRef)
     }
 
+    fun update(user: User) {
+        userDao.update(user)
+    }
+
 }
