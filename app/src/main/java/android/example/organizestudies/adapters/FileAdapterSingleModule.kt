@@ -31,7 +31,7 @@ class FileAdapterSingleModule(
         RecyclerView.ViewHolder(view), View.OnClickListener {
         val textView: TextView
         val imageView: ImageView
-        val trashIcon :ImageView = view.findViewById(R.id.delete_file_icon)
+        val trashIcon: ImageView = view.findViewById(R.id.delete_file_icon)
 
         init {
             // Define click listener for the ViewHolder's View.
@@ -73,7 +73,7 @@ class FileAdapterSingleModule(
             }
         }
 
-        (dataSet[position].filename + dataSet[position].extension).also {
+        (dataSet[position].filename).also {
             holder.textView.text = it
         }
     }

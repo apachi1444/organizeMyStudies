@@ -1,5 +1,9 @@
 package android.example.organizestudies.ui.main.fragments.homeFragment
 
+import android.content.ActivityNotFoundException
+import android.content.ClipData
+import android.content.Context
+import android.content.Intent
 import android.example.organizestudies.R
 import android.example.organizestudies.adapters.FileAdapter
 import android.example.organizestudies.adapters.ModuleAdapter
@@ -7,9 +11,13 @@ import android.example.organizestudies.databinding.FragmentHomeBinding
 import android.example.organizestudies.ui.welcome.activities.WelcomeActivity
 import android.example.organizestudies.utils.Utils
 import android.example.organizestudies.utils.consts.ConstKeys
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
+import android.util.Log
 import android.view.*
 import android.widget.Toast
+import androidx.core.content.FileProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +26,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.test.core.app.ApplicationProvider
+import java.io.File
 
 
 class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener, FileAdapter.OnFileListener {
@@ -160,8 +170,42 @@ class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener, FileAdapter.OnF
     }
 
     override fun onFileClick(position: Int) {
-        Utils.showToast(requireContext(), "clicked")
+//        openPDF(fileAdapter.dataSet[position].filename)
     }
 
+    private fun openPDF(url: String) {
 
+        // Get the File location and file name.
+        val file = File(Environment.getExternalStorageDirectory(), url)
+        Log.d("pdfFIle", "" + file)
+
+        // Get the URI Path of file.
+        val uriPdfPath: Uri = FileProvider.getUriForFile(
+            requireContext(),
+            ApplicationProvider.getApplicationContext<Context>().packageName + ".provider",
+            file
+        )
+        Log.d("pdfPath", "" + uriPdfPath)
+
+        // Start Intent to View PDF from the Installed Applications.
+        val pdfOpenIntent = Intent(Intent.ACTION_VIEW)
+        pdfOpenIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        pdfOpenIntent.clipData = ClipData.newRawUri("", uriPdfPath)
+        pdfOpenIntent.setDataAndType(uriPdfPath, "application/pdf")
+        pdfOpenIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+        try {
+            startActivity(pdfOpenIntent)
+        } catch (activityNotFoundException: ActivityNotFoundException) {
+            Toast.makeText(
+                requireContext(),
+                "There is no app to load corresponding PDF",
+                Toast.LENGTH_LONG
+            )
+                .show()
+        }
+    }
+
+    private fun openPdf(){
+
+    }
 }

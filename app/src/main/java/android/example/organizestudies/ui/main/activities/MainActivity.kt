@@ -6,7 +6,6 @@ import android.example.organizestudies.R
 import android.example.organizestudies.data.entities.File
 import android.example.organizestudies.databinding.ActivityMainBinding
 import android.example.organizestudies.databinding.CustomPopupAddFileBinding
-import android.example.organizestudies.ui.main.fragments.homeFragment.HomeFragment
 import android.example.organizestudies.utils.DateUtils
 import android.example.organizestudies.utils.StringsUtils
 import android.example.organizestudies.utils.Utils
@@ -14,6 +13,7 @@ import android.example.organizestudies.utils.consts.ConstKeys
 import android.example.organizestudies.utils.consts.ObjectStorage
 import android.net.Uri
 import android.os.Bundle
+import android.provider.OpenableColumns
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -23,8 +23,6 @@ import android.widget.Spinner
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -32,7 +30,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.snackbar.Snackbar
+
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
@@ -53,12 +51,15 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         { result: Uri? ->
             val data: String? = result?.encodedPath
             if (data != null) {
-                val sUri: String = data
+                val returnCursor = contentResolver.query(result, null, null, null, null)!!
+                val nameIndex: Int = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+                returnCursor.moveToFirst()
+                val name: String = returnCursor.getString(nameIndex)
+                returnCursor.close()
                 bindingCustomPopupAddFileBinding.fileName.text =
-                    sUri
-                uriFile = sUri
+                    name
+                uriFile = name
                 closeDialog(dialog)
-
             } else {
                 bindingCustomPopupAddFileBinding.fileName.text =
                     StringsUtils.MESSAGE_ERROR_WHEN_FILE_UPLOADED
