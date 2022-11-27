@@ -1,7 +1,9 @@
 package android.example.organizestudies.adapters
 
+import android.app.Application
 import android.example.organizestudies.R
-import android.example.organizestudies.data.entities.Module
+import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
+import android.example.organizestudies.data.repo.UserModuleCrossRefRepository
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,24 +11,29 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class StarredModuleRowInStarredFragmentAdapter(private val onModuleListener: OnModuleListener) :
-    RecyclerView.Adapter<StarredModuleRowInStarredFragmentAdapter.ViewHolder>() {
-    var dataSet = listOf<Module>()
+class StarredModuleInStarredFragmentAdapter(
+    application: Application,
+    private val onModuleListener: OnModuleListener
+) :
+    RecyclerView.Adapter<StarredModuleInStarredFragmentAdapter.ViewHolder>() {
+    var dataSet = listOf<UserModuleCrossRef>()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
+    private val userModuleCrossRefRepository: UserModuleCrossRefRepository =
+        UserModuleCrossRefRepository(application)
+
     class ViewHolder(view: View, private val onModuleListener: OnModuleListener) :
         RecyclerView.ViewHolder(view), View.OnClickListener {
         var moduleName: TextView
-        var categoryModuleName: TextView
         val moduleImage: ImageView = view.findViewById(R.id.image_module)
+        val starIcon: ImageView = view.findViewById(R.id.trash_button)
 
         init {
             // Define click listener for the ViewHolder's View.
             moduleName = view.findViewById(R.id.module_name)
-            categoryModuleName = view.findViewById(R.id.category_name)
             view.setOnClickListener(this)
         }
 
@@ -44,9 +51,10 @@ class StarredModuleRowInStarredFragmentAdapter(private val onModuleListener: OnM
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.moduleName.text = dataSet[position].moduleName
-        holder.categoryModuleName.text =
-            dataSet[position].grade
-        holder.moduleImage.setImageResource(dataSet[position].imageModule)
+        holder.moduleImage.setImageResource(dataSet[position].moduleImage)
+        holder.starIcon.setOnClickListener {
+            userModuleCrossRefRepository.toggleStar(dataSet[position].moduleName)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -54,4 +62,5 @@ class StarredModuleRowInStarredFragmentAdapter(private val onModuleListener: OnM
             .inflate(R.layout.single_starred_module_row_starred_fragment, parent, false)
         return ViewHolder(view, onModuleListener)
     }
+
 }

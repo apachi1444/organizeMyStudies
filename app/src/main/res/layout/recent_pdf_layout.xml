@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/fileName"
-        android:alpha="0.6"
+        android:alpha="0.8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"

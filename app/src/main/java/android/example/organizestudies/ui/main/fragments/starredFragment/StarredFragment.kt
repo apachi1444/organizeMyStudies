@@ -1,7 +1,8 @@
 package android.example.organizestudies.ui.main.fragments.starredFragment
 
 import android.example.organizestudies.R
-import android.example.organizestudies.adapters.StarredModuleRowInStarredFragmentAdapter
+import android.example.organizestudies.adapters.StarredFileInStarredFragmentAdapter
+import android.example.organizestudies.adapters.StarredModuleInStarredFragmentAdapter
 import android.example.organizestudies.databinding.FragmentStarredBinding
 import android.example.organizestudies.utils.Utils
 import android.example.organizestudies.utils.consts.ConstKeys
@@ -15,14 +16,18 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class StarredFragment : Fragment(), StarredModuleRowInStarredFragmentAdapter.OnModuleListener {
+class StarredFragment : Fragment(), StarredModuleInStarredFragmentAdapter.OnModuleListener,
+    StarredFileInStarredFragmentAdapter.OnFileListener {
 
     private lateinit var recyclerViewModules: RecyclerView
+    private lateinit var recyclerViewFiles: RecyclerView
+
     private lateinit var starredViewModel: StarredViewModel
 
     private lateinit var fragmentStarredBinding: FragmentStarredBinding
-    private var adapter: StarredModuleRowInStarredFragmentAdapter =
-        StarredModuleRowInStarredFragmentAdapter(this)
+    private lateinit var adapter: StarredModuleInStarredFragmentAdapter
+
+    private lateinit var adapterStarredFiles: StarredFileInStarredFragmentAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +39,10 @@ class StarredFragment : Fragment(), StarredModuleRowInStarredFragmentAdapter.OnM
 
         starredViewModel = ViewModelProvider(this)[StarredViewModel::class.java]
 
+        adapter = StarredModuleInStarredFragmentAdapter(requireActivity().application, this)
+        adapterStarredFiles =
+            StarredFileInStarredFragmentAdapter(requireActivity().application, this)
+
         recyclerViewModules = fragmentStarredBinding.recyclerViewStarredModules
         recyclerViewModules.setHasFixedSize(true)
         recyclerViewModules.layoutManager = LinearLayoutManager(
@@ -41,8 +50,17 @@ class StarredFragment : Fragment(), StarredModuleRowInStarredFragmentAdapter.OnM
             LinearLayoutManager.VERTICAL,
             false
         )
-
         recyclerViewModules.adapter = adapter
+
+        recyclerViewFiles = fragmentStarredBinding.recyclerViewStarredFiles
+        recyclerViewFiles.setHasFixedSize(true)
+        recyclerViewFiles.layoutManager = LinearLayoutManager(
+            requireActivity().applicationContext,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        recyclerViewFiles.adapter = adapterStarredFiles
+
         return fragmentStarredBinding.root
     }
 
@@ -52,14 +70,16 @@ class StarredFragment : Fragment(), StarredModuleRowInStarredFragmentAdapter.OnM
                 requireContext(),
                 ConstKeys.USERNAME
             )!!
-        ).observe(viewLifecycleOwner) { it ->
-            it.forEach {
-                adapter.dataSet = it.modules
-            }
+        ).observe(viewLifecycleOwner) {
+            adapter.dataSet = it
         }
+
+        starredViewModel.files().observe(viewLifecycleOwner) {
+            adapterStarredFiles.dataSet = it
+        }
+
     }
 
     override fun onFileClick(position: Int) {
-        TODO("Not yet implemented")
     }
 }

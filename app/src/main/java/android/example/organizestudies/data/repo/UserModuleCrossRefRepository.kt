@@ -5,6 +5,7 @@ import android.example.organizestudies.data.dao.UserModuleCrossRefDao
 import android.example.organizestudies.data.db.UserDb
 import android.example.organizestudies.data.entities.Module
 import android.example.organizestudies.data.entities.User
+import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
 import android.example.organizestudies.data.entities.relations.UserWithModules
 import androidx.lifecycle.LiveData
 
@@ -29,8 +30,12 @@ class UserModuleCrossRefRepository(application: Application) {
         return userModuleCrossRefDao.countUserModules(username)
     }
 
-    fun getStarredModules(username: String): LiveData<List<UserWithModules>> {
+    fun getStarredModules(username: String): LiveData<List<UserModuleCrossRef>> {
         return userModuleCrossRefDao.getStarredModules(username)
+    }
+
+    fun toggleStar(moduleName: String) {
+        userModuleCrossRefDao.toggleStar(moduleName)
     }
 
 }

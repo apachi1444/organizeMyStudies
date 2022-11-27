@@ -38,4 +38,8 @@ data class FileRepository(private val application: Application) {
         return fileDao.getFilesByModuleAndUsername(moduleName, username)
     }
 
+    fun getStarredFiles(): LiveData<List<File>> {
+        return fileDao.getStarredFiles()
+    }
+
 }

@@ -28,6 +28,8 @@ interface FileDao {
 
     @Query("DELETE FROM File WHERE filename =:filename")
     fun delete(filename: String)
-//    @Query("SELECT * FROM file ORDER BY lastTimeOpened DESC")
-//    fun getFilesDependingOnDateOpen()
+
+    @Query("SELECT * FROM File WHERE starred=1")
+    fun getStarredFiles(): LiveData<List<File>>
+
 }

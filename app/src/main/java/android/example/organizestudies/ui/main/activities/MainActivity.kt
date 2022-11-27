@@ -32,6 +32,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
@@ -106,29 +107,37 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
         }
         configurationSpinnerModules()
-        bottomNavigationLogic()
+//        bottomNavigationLogic()
+        fabLogic()
         NavigationUI.setupActionBarWithNavController(this, navController)
 
     }
 
-    private fun bottomNavigationLogic() {
-        bottomNavigationView = binding.bottomNavigation
-        bottomNavigationView.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.home -> {
-//                    supportFragmentManager.commit {
-//
-//                        setReorderingAllowed(true).replace<HomeFragment>(R.id.nav_host_fragment_container)
-//                    }
-                }
-                R.id.add -> {
-                    showDialogAddFile()
-                }
-                R.id.settings -> Utils.showToast(applicationContext, "HERE")
-            }
-            true
+    private fun fabLogic() {
+        val fab: View = findViewById(R.id.fab)
+        fab.setOnClickListener {
+            showDialogAddFile()
         }
     }
+
+//    private fun bottomNavigationLogic() {
+//        bottomNavigationView = binding.bottomNavigation
+//        bottomNavigationView.setOnItemSelectedListener {
+//            when (it.itemId) {
+//                R.id.home -> {
+////                    supportFragmentManager.commit {
+////
+////                        setReorderingAllowed(true).replace<HomeFragment>(R.id.nav_host_fragment_container)
+////                    }
+//                }
+//                R.id.add -> {
+//                    showDialogAddFile()
+//                }
+//                R.id.settings -> Utils.showToast(applicationContext, "HERE")
+//            }
+//            true
+//        }
+//    }
 //
 //    private fun choosePdfFromDevice(): ActivityResultLauncher<Intent> {
 ////        bindingCustomPopupAddFileBinding.btnOk.setOnClickListener {

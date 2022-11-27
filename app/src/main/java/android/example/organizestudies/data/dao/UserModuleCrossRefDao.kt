@@ -1,6 +1,6 @@
 package android.example.organizestudies.data.dao
 
-import android.example.organizestudies.data.entities.relations.UserWithModules
+import android.example.organizestudies.data.entities.relations.UserModuleCrossRef
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
@@ -24,7 +24,12 @@ interface UserModuleCrossRefDao {
     @Query("SELECT Count(*) FROM user_module_table WHERE username=:username")
     fun countUserModules(username: String): Int
 
+    @Transaction
     @Query("SELECT * FROM user_module_table WHERE username =:username AND starred=1")
-    fun getStarredModules(username: String): LiveData<List<UserWithModules>>
+    fun getStarredModules(username: String): LiveData<List<UserModuleCrossRef>>
+
+    @Query("UPDATE user_module_table SET starred = CASE starred WHEN 0 THEN 1 ELSE 0 END WHERE moduleName=:moduleName")
+
+    fun toggleStar(moduleName: String)
 
 }

@@ -88,6 +88,7 @@
     <string name="field">Field:</string>
     <string name="my_account">My Account</string>
     <string name="starred_modules">Starred Modules</string>
+    <string name="module">Module</string>
 
     <string-array name="gradeStrings">
         <item>Select Your Grade</item>
