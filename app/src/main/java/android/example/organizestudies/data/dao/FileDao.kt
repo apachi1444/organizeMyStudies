@@ -21,7 +21,7 @@ interface FileDao {
     fun toggleStar(filename: String)
 
     @Query("SELECT count(*) FROM File WHERE username =:username")
-    fun countUserFiles(username: String): Int
+    fun countUserFiles(username: String): LiveData<Int>
 
     @Query("SELECT * FROM File WHERE username =:username AND moduleName =:moduleName")
     fun getFilesByModuleAndUsername(moduleName: String, username: String): LiveData<List<File>>

@@ -89,6 +89,7 @@
     <string name="my_account">My Account</string>
     <string name="starred_modules">Starred Modules</string>
     <string name="module">Module</string>
+    <string name="about_our_application">About Our Application</string>
 
     <string-array name="gradeStrings">
         <item>Select Your Grade</item>

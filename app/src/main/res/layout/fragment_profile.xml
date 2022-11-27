@@ -168,8 +168,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layoutProfile" />
 
-            <androidx.gridlayout.widget.GridLayout
-                android:layout_width="wrap_content"
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_files"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
@@ -181,33 +183,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textLatestProducts"
-                app:useDefaultMargins="true">
+                app:useDefaultMargins="true" />
 
-                <!--                <com.makeramen.roundedimageview.RoundedImageView-->
-                <!--                    android:layout_width="0dp"-->
-                <!--                    android:layout_height="110dp"-->
-                <!--                    android:scaleType="centerCrop"-->
-                <!--                    android:src="@drawable/taylor"-->
-                <!--                    app:layout_columnWeight="1"-->
-                <!--                    app:layout_gravity="fill"-->
-                <!--                    app:riv_corner_radius="6dp" />-->
-
-                <include layout="@layout/single_module_box_in_profile_page" />
-
-                <include layout="@layout/single_module_box_in_profile_page" />
-
-                <include layout="@layout/single_module_box_in_profile_page" />
-
-                <include layout="@layout/single_module_box_in_profile_page" />
-
-                <include layout="@layout/single_module_box_in_profile_page" />
-
-                <include layout="@layout/single_module_box_in_profile_page" />
-
-                <include layout="@layout/single_module_box_in_profile_page" />
-
-
-            </androidx.gridlayout.widget.GridLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -17,8 +17,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-// TODO: Rename parameter arguments, choose names that match
-
 
 class ModuleDetailsFragment : Fragment(), FileAdapterSingleModule.OnFileSingleModuleListener {
 

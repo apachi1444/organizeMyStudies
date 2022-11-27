@@ -30,16 +30,16 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="android.example.organizestudies.ui.main.fragments.settingsFragment.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="Settings" />
     <fragment
         android:id="@+id/starredFragment"
         android:name="android.example.organizestudies.ui.main.fragments.starredFragment.StarredFragment"
-        android:label="j" />
+        android:label="Starred" />
     <fragment
         android:id="@+id/moduleDetailsFragment"
         android:name="android.example.organizestudies.ui.main.fragments.moduleDetailsFragment.ModuleDetailsFragment"
-        android:label="fragment_module_details"
-        tools:layout="@layout/fragment_module_details" >
+        android:label="Details"
+        tools:layout="@layout/fragment_module_details">
         <argument
             android:name="moduleName"
             app:argType="string" />

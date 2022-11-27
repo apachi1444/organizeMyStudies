@@ -205,7 +205,4 @@ class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener, FileAdapter.OnF
         }
     }
 
-    private fun openPdf(){
-
-    }
 }

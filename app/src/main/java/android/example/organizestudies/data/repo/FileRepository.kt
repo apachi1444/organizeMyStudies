@@ -30,7 +30,7 @@ data class FileRepository(private val application: Application) {
         fileDao.toggleStar(fileName)
     }
 
-    fun countUserFiles(username: String): Int {
+    fun countUserFiles(username: String): LiveData<Int> {
         return fileDao.countUserFiles(username)
     }
 
