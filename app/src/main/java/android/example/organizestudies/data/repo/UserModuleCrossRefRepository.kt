@@ -29,8 +29,8 @@ class UserModuleCrossRefRepository(application: Application) {
         return userModuleCrossRefDao.countUserModules(username)
     }
 
-//    fun getStarredModules(username: String): LiveData<List<UserWithModules>> {
-//        return userModuleCrossRefDao.getStarredModules(username)
-//    }
+    fun getStarredModules(username: String): LiveData<List<UserWithModules>> {
+        return userModuleCrossRefDao.getStarredModules(username)
+    }
 
 }

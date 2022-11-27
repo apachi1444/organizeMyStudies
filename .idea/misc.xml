@@ -29,14 +29,15 @@
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/collection_layout.xml" value="0.11197916666666667" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/custom_dropdown_layout.xml" value="0.264" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/custom_popup_add_file.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/custom_popup_change_language.xml" value="0.2" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/custom_row.xml" value="0.6" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/custom_spinner_layout.xml" value="0.264" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/file_name_in_module_details_fragment.xml" value="0.2" />
-        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/file_row_item_in_module_details.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/file_row_item_in_module_details.xml" value="0.536" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_first_welcome_page.xml" value="0.176" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_login.xml" value="0.264" />
-        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_module_details.xml" value="0.1" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_module_details.xml" value="0.264" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_second_welcome_page.xml" value="0.2" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_seoncd_welcome_page.xml" value="0.25416666666666665" />
@@ -50,7 +51,8 @@
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/single_module_box_in_profile_page.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/single_module_home_page_layout.xml" value="0.264" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/single_module_home_page_layout_2.xml" value="0.264" />
-        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/single_starred_module_row_starred_fragment.xml" value="0.4" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/single_starred_file_row_starred_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/single_starred_module_row_starred_fragment.xml" value="0.264" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/sinle_module_home_page_layout.xml" value="0.536" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/welcome_activity_navigation.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2175925925925926" />

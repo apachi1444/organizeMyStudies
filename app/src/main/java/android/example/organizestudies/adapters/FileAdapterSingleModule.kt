@@ -31,6 +31,7 @@ class FileAdapterSingleModule(
         RecyclerView.ViewHolder(view), View.OnClickListener {
         val textView: TextView
         val imageView: ImageView
+        val trashIcon :ImageView = view.findViewById(R.id.delete_file_icon)
 
         init {
             // Define click listener for the ViewHolder's View.
@@ -57,6 +58,10 @@ class FileAdapterSingleModule(
             holder.imageView.setImageResource(R.drawable.ic_star_border)
         } else {
             holder.imageView.setImageResource(R.drawable.ic_star)
+        }
+
+        holder.trashIcon.setOnClickListener {
+            fileRepository.deleteFileByName(dataSet[position].filename)
         }
 
         holder.imageView.setOnClickListener {

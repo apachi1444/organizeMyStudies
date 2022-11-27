@@ -28,7 +28,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/file_label"
+                android:id="@+id/module_name_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name"

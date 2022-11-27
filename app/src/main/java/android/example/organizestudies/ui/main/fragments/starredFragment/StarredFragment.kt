@@ -27,7 +27,8 @@ class StarredFragment : Fragment(), StarredModuleRowInStarredFragmentAdapter.OnM
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+
         fragmentStarredBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_starred, container, false)
 
@@ -37,7 +38,7 @@ class StarredFragment : Fragment(), StarredModuleRowInStarredFragmentAdapter.OnM
         recyclerViewModules.setHasFixedSize(true)
         recyclerViewModules.layoutManager = LinearLayoutManager(
             requireActivity().applicationContext,
-            LinearLayoutManager.HORIZONTAL,
+            LinearLayoutManager.VERTICAL,
             false
         )
 
@@ -46,16 +47,16 @@ class StarredFragment : Fragment(), StarredModuleRowInStarredFragmentAdapter.OnM
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        starredViewModel.modules(
-//            Utils.readingFromSharedPreferences(
-//                requireContext(),
-//                ConstKeys.USERNAME
-//            )!!
-//        ).observe(viewLifecycleOwner) {
-//            it.forEach {
-//                adapter.dataSet = it.modules
-//            }
-//        }
+        starredViewModel.modules(
+            Utils.readingFromSharedPreferences(
+                requireContext(),
+                ConstKeys.USERNAME
+            )!!
+        ).observe(viewLifecycleOwner) { it ->
+            it.forEach {
+                adapter.dataSet = it.modules
+            }
+        }
     }
 
     override fun onFileClick(position: Int) {

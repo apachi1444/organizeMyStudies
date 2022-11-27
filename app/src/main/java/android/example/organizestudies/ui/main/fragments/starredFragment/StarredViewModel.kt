@@ -11,8 +11,8 @@ class StarredViewModel(application: Application) : AndroidViewModel(application)
     private val moduleRepository: ModuleRepository = ModuleRepository(application)
     private val userModuleCrossRefRepository: UserModuleCrossRefRepository = UserModuleCrossRefRepository(application)
 
-//    fun modules(username: String): LiveData<List<UserWithModules>> {
-//        return userModuleCrossRefRepository.getStarredModules(username)
-//    }
+    fun modules(username: String): LiveData<List<UserWithModules>> {
+        return userModuleCrossRefRepository.getStarredModules(username)
+    }
 
 }

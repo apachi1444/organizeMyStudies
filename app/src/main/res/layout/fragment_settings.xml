@@ -12,7 +12,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageButton"
+                android:id="@+id/btn_done"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
@@ -46,6 +46,7 @@
 
                 <ImageView
                     android:id="@+id/lightImage"
+
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/todo"
@@ -119,10 +120,10 @@
                     android:id="@+id/textView16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:text="My Account"
+                    android:text="@string/my_account"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 
@@ -142,13 +143,12 @@
 
                     <EditText
                         android:id="@+id/nameInput"
+                        android:focusableInTouchMode="false"
                         style="@style/input"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginRight="10dp"
-                        android:drawableEnd="@drawable/pen"
-                        android:hint="Aimad Ezzahar"
+                        android:layout_marginEnd="10dp"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:textColor="@color/label_grey" />
 
@@ -164,7 +164,7 @@
                     <TextView
                         android:id="@+id/fieldLabel"
                         style="@style/input"
-                        android:text="Field:"
+                        android:text="@string/field"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
                     <EditText
@@ -175,7 +175,6 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="1"
-                        android:drawableEnd="@drawable/pen"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:textColor="@color/label_grey" />
 
@@ -202,7 +201,6 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="1"
-                        android:drawableEnd="@drawable/pen"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:textColor="@color/label_grey" />
 
@@ -223,11 +221,12 @@
 
                     <EditText
                         android:id="@+id/passwordInput"
+                        android:inputType="textPassword"
                         style="@style/input"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
                         android:layout_weight="1"
                         android:autofillHints=""
                         android:drawableEnd="@drawable/pen"
@@ -259,8 +258,12 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="1"
+                        android:autofillHints=""
+                        android:inputType="textPassword"
                         android:drawableEnd="@drawable/pen"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/label_grey"
+                        tools:ignore="TextFields" />
 
                 </LinearLayout>
 
@@ -290,11 +293,10 @@
                     app:riv_corner_radius="50dp" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/usernameText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Taylor Swift"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/white" />
@@ -311,7 +313,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/location" />
+                        app:srcCompat="@drawable/location"
+                        android:contentDescription="TODO" />
 
                     <TextView
                         android:id="@+id/textView6"

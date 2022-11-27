@@ -5,7 +5,6 @@ import android.example.organizestudies.data.dao.FileDao
 import android.example.organizestudies.data.db.UserDb
 import android.example.organizestudies.data.entities.File
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 
 data class FileRepository(private val application: Application) {
 
@@ -19,11 +18,15 @@ data class FileRepository(private val application: Application) {
         return fileDao.getFiles(fk)
     }
 
-    fun getFilesByModule(moduleName : String): LiveData<List<File>>{
+    fun getFilesByModule(moduleName: String): LiveData<List<File>> {
         return fileDao.getFilesByModule(moduleName)
     }
 
-    fun toggleStar(fileName : String){
+    fun deleteFileByName(fileName: String) {
+        fileDao.delete(fileName)
+    }
+
+    fun toggleStar(fileName: String) {
         fileDao.toggleStar(fileName)
     }
 
@@ -32,7 +35,7 @@ data class FileRepository(private val application: Application) {
     }
 
     fun getFilesByModuleAndUsername(moduleName: String, username: String): LiveData<List<File>> {
-        return fileDao.getFilesByModuleAndUsername(moduleName,username)
+        return fileDao.getFilesByModuleAndUsername(moduleName, username)
     }
 
 }

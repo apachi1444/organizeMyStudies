@@ -25,6 +25,9 @@ interface FileDao {
 
     @Query("SELECT * FROM File WHERE username =:username AND moduleName =:moduleName")
     fun getFilesByModuleAndUsername(moduleName: String, username: String): LiveData<List<File>>
+
+    @Query("DELETE FROM File WHERE filename =:filename")
+    fun delete(filename: String)
 //    @Query("SELECT * FROM file ORDER BY lastTimeOpened DESC")
 //    fun getFilesDependingOnDateOpen()
 }

@@ -2,6 +2,7 @@ package android.example.organizestudies.ui.main.fragments.moduleDetailsFragment
 
 import android.example.organizestudies.R
 import android.example.organizestudies.adapters.FileAdapterSingleModule
+import android.example.organizestudies.data.entities.File
 import android.example.organizestudies.data.entities.Module
 import android.example.organizestudies.databinding.FragmentModuleDetailsBinding
 import android.example.organizestudies.utils.Utils
@@ -86,6 +87,7 @@ class ModuleDetailsFragment : Fragment(), FileAdapterSingleModule.OnFileSingleMo
     }
 
     override fun onFileClick(position: Int) {
+        val file: File = fileAdapterSingleModule.dataSet[position]
 
     }
 }

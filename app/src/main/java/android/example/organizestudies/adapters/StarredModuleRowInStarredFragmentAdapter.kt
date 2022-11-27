@@ -5,6 +5,7 @@ import android.example.organizestudies.data.entities.Module
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -20,11 +21,12 @@ class StarredModuleRowInStarredFragmentAdapter(private val onModuleListener: OnM
         RecyclerView.ViewHolder(view), View.OnClickListener {
         var moduleName: TextView
         var categoryModuleName: TextView
+        val moduleImage: ImageView = view.findViewById(R.id.image_module)
 
         init {
             // Define click listener for the ViewHolder's View.
             moduleName = view.findViewById(R.id.module_name)
-            categoryModuleName = view.findViewById(R.id.category_module_name)
+            categoryModuleName = view.findViewById(R.id.category_name)
             view.setOnClickListener(this)
         }
 
@@ -43,7 +45,8 @@ class StarredModuleRowInStarredFragmentAdapter(private val onModuleListener: OnM
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.moduleName.text = dataSet[position].moduleName
         holder.categoryModuleName.text =
-            dataSet[position].grade + " " + dataSet[position].levelStudy
+            dataSet[position].grade
+        holder.moduleImage.setImageResource(dataSet[position].imageModule)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

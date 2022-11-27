@@ -41,7 +41,7 @@ class ProfileFragment : Fragment() {
 
     private fun updateUi() {
         binding.textName.text = username
-        binding.textAbout.text = "${user.grade} + ${user.levelStudy}"
+        binding.textAbout.text = "${user.grade} ${user.levelStudy}"
         binding.numberModules.text = profileViewModel.countUserModules(username)
         binding.numberFiles.text = profileViewModel.countUserFiles(username)
     }

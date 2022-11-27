@@ -160,7 +160,6 @@ class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener, FileAdapter.OnF
     }
 
     override fun onFileClick(position: Int) {
-        fileAdapter.dataSet[position]
         Utils.showToast(requireContext(), "clicked")
     }
 

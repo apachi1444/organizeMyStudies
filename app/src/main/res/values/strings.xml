@@ -71,6 +71,7 @@
     <string name="sound_on">Sound On</string>
     <string name="english">English</string>
     <string name="choose_your_module">Choose Your Module</string>
+    <string name="choose_your_language">Choose Your Language</string>
     <string name="ok">Ok</string>
     <string name="your_file_name">Your File Name :</string>
     <string name="choose_your_file">Choose Your File</string>
@@ -84,6 +85,9 @@
     <string name="category">Category</string>
     <string name="date">Date</string>
     <string name="starred_files">Starred Files</string>
+    <string name="field">Field:</string>
+    <string name="my_account">My Account</string>
+    <string name="starred_modules">Starred Modules</string>
 
     <string-array name="gradeStrings">
         <item>Select Your Grade</item>
@@ -98,6 +102,13 @@
         <item>3rd Year</item>
         <item>4th Year</item>
         <item>5th Year</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>Select Your Language</item>
+        <item>French</item>
+        <item>English</item>
+        <item>Spanish</item>
     </string-array>
 
 </resources>

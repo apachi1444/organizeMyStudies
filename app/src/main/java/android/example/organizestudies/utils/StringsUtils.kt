@@ -15,5 +15,10 @@ class StringsUtils {
         fun <T> convertEnumToString(value: T): String {
             return value.toString()
         }
+
+        fun getLanguages(): List<CharSequence> {
+            return arrayListOf("French", "English", "Spanish")
+        }
+
     }
 }

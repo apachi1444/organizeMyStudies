@@ -23,8 +23,8 @@ interface UserModuleCrossRefDao {
 
     @Query("SELECT Count(*) FROM user_module_table WHERE username=:username")
     fun countUserModules(username: String): Int
-//
-//    @Query("SELECT * FROM user_module_table WHERE username =:username AND starred=1")
-//    fun getStarredModules(username: String): LiveData<List<UserWithModules>>
+
+    @Query("SELECT * FROM user_module_table WHERE username =:username AND starred=1")
+    fun getStarredModules(username: String): LiveData<List<UserWithModules>>
 
 }
