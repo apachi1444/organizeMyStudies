@@ -7,6 +7,7 @@ import android.example.organizestudies.data.entities.File
 import android.example.organizestudies.databinding.ActivityMainBinding
 import android.example.organizestudies.databinding.CustomPopupAddFileBinding
 import android.example.organizestudies.utils.DateUtils
+import android.example.organizestudies.utils.Errors
 import android.example.organizestudies.utils.StringsUtils
 import android.example.organizestudies.utils.Utils
 import android.example.organizestudies.utils.consts.ConstKeys
@@ -14,7 +15,6 @@ import android.example.organizestudies.utils.consts.ObjectStorage
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private lateinit var spinner: Spinner
     private lateinit var dialog: Dialog
     private var currentSpinnerItem: String = ""
-    private val listModules = ArrayList<String>()
+    private val listModules = arrayListOf<String>()
     private var uriFile: String = ""
 
     // Receiver
@@ -103,7 +103,9 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         mainActivityViewModel.allModules.observe(this) { it ->
             it.forEach { ite ->
                 ite.modules.forEach {
-                    listModules.add(it.moduleName)
+                    if (!listModules.contains(it.moduleName)) {
+                        listModules.add(it.moduleName)
+                    }
                 }
             }
         }
@@ -180,10 +182,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     private fun configurationSpinnerModules() {
-        listModules.forEach {
-            Log.i("haha", it)
-        }
-
         val adapter: ArrayAdapter<CharSequence> = ArrayAdapter(
             applicationContext,
             android.R.layout.simple_spinner_item,
