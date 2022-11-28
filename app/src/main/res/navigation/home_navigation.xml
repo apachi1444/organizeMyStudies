@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="android.example.organizestudies.ui.main.fragments.profileFragment.ProfileFragment"
+        android:label="My Profile" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="android.example.organizestudies.ui.main.fragments.homeFragment.HomeFragment"
+        android:label="Home">
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_starredFragment"
+            app:destination="@id/starredFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_moduleDetailsFragment"
+            app:destination="@id/moduleDetailsFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="android.example.organizestudies.ui.main.fragments.settingsFragment.SettingsFragment"
+        android:label="Settings" />
+    <fragment
+        android:id="@+id/starredFragment"
+        android:name="android.example.organizestudies.ui.main.fragments.starredFragment.StarredFragment"
+        android:label="Starred" />
+    <fragment
+        android:id="@+id/moduleDetailsFragment"
+        android:name="android.example.organizestudies.ui.main.fragments.moduleDetailsFragment.ModuleDetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_module_details">
+        <argument
+            android:name="moduleName"
+            app:argType="string" />
+    </fragment>
+</navigation>

@@ -3,15 +3,68 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/arrow_dropdown_spinner.xml" value="0.1375" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/custom_search_icon.xml" value="0.2065" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/file_favorite_background.xml" value="0.1235" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/header_background.xml" value="0.1385" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/ic_calendar.xml" value="0.136" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/ic_first_image.xml" value="0.124" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/ic_important.xml" value="0.136" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/ic_log_out.xml" value="0.136" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/ic_search_icon.xml" value="0.2065" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/ic_search_icon_focused.xml" value="0.2065" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/ic_start.xml" value="0.136" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/ic_start_black.xml" value="0.1215" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/module_favorite_background.xml" value="0.1235" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/nav_color_selector.xml" value="0.1225" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/round_back_button.xml" value="0.2065" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/search_input_home_page.xml" value="0.2065" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/star_circle_layout.xml" value="0.536" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/drawable/tags_background.xml" value="0.123" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout-v26/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout-v28/fragment_login.xml" value="0.12760416666666666" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/activity_only_once_start.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/activity_only_once_welcome.xml" value="0.2" />
-        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_first_welcome_page.xml" value="0.11302083333333333" />
-        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_second_welcome_page.xml" value="0.536" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/activity_only_once_welcome.xml" value="0.136" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/collection_layout.xml" value="0.11197916666666667" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/custom_dropdown_layout.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/custom_popup_add_file.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/custom_popup_change_language.xml" value="0.2" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/custom_row.xml" value="0.6" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/custom_spinner_layout.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/file_name_in_module_details_fragment.xml" value="0.2" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/file_row_item_in_module_details.xml" value="0.536" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_first_welcome_page.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_login.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_module_details.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_profile.xml" value="0.152" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_second_welcome_page.xml" value="0.2" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_seoncd_welcome_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_settings.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_signup.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/fragment_starred.xml" value="0.2" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/list_item.xml" value="0.21481481481481482" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/new_custom_spinner_layout.xml" value="0.21481481481481482" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/note_rv_item.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/recent_pdf_layout.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/single_file_box_in_profile_page.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/single_module_box_in_profile_page.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/single_module_home_page_layout.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/single_module_home_page_layout_2.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/single_starred_file_row_starred_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/single_starred_module_row_starred_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/sinle_module_home_page_layout.xml" value="0.536" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/welcome_activity_navigation.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2175925925925926" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/menu/menu_main.xml" value="0.24666666666666667" />
       </map>
     </option>
+  </component>
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="androidx.room.PrimaryKey" />
+    </list>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

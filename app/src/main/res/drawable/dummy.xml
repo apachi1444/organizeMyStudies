@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <item>
+        <layer-list android:opacity="transparent">
+            <item android:width="100dp" android:end="300dp" android:gravity="left">
+                <shape>
+                    <solid android:color="#269cf7">
+
+                    </solid>
+                </shape>
+            </item>
+            <item android:width="300dp" android:gravity="right" android:start="100dp">
+                <shape>
+                    <solid android:color="@color/white">
+
+                    </solid>
+                </shape>
+            </item>
+            <item android:width="100dp" android:end="300dp" tools:targetApi="m" tools:ignore="UnusedAttribute">
+                <bitmap android:gravity="center" android:src="@drawable/ic_qr_code" />
+            </item>
+        </layer-list>
+    </item>
+</selector>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+
+    <ImageView
+        android:id="@+id/starIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/pdf_image"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_start_black" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/pdf_icon"
+        android:tag="icon_star" />
+
+    <TextView
+        android:id="@+id/fileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/spring_boot_introduction_pdf"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/delete_file_icon"
+        android:layout_width="12dp"
+        android:layout_gravity="center_vertical"
+        android:layout_height="12dp"
+        android:layout_marginHorizontal="10dp"
+        android:src="@drawable/trash"
+        android:tag="icon_star" />
+</LinearLayout>

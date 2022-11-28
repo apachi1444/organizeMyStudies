@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".ui.main.activities.MainActivity">
 
 
         <ImageView
-            android:id="@+id/first_image_welcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/second_image_welcome"
+            android:layout_width="252dp"
+            android:layout_height="261dp"
             android:layout_marginTop="140dp"
             android:src="@drawable/ic_secondimage"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,45 +24,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Hello World!"
+            android:text="@string/about_our_application"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/first_image_welcome" />
+            app:layout_constraintTop_toBottomOf="@+id/second_image_welcome" />
 
         <TextView
             android:id="@+id/littleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Little First Text !"
-            android:textSize="10sp"
+            android:text="Our application to organize your files"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/firstText" />
 
         <ImageView
-            android:id="@+id/whiteCircle"
+            android:id="@+id/greenCircle"
             android:layout_width="10dp"
             android:layout_height="10dp"
+            android:layout_marginStart="188dp"
             android:src="@drawable/circle_white_welcome_page"
-            app:layout_constraintBottom_toTopOf="@id/startGameButton"
-            app:layout_constraintEnd_toEndOf="parent"
-
+            app:layout_constraintBottom_toTopOf="@+id/startGameButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/littleText"
-            app:layout_constraintVertical_bias="0.511" />
+            tools:layout_editor_absoluteY="458dp" />
 
         <ImageView
-            android:id="@+id/greenCircle"
+            android:id="@+id/whiteCircle"
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_marginStart="4dp"
             android:src="@drawable/circle_green_welcome_page"
-            app:layout_constraintBottom_toTopOf="@+id/startGameButton"
-            app:layout_constraintStart_toEndOf="@+id/whiteCircle"
-            app:layout_constraintTop_toBottomOf="@+id/littleText" />
-
+            app:layout_constraintBottom_toTopOf="@id/startGameButton"
+            app:layout_constraintStart_toEndOf="@+id/greenCircle"
+            app:layout_constraintTop_toBottomOf="@+id/littleText"
+            tools:layout_editor_absoluteY="458dp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/startGameButton"
@@ -71,8 +70,9 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="148dp"
             android:background="@drawable/round_back_button"
+            android:backgroundTint="@color/yellow"
             android:paddingHorizontal="24dp"
-            android:text="@string/start_now"
+            android:text="@string/next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.513"

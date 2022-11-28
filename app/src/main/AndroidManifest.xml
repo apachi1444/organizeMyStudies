@@ -3,6 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="android.example.organizestudies">
 
+    <!--  In latest Android version you need to add QUERY_ALL_PACKAGES to list out all the available to application to read specific file
+          and MANAGE_EXTERNAL_STORAGE is used in Android R to have all the permissions to read file. -->
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,7 +25,7 @@
         android:theme="@style/Theme.OrganizeStudies"
         tools:targetApi="31">
         <activity
-            android:name=".OnlyOnceWelcomeActivity"
+            android:name="android.example.organizestudies.ui.welcome.activities.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="android.example.organizestudies.ui.main.activities.MainActivity"
             android:exported="true">
 
         </activity>

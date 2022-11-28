@@ -5,4 +5,112 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="start_now">Start Now</string>
+    <string name="spring">spring</string>
+    <string name="yessine_jaoua">Yessine Jaoua</string>
+    <string name="_4600">4600</string>
+    <string name="_4_98">4.98</string>
+    <string name="_541">541</string>
+    <string name="posts">postst</string>
+    <string name="followers">followers</string>
+    <string name="Tags">Tags</string>
+    <string name="stylish">stylish</string>
+    <string name="yessine">yessine</string>
+    <string name="collections">Collections</string>
+    <string name="let_s_start">Let\'s Start</string>
+    <string name="search_for_modules_here">Search For Modules Here</string>
+    <string name="recent_pdfs">Recent Pdfs</string>
+    <string name="go_to_main_activity">Go To Main Activity</string>
+    <string name="type_your_username_here">your username</string>
+    <string name="your_password">your password</string>
+    <string name="login">Login</string>
+    <string name="welcome_abroad">Welcome Abroad</string>
+
+    <string name="header">TextView</string>
+
+    <string name="hello_taylor">Hello Taylor</string>
+    <string name="my_modules">My Modules</string>
+    <string name="calendar">Calendar</string>
+    <string name="Java">Java</string>
+    <string name="backend">Backend</string>
+    <string name="spring_boot">Spring Boot</string>
+    <string name="professor">Professor</string>
+    <string name="mr_atlas">Mr Atlas</string>
+    <string name="period">Period</string>
+    <string name="_1st_semester">1st Semester</string>
+    <string name="content">Content</string>
+    <string name="you_will_be_taught">You will be taught :</string>
+    <string name="todo">TODO</string>
+    <string name="jee">- JEE</string>
+    <string name="files">Files</string>
+    <string name="spring_boot_introduction_pdf">Spring boot - Introduction.pdf</string>
+    <string name="module_image">module_image</string>
+    <string name="modules">Modules</string>
+    <string name="files_label">Files</string>
+    <string name="favorites">favorites</string>
+    <string name="favorites_name">Favorites</string>
+    <string name="pdf_spring_1_pdf">pdf_spring_1.pdf</string>
+    <string name="my_files">My Files</string>
+    <string name="home">HOME</string>
+    <string name="sign_up_here">Sign Up Here !</string>
+    <string name="sign_up_now">Sign Up Now !</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="your_grade">your grade</string>
+    <string name="your_level_of_study">your level of study</string>
+    <string name="your_password_again">your password again</string>
+    <string name="sign_in_now">Sign In Now !</string>
+    <string name="already_have_an_account">Already Have An Account ?</string>
+    <string name="select_grade">select grade</string>
+    <string name="name">Name:</string>
+    <string name="settings">Settings</string>
+    <string name="add">add</string>
+    <string name="add_file">addFile</string>
+    <string name="starred">Starred</string>
+    <string name="confirm_password">Confirm Password:</string>
+    <string name="stars_password">***********</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="sound_on">Sound On</string>
+    <string name="english">English</string>
+    <string name="choose_your_module">Choose Your Module</string>
+    <string name="choose_your_language">Choose Your Language</string>
+    <string name="ok">Ok</string>
+    <string name="your_file_name">Your File Name :</string>
+    <string name="choose_your_file">Choose Your File</string>
+    <string name="done">done</string>
+    <string name="click_here">Click Here !</string>
+    <string name="pdf_image">pdf_image</string>
+    <string name="username">Username</string>
+    <string name="password">Password:</string>
+    <string name="level">Level:</string>
+    <string name="marrakesh_morocco">Marrakesh, Morocco</string>
+    <string name="category">Category</string>
+    <string name="date">Date</string>
+    <string name="starred_files">Starred Files</string>
+    <string name="field">Field:</string>
+    <string name="my_account">My Account</string>
+    <string name="starred_modules">Starred Modules</string>
+    <string name="module">Module</string>
+    <string name="about_our_application">About Our Application</string>
+
+    <string-array name="gradeStrings">
+        <item>Select Your Grade</item>
+        <item>GI</item>
+        <item>GE</item>
+        <item>GRT</item>
+        <item>GIL</item>
+    </string-array>
+
+    <string-array name="levelOfStudyStrings">
+        <item>Select Your Level Of Study</item>
+        <item>3rd Year</item>
+        <item>4th Year</item>
+        <item>5th Year</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>Select Your Language</item>
+        <item>French</item>
+        <item>English</item>
+        <item>Spanish</item>
+    </string-array>
+
 </resources>

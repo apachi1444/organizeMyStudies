@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/welcome_activity_navigation"
+    app:startDestination="@id/firstWelcomePageFragment">
+
+    <fragment
+        android:id="@+id/firstWelcomePageFragment"
+        android:name="android.example.organizestudies.ui.welcome.fragments.firstWelcomePageFragment.FirstWelcomePageFragment"
+        android:label="FirstWelcomePageFragment" >
+        <action
+            android:id="@+id/action_firstWelcomePageFragment_to_secondWelcomePageFragment2"
+            app:destination="@id/secondWelcomePageFragment" />
+        <action
+            android:id="@+id/action_firstWelcomePageFragment_to_loginFragment2"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondWelcomePageFragment"
+        android:name="android.example.organizestudies.ui.welcome.fragments.secondWelcomePageFragment.SecondWelcomePageFragment"
+        android:label="SecondWelcomePageFragment" >
+        <action
+            android:id="@+id/action_secondWelcomePageFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="android.example.organizestudies.ui.welcome.fragments.loginFragment.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment2"
+            app:destination="@id/signupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="android.example.organizestudies.ui.welcome.fragments.signupFragment.SignupFragment"
+        android:label="SignupFragment" >
+        <action
+            android:id="@+id/action_signupFragment_to_loginFragment2"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>
