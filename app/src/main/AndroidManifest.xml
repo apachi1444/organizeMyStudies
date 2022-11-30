@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="android.example.organizestudies">
+
+
     <!--
           In latest Android version you need to add QUERY_ALL_PACKAGES to list out all the available to application to read specific file
           and MANAGE_EXTERNAL_STORAGE is used in Android R to have all the permissions to read file.
@@ -10,7 +12,9 @@
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="29" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:allowBackup="true"
@@ -26,7 +30,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.provider"
+            android:authorities="${applicationId}"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -34,9 +38,6 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity
-            android:name=".ui.pdfreader.ReadPdfActivity"
-            android:exported="true" />
         <activity
             android:name=".ui.welcome.activities.WelcomeActivity"
             android:exported="true">
@@ -49,5 +50,6 @@
             android:name=".ui.main.activities.MainActivity"
             android:exported="true" />
     </application>
+
 
 </manifest>

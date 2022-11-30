@@ -13,9 +13,7 @@ import android.example.organizestudies.utils.consts.ConstKeys
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
-import android.util.Log
 import android.view.*
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -167,33 +165,22 @@ class HomeFragment : Fragment(), ModuleAdapter.OnModuleListener, FileAdapter.OnF
     private fun open(filename: String) {
         val file =
             File(Environment.getExternalStorageDirectory().absolutePath + "/$filename")
-        if (file.exists()) {
-            Log.i("testing if the file", "yes")
-        }
         val uri: Uri =
             FileProvider.getUriForFile(
                 requireContext(),
-                BuildConfig.APPLICATION_ID + ".provider",
+                BuildConfig.APPLICATION_ID,
                 file
             )
+        target.setDataAndType(uri, "application/pdf")
         target.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
         target.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
         target.flags = Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY
-        target.setDataAndType(uri, "application/pdf")
+
         try {
+            // validate the device can open your file !
             startActivity(target)
         } catch (e: ActivityNotFoundException) {
             // Instruct the user to install a PDF reader here, or something
-        }
-    }
-
-    private val requestPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { isGranted: Boolean ->
-        if (isGranted) {
-            startActivity(target)
-        } else {
-            Log.i("haha", "no")
         }
     }
 
