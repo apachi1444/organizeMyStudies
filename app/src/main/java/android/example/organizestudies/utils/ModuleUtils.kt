@@ -125,7 +125,8 @@ class ModuleUtils {
             moduleManagement2,
             moduleMethode__ingenieure_de_travail,
             moduleDeveloppementDurrable,
-            module_environnement_juridique
+            module_environnement_juridique,
+            module_fabrication_industrielle
         )
 
         fun getAllModules(): ArrayList<Module> {
