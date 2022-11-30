@@ -17,7 +17,7 @@ class StringsUtils {
         }
 
         fun getLanguages(): List<CharSequence> {
-            return arrayListOf("French", "English", "Spanish")
+            return arrayListOf("French", "English", "Spanish","Arabic")
         }
 
     }

@@ -31,8 +31,45 @@ class ModuleUtils {
             "Oracle", "Mr Massaq", Grades.GI.toString(), "5th Year",
             1, StringsUtils.convertEnumToString(HashTagsModules.Data), R.drawable.oracle
         )
+        private val moduleSysDist = Module(
+            "Systèmes distribués", "Mr Atlas", Grades.GI.toString(), "5th Year",
+            1, StringsUtils.convertEnumToString(HashTagsModules.Data), R.drawable.sysdist
+        )
+        private val moduleSysTempsReel = Module(
+            "Systèmes temps réel", "Mme Zrikem", Grades.GI.toString(), "5th Year",
+            1, StringsUtils.convertEnumToString(HashTagsModules.Data), R.drawable.systempsreel
+        )
+        private val moduleManagement2 = Module(
+            "Management 2", "Mme Harouni", Grades.GI.toString(), "5th Year",
+            1, StringsUtils.convertEnumToString(HashTagsModules.Data), R.drawable.management
+        )
+        private val moduleMethode__ingenieure_de_travail = Module(
+            "Methode d'ingenieure de travail", "M Dakkak", Grades.GIL.toString(), "5th Year",
+            1, StringsUtils.convertEnumToString(HashTagsModules.Industriel), R.drawable.methode_ingenieur_de_travail
+        )
+        private val moduleDeveloppementDurrable= Module(
+            "NNOVATION, ENVIRONNEMENT & DEVELOPPEMENT DURABLE", "M BENMOUSSA", Grades.GIL.toString(), "5th Year",
+            1, StringsUtils.convertEnumToString(HashTagsModules.Industriel), R.drawable.innovation
+        )
+        private val moduleReingenierieDesProcessusPersonnel= Module(
+            "REINGENIERIE DES PROCESSUS OPERATIONNELS", "M BENMOUSSA", Grades.GIL.toString(), "5th Year",
+            1, StringsUtils.convertEnumToString(HashTagsModules.Industriel), R.drawable.reingenieurie
+        )
+        private val module_CONCEPTION_AVANCEE= Module(
+            " CONCEPTION AVANCEE", "M EL BAHIR", Grades.GIL.toString(), "5th Year",
+            1, StringsUtils.convertEnumToString(HashTagsModules.Electrique), R.drawable.CONCEPTION_AVANCEE
+        )
+        private val module_AUTOMATIQUE_AVANCEE= Module(
+            "  AUTOMATIQUE AVANCEE", "M HAMZAOUI", Grades.GIL.toString(), "5th Year",
+            1, StringsUtils.convertEnumToString(HashTagsModules.Electrique), R.drawable.AUTOMATIQUE_AVANCEE
+        )
+        private val module_VIRTUALISATION_CLOUD_COMPUTING= Module(
+            "VIRTUALISATION, CLOUD COMPUTING", "M EL BAAMRANI", Grades.GRT.toString(), "5th Year",
+            1, StringsUtils.convertEnumToString(HashTagsModules.Reseau), R.drawable.virtualisation
+        )
         private val modules = arrayListOf(
-            moduleBI, moduleSpringBoot, moduleMobile, moduleUnix, moduleOracle
+            moduleBI, moduleSpringBoot, moduleMobile, moduleUnix, moduleOracle, moduleSysDist, moduleSysTempsReel,
+            moduleManagement2,moduleMethode__ingenieure_de_travail,moduleDeveloppementDurrable
         )
         fun getAllModules(): ArrayList<Module> {
             return modules
