@@ -33,12 +33,9 @@ class StarredFragment : Fragment(), StarredModuleInStarredFragmentAdapter.OnModu
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         fragmentStarredBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_starred, container, false)
-
         starredViewModel = ViewModelProvider(this)[StarredViewModel::class.java]
-
         adapter = StarredModuleInStarredFragmentAdapter(requireActivity().application, this)
         adapterStarredFiles =
             StarredFileInStarredFragmentAdapter(requireActivity().application, this)
@@ -51,7 +48,6 @@ class StarredFragment : Fragment(), StarredModuleInStarredFragmentAdapter.OnModu
             false
         )
         recyclerViewModules.adapter = adapter
-
         recyclerViewFiles = fragmentStarredBinding.recyclerViewStarredFiles
         recyclerViewFiles.setHasFixedSize(true)
         recyclerViewFiles.layoutManager = LinearLayoutManager(
@@ -60,7 +56,6 @@ class StarredFragment : Fragment(), StarredModuleInStarredFragmentAdapter.OnModu
             false
         )
         recyclerViewFiles.adapter = adapterStarredFiles
-
         return fragmentStarredBinding.root
     }
 

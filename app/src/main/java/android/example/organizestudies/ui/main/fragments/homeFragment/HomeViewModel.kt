@@ -18,7 +18,6 @@ import androidx.lifecycle.LiveData
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val userRepository: UserRepository = UserRepository(application)
     private val fileRepository: FileRepository = FileRepository(application)
-    private val userModuleCrossRefRepository = UserModuleCrossRefRepository(application)
 
     val allModules: LiveData<List<UserWithModules>> =
         userRepository.getModulesUser(

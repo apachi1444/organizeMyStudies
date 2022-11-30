@@ -17,55 +17,27 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
-
 class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private lateinit var spinner: Spinner
-
     private lateinit var myUserViewModel: UserViewModel
     private lateinit var binding: android.example.organizestudies.databinding.FragmentSignupBinding
-
-//    private lateinit var autoCompleteTextView: AutoCompleteTextView
-//    private lateinit var arrayAdapter: ArrayAdapter<String>
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         myUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
-
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_signup, container, false)
-
         configurationSpinnerGrades()
-
         goToBackToLoginPage()
-
         addUserToDbWhenClickingOnSignupButton()
-
         return binding.root
-
     }
-
     private fun addUserToDbWhenClickingOnSignupButton() {
         binding.buttonSignUp.setOnClickListener {
             addUserToDB()
         }
     }
-
-//    private fun logicMultipleChoiceInput(){
-//        autoCompleteTextView = binding.autoCompleteText
-//
-//        arrayAdapter = ArrayAdapter(requireContext(), R.layout.list_item, items)
-//
-//        autoCompleteTextView.setAdapter(arrayAdapter)
-//
-//        autoCompleteTextView.setOnItemClickListener { adapterView, view, i, l ->
-//            val item = adapterView.getItemAtPosition(i).toString()
-//
-//        }
-//    }
-
     private fun configurationSpinnerGrades() {
         spinner = binding.gradeInput
 
@@ -80,15 +52,11 @@ class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
         spinner.onItemSelectedListener = this
 
     }
-
-
     private fun goToBackToLoginPage() {
         binding.buttonGoToLogin.setOnClickListener {
             findNavController().navigateUp()
         }
     }
-
-
     private fun addUserToDB() {
         val username = binding.userNameInput.text.toString()
         val password = binding.passwordInput.editText?.text.toString()
@@ -118,10 +86,7 @@ class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 }
             }
         }
-
-
     }
-
     private fun checkUserNotExistingInOurDb(
         username: String,
     ): Boolean {
@@ -132,7 +97,6 @@ class SignupFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
         return boolean
     }
-
     override fun onItemSelected(p0: AdapterView<*>, p1: View?, p2: Int, p3: Long) {
         var text = p0.getItemAtPosition(p2).toString()
         Utils.showToast(p0.context, text)

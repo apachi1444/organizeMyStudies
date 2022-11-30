@@ -29,7 +29,6 @@ class ProfileFragment : Fragment(), FileBoxProfileFragmentAdapter.OnFileListener
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         profileViewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
         username = Utils.readingFromSharedPreferences(
@@ -37,10 +36,8 @@ class ProfileFragment : Fragment(), FileBoxProfileFragmentAdapter.OnFileListener
             ConstKeys.USERNAME
         )!!
         user = profileViewModel.getUserByUsername(username)
-
         fileBoxProfileFragmentAdapter =
             FileBoxProfileFragmentAdapter(requireActivity().application, this)
-
         recyclerView = binding.recyclerViewFiles
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(
@@ -48,9 +45,6 @@ class ProfileFragment : Fragment(), FileBoxProfileFragmentAdapter.OnFileListener
             3
         )
         recyclerView.adapter = fileBoxProfileFragmentAdapter
-
-
-
         return binding.root
     }
 
@@ -76,7 +70,6 @@ class ProfileFragment : Fragment(), FileBoxProfileFragmentAdapter.OnFileListener
     }
 
     override fun onFileClick(position: Int) {
-        // here we must open the file correspond
     }
 
 }

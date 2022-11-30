@@ -7,7 +7,6 @@ import android.example.organizestudies.utils.Errors
 import android.example.organizestudies.utils.Utils
 import android.example.organizestudies.viewmodels.UserViewModel
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,20 +36,11 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
-
         configurationDbAndViewModel()
-
         goToMainActivity(binding)
-
         goToSignUpPage()
-
-//        myUserViewModel.getAllUsers().observe(viewLifecycleOwner, Observer {
-//            Utils.showToast(requireContext(), "haha")
-//        })
-
         return binding.root
     }
 
@@ -59,16 +49,12 @@ class LoginFragment : Fragment() {
         myUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
     }
 
-
     private fun goToMainActivity(binding: FragmentLoginBinding) {
-
         usernameInputText = binding.userNameInput
         passwordInputText = binding.passwordInput.editText!!
-
         usernameInputText.addTextChangedListener {
             username = it.toString()
         }
-
         passwordInputText.addTextChangedListener {
             password = it.toString()
         }
@@ -77,33 +63,10 @@ class LoginFragment : Fragment() {
         }
     }
 
-//    private suspend fun displayData(users: List<User>) {
-//        withContext(Dispatchers.Main) {
-//        }
-//    }
-//
-//    private suspend fun doLoginAfterCheckingUserInputs() {
-//        withContext(Dispatchers.Main) {
-//        }
-//    }
-
-//    private fun readData() {
-//        lateinit var users: List<User>
-//        GlobalScope.launch {
-//            users = myUserViewModel.getAllUsers()
-//            println(users)
-//            displayData(users)
-//        }
-//    }
-
     @OptIn(DelicateCoroutinesApi::class)
     private fun checkUserExistsInOurDb() {
         GlobalScope.launch(Dispatchers.Main) {
             if (!Utils.checkInputsEmptyOrNot(username, password)) {
-                Log.i(
-                    "haha",
-                    Utils.readingFromSharedPreferences(requireContext(), "username").toString()
-                )
                 requireActivity().runOnUiThread {
                     Utils.showToast(requireContext(), Errors.FILL_ALL_FIELDS_ERRORS)
                 }
@@ -136,7 +99,6 @@ class LoginFragment : Fragment() {
 
         }
     }
-
 
     private fun goToSignUpPage() {
         binding.signUpButton.setOnClickListener {

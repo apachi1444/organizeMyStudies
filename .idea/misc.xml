@@ -26,6 +26,8 @@
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/activity_only_once_start.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/activity_only_once_welcome.xml" value="0.136" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/activity_pdf_reader.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/activity_read_pdf.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/collection_layout.xml" value="0.11197916666666667" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/custom_dropdown_layout.xml" value="0.264" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/custom_popup_add_file.xml" value="0.264" />
@@ -57,7 +59,8 @@
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/sinle_module_home_page_layout.xml" value="0.536" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/layout/welcome_activity_navigation.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2175925925925926" />
-        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/menu/menu_main.xml" value="0.24666666666666667" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/menu/menu_main.xml" value="0.4" />
+        <entry key="..\:/Users/Apachi/Desktop/organizeStudies/app/src/main/res/xml/provider_paths.xml" value="0.1140625" />
       </map>
     </option>
   </component>

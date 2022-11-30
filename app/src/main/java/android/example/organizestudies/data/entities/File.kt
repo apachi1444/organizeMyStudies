@@ -15,5 +15,6 @@ data class File(
     var moduleIdCorresponding: String,
     var moduleImage: Int,
     var moduleName : String,
-    var username: String
+    var username: String,
+    var wholeUriPath : String
 )

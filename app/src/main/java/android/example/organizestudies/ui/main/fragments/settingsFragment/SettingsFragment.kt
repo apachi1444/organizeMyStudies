@@ -20,7 +20,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 
-
 class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private lateinit var binding: FragmentSettingsBinding
@@ -33,7 +32,6 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var passwordInput: EditText
     private lateinit var confirmationInput: EditText
     private lateinit var levelInput: EditText
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -82,14 +80,11 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
             }
         }
     }
-
-
     private fun toggleImageSoundWhenClicked() {
         binding.soundImage.setOnClickListener {
             binding.soundImage.setImageResource(R.drawable.sound_off_img)
         }
     }
-
     private fun initialUpdateProfile() {
         val username = Utils.readingFromSharedPreferences(requireContext(), ConstKeys.USERNAME)
         val user = settingsViewModel.getUser(username!!)
@@ -100,7 +95,6 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
         appendEditText(passwordInput, user.password)
         appendEditText(confirmationInput, user.password)
     }
-
     private fun appendEditText(editText: EditText, value: String) {
         editText.text.append(value)
     }
@@ -110,7 +104,6 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
         dialog.show()
         closeDialog(dialog)
     }
-
     private fun configurationSpinnerModules() {
 
         val adapter: ArrayAdapter<CharSequence> = ArrayAdapter(
@@ -123,19 +116,15 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
         spinner.adapter = adapter
         spinner.onItemSelectedListener = this
     }
-
     private fun closeDialog(dialog: Dialog) {
         customPopupChangeLanguageBinding.btnOk.setOnClickListener {
             dialog.dismiss()
         }
     }
-
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
 
     }
-
     override fun onNothingSelected(p0: AdapterView<*>?) {
         TODO("Not yet implemented")
     }
-
 }

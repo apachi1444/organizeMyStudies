@@ -80,35 +80,5 @@ abstract class UserDb : RoomDatabase() {
             }
         }
 
-        private class PopulateDbAsyncTask(db: UserDb) :
-            AsyncTask<Void?, Void?, Void?>() {
-            private var moduleDao: ModuleDao = db.moduleDao()
-
-            @Deprecated("Deprecated in Java", ReplaceWith("null"))
-            override fun doInBackground(vararg p0: Void?): Void? {
-//                val module = Module(
-//                    StringsUtils.generateRandomUUID(),
-//                    "Spring Boot",
-//                    "Mr Atlas",
-//                    "GI",
-//                    "5th Year",
-//                    1,
-//                    StringsUtils.convertEnumToString(HashTagsModules.BackEnd)
-//                )
-//                val module1 = Module(
-//                    StringsUtils.generateRandomUUID(),
-//                    "BI",
-//                    "Mr Ameur",
-//                    "GI",
-//                    "5th Year",
-//                    1,
-//                    StringsUtils.convertEnumToString(HashTagsModules.Data)
-//                )
-//                moduleDao.insert(module)
-//                moduleDao.insert(module1)
-                return null
-            }
-        }
-
     }
 }

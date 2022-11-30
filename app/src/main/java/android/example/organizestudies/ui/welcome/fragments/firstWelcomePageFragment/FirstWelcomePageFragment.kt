@@ -43,11 +43,4 @@ class FirstWelcomePageFragment : Fragment() {
         }
     }
 
-//    private fun goToNextPage() {
-//        binding.startGameButton.setOnClickListener {
-//            parentFragmentManager.commit {
-//                setReorderingAllowed(true).replace<SecondWelcomePageFragment>(R.id.)
-//            }
-//        }
-//    }
 }

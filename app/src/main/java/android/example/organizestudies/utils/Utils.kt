@@ -85,11 +85,6 @@ class Utils {
             context.startActivity(intent)
         }
 
-        fun navigateToSpecificFragment(fragment: Fragment, action: Int) {
-            fragment.requireView().findNavController().navigate(action)
-        }
-
-
     }
 
 }

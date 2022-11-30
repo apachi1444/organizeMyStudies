@@ -7,7 +7,6 @@ import android.example.organizestudies.data.entities.File
 import android.example.organizestudies.databinding.ActivityMainBinding
 import android.example.organizestudies.databinding.CustomPopupAddFileBinding
 import android.example.organizestudies.utils.DateUtils
-import android.example.organizestudies.utils.Errors
 import android.example.organizestudies.utils.StringsUtils
 import android.example.organizestudies.utils.Utils
 import android.example.organizestudies.utils.consts.ConstKeys
@@ -15,6 +14,7 @@ import android.example.organizestudies.utils.consts.ObjectStorage
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
@@ -29,7 +29,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -37,20 +36,22 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var bindingCustomPopupAddFileBinding: CustomPopupAddFileBinding
-    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var mainActivityViewModel: MainActivityViewModel
     private lateinit var spinner: Spinner
     private lateinit var dialog: Dialog
     private var currentSpinnerItem: String = ""
     private val listModules = arrayListOf<String>()
     private var uriFile: String = ""
+    private var wholeUriFile: String = ""
 
     // Receiver
     private val getResult =
         registerForActivityResult(ActivityResultContracts.OpenDocument())
         { result: Uri? ->
+            Log.i("hahahaha", result.toString())
             val data: String? = result?.encodedPath
             if (data != null) {
+                Log.i("hahahaha", data)
                 val returnCursor = contentResolver.query(result, null, null, null, null)!!
                 val nameIndex: Int = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
                 returnCursor.moveToFirst()
@@ -59,6 +60,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 bindingCustomPopupAddFileBinding.fileName.text =
                     name
                 uriFile = name
+                Log.i("encodedPath" , result.encodedSchemeSpecificPart!!)
+                wholeUriFile = result.encodedSchemeSpecificPart!!
                 closeDialog(dialog)
             } else {
                 bindingCustomPopupAddFileBinding.fileName.text =
@@ -73,7 +76,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         )!!,
         currentSpinnerItem
     )
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,8 +111,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 }
             }
         }
+
         configurationSpinnerModules()
-//        bottomNavigationLogic()
         fabLogic()
         NavigationUI.setupActionBarWithNavController(this, navController)
 
@@ -123,43 +125,12 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         }
     }
 
-//    private fun bottomNavigationLogic() {
-//        bottomNavigationView = binding.bottomNavigation
-//        bottomNavigationView.setOnItemSelectedListener {
-//            when (it.itemId) {
-//                R.id.home -> {
-////                    supportFragmentManager.commit {
-////
-////                        setReorderingAllowed(true).replace<HomeFragment>(R.id.nav_host_fragment_container)
-////                    }
-//                }
-//                R.id.add -> {
-//                    showDialogAddFile()
-//                }
-//                R.id.settings -> Utils.showToast(applicationContext, "HERE")
-//            }
-//            true
-//        }
-//    }
-//
-//    private fun choosePdfFromDevice(): ActivityResultLauncher<Intent> {
-////        bindingCustomPopupAddFileBinding.btnOk.setOnClickListener {
-////            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-////            intent.addCategory(Intent.CATEGORY_OPENABLE)
-////            intent.type = "application/*"
-////            startActivityForResult(intent, Const.CHOOSE_PDF_FROM_DEVICE)
-////        }
-//
-//
-//    }
-
     private fun showDialogAddFile() {
-
         configurationSpinnerModules()
-
         bindingCustomPopupAddFileBinding.fileName.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "application/pdf"
+            intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
             getResult.launch(arrayOf("application/pdf"))
         }
         dialog.show()
@@ -177,6 +148,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             mainActivityViewModel.getModuleImage(currentSpinnerItem),
             currentSpinnerItem,
             Utils.readingFromSharedPreferences(applicationContext, ConstKeys.USERNAME)!!,
+            wholeUriFile
         )
         mainActivityViewModel.addFile(file)
     }

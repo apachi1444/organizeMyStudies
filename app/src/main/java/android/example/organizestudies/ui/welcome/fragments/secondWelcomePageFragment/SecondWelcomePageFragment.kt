@@ -26,26 +26,14 @@ class SecondWelcomePageFragment : Fragment() {
             container,
             false
         )
-
         goToMainActivity()
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        sharedPreferences = requireActivity()
-//            .getSharedPreferences("mine", Context.MODE_PRIVATE)
-//        val editor = sharedPreferences.edit()
-//
-//        editor.putBoolean("start", false)
-//        editor.apply()
-//        editor.apply()
-//        goToMainActivity()
-//        goToLoginPage(binding)
     }
 
     private fun goToMainActivity() {
-
         binding.startGameButton.setOnClickListener {
             if (Utils.checkUserLoggedIn(requireContext())) {
                 Utils.startActivity(requireContext(), MainActivity::class.java)
@@ -53,10 +41,6 @@ class SecondWelcomePageFragment : Fragment() {
                 requireView().findNavController()
                     .navigate(R.id.action_secondWelcomePageFragment_to_loginFragment)
             }
-
         }
-
     }
-
-
 }

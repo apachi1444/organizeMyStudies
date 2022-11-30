@@ -36,16 +36,12 @@ android {
     dataBinding {
         enabled = true
     }
-
-
 }
-
 dependencies {
 
     implementation 'androidx.test:core-ktx:1.5.0'
     def fragment_version = "1.5.4"
     def room_version = "2.4.3"
-
 
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
@@ -55,12 +51,11 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "android.arch.lifecycle:viewmodel:1.1.1"
 
-
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
-
     implementation("androidx.recyclerview:recyclerview:1.2.1")
 
-
+    // pdf reader
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     // Kotlin components!
 //    implementation "org.jetbrains.kotlin:kotlin:stdlib-jdk7:1.3.72"
 
@@ -69,10 +64,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.8.0'
     kapt "androidx.room:room-compiler:$room_version"
 
-
     implementation 'androidx.mediarouter:mediarouter:1.3.1'
-
-
     implementation 'androidx.cardview:cardview:1.0.0'
 
     // Rounded Image View
@@ -89,7 +81,5 @@ dependencies {
     androidTestImplementation 'androidx.test:core:1.5.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation "com.android.support:support-annotations:28.0.0"
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test:rules:1.0.2'
     implementation 'androidx.core:core-splashscreen:1.0.0'
 }
