@@ -104,6 +104,16 @@ class ModuleUtils {
             R.drawable.envi_juridique
         )
 
+        private val module_fabrication_industrielle = Module(
+            "FABRICATION INDUSTRIELLE",
+            "MME BOUYAHYA",
+            Grades.GIL.toString(),
+            "4th Year",
+            2,
+            StringsUtils.convertEnumToString(HashTagsModules.Industriel),
+            R.drawable.fabri_industrielle
+        )
+
         private val modules = arrayListOf(
             moduleBI,
             moduleSpringBoot,
